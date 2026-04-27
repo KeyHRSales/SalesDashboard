@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Key HR — Sales Activity Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#ffffff;--surface:rgba(0,0,0,0.03);--surface2:rgba(0,0,0,0.04);--glass:rgba(0,0,0,0.02);--ink:#1a1a2e;--muted:#6b7085;--border:rgba(0,0,0,0.09);--g1:#00d4aa;--g2:#7c5cfc;--g3:#ff6b6b;--g4:#ffd43b;--g5:#4dabf7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.55}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(124,92,252,.04),transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(0,212,170,.03),transparent 50%),radial-gradient(ellipse at 60% 80%,rgba(255,107,107,.02),transparent 50%);pointer-events:none;z-index:0}
+.page{max-width:1440px;margin:0 auto;padding:32px 40px 80px;position:relative;z-index:1}
+.header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.header h1{font-family:'Outfit',sans-serif;font-size:40px;font-weight:900;letter-spacing:-1.5px;background:linear-gradient(135deg,#00d4aa,#7c5cfc 50%,#ff6b6b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .sub{font-size:14px;color:var(--muted);margin-top:4px}.header .meta{text-align:right;font-size:12px;color:var(--muted)}.header .meta strong{color:var(--ink);font-size:13px;font-weight:700}
+.tabs{display:flex;gap:4px;margin-bottom:32px;padding:4px;background:var(--surface);border:1px solid var(--border);border-radius:12px;width:fit-content;flex-wrap:wrap;backdrop-filter:blur(12px)}
+.tab{padding:9px 22px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--muted);border-radius:8px;transition:all .2s;letter-spacing:.3px}
+.tab.active{background:linear-gradient(135deg,#7c5cfc,#00d4aa);color:#fff;box-shadow:0 4px 20px rgba(124,92,252,.3)}
+.tab:hover:not(.active){background:rgba(0,0,0,.05);color:var(--ink)}
+.kg{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:28px}
+.kg4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+.kpi{background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:18px 22px;position:relative;overflow:hidden;backdrop-filter:blur(12px);transition:transform .2s,box-shadow .2s}
+.kpi:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.08)}
+.kpi::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0}
+.kpi.g::before{background:linear-gradient(90deg,#00d4aa,#00b4d8)}.kpi.r::before{background:linear-gradient(90deg,#ff6b6b,#ff8787)}.kpi.b::before{background:linear-gradient(90deg,#4dabf7,#339af0)}.kpi.w::before{background:linear-gradient(90deg,#ffd43b,#fab005)}.kpi.p::before{background:linear-gradient(90deg,#7c5cfc,#c084fc)}
+.kpi .lb{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px}
+.kpi .vl{font-family:'Outfit',sans-serif;font-size:28px;font-weight:900;letter-spacing:-.5px}.kpi .vs{font-size:21px}.kpi .sb{font-size:11px;color:var(--muted);margin-top:4px}
+.sc{background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:26px;margin-bottom:20px;backdrop-filter:blur(12px)}
+.st{font-family:'Outfit',sans-serif;font-size:17px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:10px;letter-spacing:-.3px}
+.st .bd{font-family:'Sora';font-size:10px;background:linear-gradient(135deg,#7c5cfc,#00d4aa);color:#fff;padding:3px 12px;border-radius:20px;font-weight:600}
+.pt{height:24px;background:rgba(0,0,0,.06);border-radius:12px;overflow:hidden;display:flex}
+.pf{height:100%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;letter-spacing:.5px}
+.lg{display:flex;gap:20px;margin-top:10px;flex-wrap:wrap}.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:middle}.lg span{font-size:11px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+thead th{padding:10px 14px;text-align:left;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap}
+tbody td{padding:10px 14px;border-bottom:1px solid rgba(0,0,0,.05);font-variant-numeric:tabular-nums}tbody tr:hover{background:rgba(0,0,0,.02)}
+tr.tr{background:linear-gradient(135deg,rgba(124,92,252,.08),rgba(0,212,170,.06))}tr.tr td{color:var(--ink);font-weight:700;border:none}
+.p{display:inline-block;padding:3px 12px;border-radius:6px;font-size:10px;font-weight:700;letter-spacing:.3px}
+.pg{background:rgba(0,212,170,.12);color:#00a882}.pr{background:rgba(255,107,107,.12);color:#e05050}.pw{background:rgba(255,212,59,.15);color:#c89800}.pb{background:rgba(77,171,247,.12);color:#2980d4}.pm{background:rgba(124,92,252,.12);color:#6a4be0}.px{background:rgba(0,0,0,.05);color:var(--muted)}
+.cg{color:#00a882;font-weight:700}.cr{color:#e05050;font-weight:700}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.tc{display:none}.tc.a{display:block}
+.nc{border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin-bottom:14px;background:var(--surface2);position:relative;overflow:hidden;transition:transform .15s}
+.nc:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.06)}.nc::before{content:'';position:absolute;top:0;left:0;bottom:0;width:4px}
+.nc.n1::before{background:linear-gradient(180deg,#00d4aa,#00b4d8)}.nc.n2::before{background:linear-gradient(180deg,#ffd43b,#fab005)}.nc.n3::before{background:linear-gradient(180deg,#ff6b6b,#ff8787)}.nc.n4::before{background:linear-gradient(180deg,#4dabf7,#339af0)}.nc.n5::before{background:linear-gradient(180deg,#7c5cfc,#c084fc)}.nc.n6::before{background:rgba(0,0,0,.15)}
+.nh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.nn{font-family:'Outfit',sans-serif;font-weight:800;font-size:15px}
+.nb{display:flex;gap:6px;flex-wrap:wrap}
+.ng{font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px;background:rgba(0,0,0,.06);color:var(--ink)}
+.ng.pto{background:rgba(255,212,59,.2);color:#a07800}.ng.ooo{background:rgba(255,107,107,.15);color:#d04040}
+.ns{margin-bottom:10px}.ns:last-child{margin-bottom:0}
+.nl{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);margin-bottom:3px}
+.nt{font-size:12.5px;line-height:1.6;color:rgba(26,26,46,.7)}
+.fr{display:flex;align-items:center;gap:10px;margin-bottom:8px}.fl{font-size:11px;font-weight:600;min-width:150px;text-align:right;color:var(--muted)}
+.fb{height:28px;border-radius:6px;display:flex;align-items:center;padding:0 14px;font-size:11px;font-weight:700;color:#fff;min-width:34px}
+.fp{font-size:10px;color:var(--muted);margin-left:8px}
+.ws{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.wc{padding:4px 14px;border-radius:6px;font-size:11px;font-weight:700;background:rgba(0,0,0,.05);color:var(--ink)}
+.wc.ca{background:rgba(77,171,247,.12);color:#2980d4}.wc.ip{background:rgba(0,212,170,.12);color:#00a882}.wc.li{background:rgba(10,102,194,.12);color:#1a6bc4}.wc.em{background:rgba(255,212,59,.15);color:#c89800}
+@keyframes fu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.kpi,.sc,.nc{animation:fu .5s ease both}.kpi:nth-child(2){animation-delay:.05s}.kpi:nth-child(3){animation-delay:.1s}.kpi:nth-child(4){animation-delay:.15s}.kpi:nth-child(5){animation-delay:.2s}
+@media(max-width:900px){.kg,.kg4{grid-template-columns:repeat(2,1fr)}.g2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<div class="header"><div><h1>Key HR Sales Activity</h1><div class="sub">Revenue Forecast &amp; Pipeline Dashboard</div></div><div class="meta"><strong>Week of April 20–24, 2026</strong><br>Updated 4/26/2026 · Wk 4 Submissions</div></div>
+<div class="tabs">
+<div class="tab active" onclick="T('overview',this)">Overview</div>
+<div class="tab" onclick="T('april',this)">April</div>
+<div class="tab" onclick="T('may',this)">May Forecast</div>
+<div class="tab" onclick="T('pipeline',this)">Pipeline</div>
+<div class="tab" onclick="T('weekly',this)">Weekly (4/20–24)</div>
+<div class="tab" onclick="T('referrals',this)">Referral Partners</div>
+<div class="tab" onclick="T('notes',this)">Meeting Notes</div>
+<div class="tab" onclick="T('history',this)">Historical Data</div>
+</div>
+
+<!-- OVERVIEW -->
+<div id="tab-overview" class="tc a">
+<div class="kg">
+<div class="kpi b"><div class="lb">Annual Quota</div><div class="vl">$2.2M</div><div class="sb">7 reps (1 TBH)</div></div>
+<div class="kpi g"><div class="lb">YTD Ran</div><div class="vl">$352,369</div><div class="sb">Q1 $309,460 + Apr $42,909</div></div>
+<div class="kpi w"><div class="lb">YTD Closed</div><div class="vl">$57,713</div><div class="sb">Courtney $40,279 + Derand $1,586 + House $10,856 + Alicia $4,992</div></div>
+<div class="kpi p"><div class="lb">% of Annual</div><div class="vl">16.0%</div><div class="sb">$352,369 of $2.2M</div></div>
+<div class="kpi r"><div class="lb">Remaining</div><div class="vl">$1.85M</div><div class="sb">8 months to go</div></div>
+</div>
+<div class="sc"><div class="st">YTD Progress</div><div style="text-align:right;margin-bottom:4px;font-size:11px;font-weight:700;color:#ff6b6b">16.0%</div><div class="pt"><div class="pf" style="width:14.8%;background:linear-gradient(90deg,#00d4aa,#00b4d8)">JAN</div><div class="pf" style="width:.35%;background:#ffd43b">FEB</div><div class="pf" style="width:.34%;background:#ff6b6b">MAR</div><div class="pf" style="width:1.58%;background:#7c5cfc">APR</div></div><div class="lg"><span><i style="background:#00d4aa"></i>Jan: $295,537</span><span><i style="background:#ffd43b"></i>Feb: $7,072</span><span><i style="background:#ff6b6b"></i>Mar: $6,851</span><span><i style="background:#7c5cfc"></i>Apr: $42,909</span><span><i style="background:rgba(0,0,0,.05)"></i>Remaining: $1,847,631</span></div></div>
+<div class="g2"><div class="sc"><div class="st">New Starts Ran</div><div style="height:260px"><canvas id="c1"></canvas></div></div><div class="sc"><div class="st">% of Annual Quota</div><div style="height:260px"><canvas id="c2"></canvas></div></div></div>
+
+<div class="sc"><div class="st">Activity <span class="bd">Apr 20–24</span></div>
+<div class="kg"><div class="kpi b"><div class="lb">IAs Completed</div><div class="vl">17</div><div class="sb">Apr 20–24</div></div><div class="kpi p"><div class="lb">RFPs</div><div class="vl">8</div><div class="sb">47% conversion</div></div><div class="kpi w"><div class="lb">Proposals Sent</div><div class="vl">4</div><div class="sb">24% conversion</div></div><div class="kpi g"><div class="lb">Closed Won</div><div class="vl">2</div><div class="sb">Derand 1 · House 1</div></div></div>
+<table><thead><tr><th>Sales Rep</th><th>IA Completed</th><th>RFP</th><th>Proposal to Customer</th><th>Closed Won</th></tr></thead><tbody>
+<tr><td><b>Alicia Costoya</b></td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td><b>Courtney Sustr</b></td><td>4</td><td>3</td><td>3</td><td>0</td></tr>
+<tr><td><b>Derand Walker</b></td><td>5</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td><b>Jon Lightbody</b></td><td>4</td><td>3</td><td>0</td><td>0</td></tr>
+<tr><td><b>Brandon DeBenedet</b></td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td><b>Michael Matthews</b></td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr style="background:rgba(0,0,0,.04)"><td><b>House</b></td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+<tr class="tr"><td>TOTALS</td><td>17</td><td>8</td><td>4</td><td>2</td></tr>
+</tbody></table></div>
+<div class="sc"><div class="st">Performance Summary <span class="bd">YTD</span></div>
+<table><thead><tr><th>Rep</th><th>Annual</th><th>Jan</th><th>Feb</th><th>Mar</th><th>Apr</th><th>YTD Ran</th><th>% Annual</th></tr></thead><tbody>
+<tr><td><b>Alicia Costoya</b></td><td>$300,000</td><td>$79,477</td><td>$4,992</td><td>$0</td><td>$0</td><td><b>$84,469</b></td><td><span class="cg">28.2%</span></td></tr>
+<tr><td><b>Jon Lightbody</b></td><td>$300,000</td><td>$216,060</td><td>$0</td><td>$0</td><td>$0</td><td><b>$216,060</b></td><td><span class="cg">72.0%</span></td></tr>
+<tr><td><b>Courtney Sustr</b></td><td>$250,000</td><td>$0</td><td>$0</td><td>$0</td><td>$40,279</td><td><b>$40,279</b></td><td><span class="cg">16.1%</span></td></tr>
+<tr><td><b>Derand Walker</b></td><td>$200,000</td><td>$0</td><td>$0</td><td>$0</td><td>$1,586</td><td><b>$1,586</b></td><td><span class="cr">0.8%</span></td></tr>
+<tr><td><b>Brandon DeBenedet</b></td><td>$300,000</td><td>—</td><td>—</td><td>$0</td><td>$0</td><td><b>$0</b></td><td><span class="cr">0.0%</span></td></tr>
+<tr><td><b>Michael Matthews</b></td><td>$300,000</td><td>—</td><td>—</td><td>$0</td><td>$0</td><td><b>$0</b></td><td><span class="cr">0.0%</span></td></tr>
+<tr><td><b>New Hire (TBD)</b></td><td>$200,000</td><td>—</td><td>—</td><td>—</td><td>$0</td><td><b>$0</b></td><td><span class="px">TBH</span></td></tr>
+<tr class="tr"><td>TOTAL</td><td>$1,850,000</td><td>$295,537</td><td>$7,072</td><td>$6,851</td><td>$42,909</td><td>$352,369</td><td>19.0%</td></tr>
+</tbody></table></div></div>
+
+<!-- FEBRUARY -->
+<!-- APRIL -->
+<div id="tab-april" class="tc">
+<div class="kg"><div class="kpi b"><div class="lb">April Quota</div><div class="vl">$120,000</div><div class="sb">6 reps</div></div><div class="kpi w"><div class="lb">Forecast</div><div class="vl">$564</div><div class="sb">SK Promotions (House)</div></div><div class="kpi p"><div class="lb">Apr Actual</div><div class="vl">$42,909</div><div class="sb">Courtney $40,279 + Derand $1,586 + House $1,044</div></div><div class="kpi g"><div class="lb">Courtney!</div><div class="vl vs">$29,179</div><div class="sb">Global Stone — 1st payroll ran</div></div><div class="kpi r"><div class="lb">Gap</div><div class="vl">$77,091</div><div class="sb">64.3% short</div></div></div>
+<div class="sc"><div class="st">April Forecast Detail</div><table><thead><tr><th>Owner</th><th>Account</th><th>Stage</th><th>Admin Fees</th><th>GAP</th><th>EEs</th><th>Prob</th><th>1st Pay</th></tr></thead><tbody>
+<tr><td colspan="8" style="font-weight:700;background:rgba(0,212,170,.05);padding:6px 14px;color:#00d4aa;font-size:11px;letter-spacing:.5px">▸ RUNNING (ACTUAL)</td></tr>
+<tr><td><b>Courtney Sustr</b></td><td>Global Stone Collection LLC</td><td><span class="p pg">Running</span></td><td>$29,179</td><td>$1,630,095</td><td>25</td><td>100%</td><td>4/3/26</td></tr>
+<tr><td><b>Courtney Sustr</b></td><td>Main Events, LLC dba Venue 2106</td><td><span class="p pg">Ran 1st Payroll</span></td><td>$11,100</td><td>$716,212</td><td>17</td><td>100%</td><td>4/24/26</td></tr>
+<tr><td><b>Derand Walker</b></td><td>Speranza Dental Implant Center</td><td><span class="p pg">Running</span></td><td>$1,586</td><td>$509,330</td><td>7</td><td>100%</td><td>4/3/26</td></tr>
+<tr><td colspan="8" style="font-weight:700;background:rgba(77,171,247,.05);padding:6px 14px;color:#4dabf7;font-size:11px;letter-spacing:.5px">▸ FORECAST</td></tr>
+<tr><td>House</td><td>SK Promotions, Inc.</td><td><span class="p pg">Ran 1st Payroll</span></td><td>$1,044</td><td>$24,000</td><td>1</td><td>100%</td><td>4/22/26</td></tr>
+<tr class="tr"><td colspan="3">TOTAL (Forecast + Actual)</td><td>$42,909</td><td>$2,879,637</td><td>50</td><td></td><td></td></tr>
+</tbody></table></div></div>
+
+<!-- MAY -->
+<div id="tab-may" class="tc">
+<div class="kg"><div class="kpi b"><div class="lb">May Quota</div><div class="vl">$120,000</div><div class="sb">6 reps</div></div><div class="kpi w"><div class="lb">Forecast</div><div class="vl">$138,701</div><div class="sb">12 deals</div></div><div class="kpi p"><div class="lb">% to Goal</div><div class="vl">115.6%</div><div class="sb">Over target!</div></div><div class="kpi g"><div class="lb">Largest</div><div class="vl vs">S&S Subs</div><div class="sb">$57,824 · Alicia · 139 EEs</div></div><div class="kpi r"><div class="lb">SWC Naples</div><div class="vl">$42,994</div><div class="sb">54 EEs · Implementation · House</div></div></div>
+<div class="sc"><div class="st">May Forecast Detail</div><table><thead><tr><th>Owner</th><th>Account</th><th>Stage</th><th>Admin Fees</th><th>GAP</th><th>EEs</th><th>Prob</th><th>1st Pay</th></tr></thead><tbody>
+<tr><td><b>Alicia Costoya</b></td><td>S&S Subs et al (12 entities)</td><td><span class="p pg">CSA Received/Implementation</span></td><td>$57,824</td><td>$2,435,126</td><td>139</td><td>100%</td><td>5/8/26</td></tr>
+<tr><td><b>Derand Walker</b></td><td>JC Craig, LLC</td><td><span class="p pg">CSA Received/Implementation</span></td><td>$12,480</td><td>$2,500,000</td><td>15</td><td>100%</td><td>5/29/26</td></tr>
+<tr><td><b>Derand Walker</b></td><td>Employee Mgmt Solutions Inc.</td><td><span class="p pb">CSA Sent</span></td><td>$4,178</td><td>$363,340</td><td>4</td><td>80%</td><td>5/29/26</td></tr>
+<tr><td><b>Derand Walker</b></td><td>Food Geeks Eatery Waxhaw LLC</td><td><span class="p pb">CSA Sent</span></td><td>$3,640</td><td>$200,000</td><td>7</td><td>80%</td><td>5/22/26</td></tr>
+<tr><td><b>Derand Walker</b></td><td>Cammeray's</td><td><span class="p pg">Implementation</span></td><td>$2,899</td><td>$217,000</td><td>9</td><td>100%</td><td>5/8/26</td></tr>
+<tr><td><b>Derand Walker</b></td><td>For His Glory Cleaning LLC</td><td><span class="p pg">Implementation</span></td><td>$3,328</td><td>$110,000</td><td>4</td><td>100%</td><td>5/22/26</td></tr>
+<tr><td>House</td><td>SWC North Naples OpCo LLC</td><td><span class="p pg">Implementation</span></td><td>$42,994</td><td>$2,047,353</td><td>54</td><td>100%</td><td>5/17/26</td></tr>
+<tr><td>House</td><td>Oceans Six Condo Assoc.</td><td><span class="p pg">Implementation</span></td><td>$4,828</td><td>$193,107</td><td>4</td><td>100%</td><td>5/1/26</td></tr>
+<tr><td>House</td><td>Halifax Landing Owners Assoc.</td><td><span class="p pb">CSA Sent</span></td><td>$3,328</td><td>$133,120</td><td>3</td><td>90%</td><td>5/1/26</td></tr>
+<tr><td>House</td><td>A2 Ventures (Junk Shot)</td><td><span class="p pg">Implementation</span></td><td>$881</td><td>$80,000</td><td>2</td><td>100%</td><td>5/8/26</td></tr>
+<tr><td>House</td><td>GP US Construction LLC</td><td><span class="p pg">Implementation</span></td><td>$2,145</td><td>$33,800</td><td>2</td><td>100%</td><td>5/22/26</td></tr>
+<tr class="tr"><td colspan="3">TOTAL</td><td>$138,701</td><td>$8,312,846</td><td>243</td><td></td><td></td></tr>
+</tbody></table></div></div>
+
+<!-- PIPELINE -->
+<div id="tab-pipeline" class="tc">
+<div class="kg"><div class="kpi b"><div class="lb">Total Pipeline</div><div class="vl">$542,761+</div><div class="sb">28 deals · 1,073 EEs</div></div><div class="kpi w"><div class="lb">Submissions Apr Wk 4</div><div class="vl">8</div><div class="sb">1 approved · 1 CSA · 2 contingents · 4 declined</div></div><div class="kpi g"><div class="lb">Mar Actual</div><div class="vl">$6,851</div><div class="sb">11 Series + Afterlife</div></div><div class="kpi p"><div class="lb">May Forecast</div><div class="vl">$138,701</div><div class="sb">12 deals · over quota!</div></div><div class="kpi r"><div class="lb">Mar Gap</div><div class="vl">$121,804</div><div class="sb">92.3% short</div></div></div>
+<div class="g2">
+<div class="sc"><div class="st">Pipeline by Rep</div><div style="height:260px"><canvas id="c3"></canvas></div></div>
+<div class="sc"><div class="st">Submission Report — Apr Wk 4 <span class="bd">4/21–4/24</span></div><table style="font-size:11px"><thead><tr><th>Company</th><th>Type</th><th>Sent By</th><th>Stage</th></tr></thead><tbody>
+<tr><td>Diofamcibo LLC</td><td>PEO</td><td>Courtney / Synergy</td><td><span class="p pg">Approved, Proposal Sent</span></td></tr>
+<tr><td>JC Craig, LLC</td><td>WC Carve Out</td><td>Derand (Direct)</td><td><span class="p pg">CSA Received</span></td></tr>
+<tr><td>Certified Boom Repair Service</td><td>PEO</td><td>Courtney</td><td><span class="p pw">Contingent Sent</span></td></tr>
+<tr><td>Streampoint Solutions Inc</td><td>PEO</td><td>Courtney / Synergy</td><td><span class="p pw">Contingent Sent</span></td></tr>
+<tr><td style="color:#ff6b6b">Boys &amp; Girls Clubs of Kern County</td><td>PEO</td><td>Jon / Prime PEO Brokers</td><td><span class="p pr">Declined</span></td></tr>
+<tr><td style="color:#ff6b6b">Road Safety Inc</td><td>PEO</td><td>Jon / Prime PEO Brokers</td><td><span class="p pr">Declined</span></td></tr>
+<tr><td style="color:#ff6b6b">Advanced Environmental Landscape</td><td>PEO</td><td>Jon / Prime PEO Brokers</td><td><span class="p pr">Declined</span></td></tr>
+<tr><td style="color:#ff6b6b">M. Timm Development, Inc.</td><td>Premium Only</td><td>House / Axis</td><td><span class="p pr">Declined</span></td></tr>
+</tbody></table>
+<div style="font-size:11px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--border)"><b>Decline reasons:</b> Boys &amp; Girls Clubs (loss history + CA exposure) · Road Safety (CA roadside) · Advanced Environmental (loss history + CA tree trimming) · M. Timm (loss history + CA exposure). <b>Notable:</b> 3 of 4 declines from Jon's Prime PEO Brokers — all CA exposure.</div>
+</div></div>
+<div class="sc"><div class="st">Active Pipeline by Rep</div><table><thead><tr><th>Rep</th><th>Deals</th><th>Pipeline $</th><th>Top Deal</th><th>Highest Prob</th></tr></thead><tbody>
+<tr><td><b>Derand Walker</b></td><td>5</td><td>$158,328</td><td>Staffing Groups ($105K)</td><td>Food Geeks/Employee Mgmt (90%)</td></tr>
+<tr><td><b>Brandon DeBenedet</b></td><td>2</td><td>$156,490</td><td>Valence Natural Gas ($92.4K)</td><td>50%</td></tr>
+<tr><td><b>Carter Rhoden (House)</b></td><td>5</td><td>$63,676</td><td>Domestic Custom Metals ($15.6K)</td><td>50%</td></tr>
+<tr><td><b>Courtney Sustr</b></td><td>6</td><td>$54,205+</td><td>Hubbard Paint ($30.2K)</td><td>65%</td></tr>
+<tr><td><b>Jon Lightbody</b></td><td>4</td><td>$50,124</td><td>Makotos ($14.8K)</td><td>50%</td></tr>
+<tr><td><b>Alicia Costoya</b></td><td>2</td><td>$26,208</td><td>Firehouse Subs ($20.8K)</td><td>EMG Elite (75%)</td></tr>
+<tr><td><b>Michael Matthews</b></td><td>1</td><td>$21,409</td><td>Zenith Business ($21.4K)</td><td>50%</td></tr>
+<tr><td><b>New Hire (TBD)</b></td><td>0</td><td>$0</td><td>&mdash;</td><td>&mdash;</td></tr>
+<tr class="tr"><td>TOTAL</td><td>28</td><td>$542,761+</td><td></td><td></td></tr>
+</tbody></table></div>
+
+<div class="sc"><div class="st">Full Pipeline Detail <span class="bd">Next 90 Days</span></div><div style="font-size:11px;color:var(--muted);margin:-8px 0 14px">Salesforce export as of 4/26/2026 &middot; Sorted by Owner &middot; 28 deals &middot; 1,073 EEs</div>
+<div style="overflow-x:auto"><table style="font-size:11px;white-space:nowrap"><thead><tr><th>Owner</th><th>Opportunity</th><th>Type</th><th>Stage</th><th>EEs</th><th>Admin Fees</th><th>Prob</th><th>Age</th><th>Est. Close</th><th>1st Pay</th><th>Next Step</th><th>Source</th></tr></thead><tbody>
+<tr><td colspan="12" style="font-weight:700;background:rgba(0,212,170,.05);padding:6px 14px;color:#00d4aa;font-size:10px;letter-spacing:.5px">&#9656; ALICIA COSTOYA &mdash; 2 deals &middot; $26,208</td></tr>
+<tr><td>Alicia</td><td>Firehouse Subs</td><td>PEO</td><td><span class="p pw">Proposal to Customer</span></td><td>50</td><td>$20,800</td><td>65%</td><td>86</td><td>6/5</td><td>7/17</td><td>Meet with Guz and wife</td><td>Self</td></tr>
+<tr><td>Alicia</td><td>EMG Elite Enterprise LLC</td><td>PEO</td><td><span class="p pb">CSA Requested</span></td><td>13</td><td>$5,408</td><td>75%</td><td>170</td><td>6/12</td><td>7/10</td><td>Sister location ran 1st payroll, monitoring comfort</td><td>Self</td></tr>
+
+<tr><td colspan="12" style="font-weight:700;background:rgba(0,212,170,.05);padding:6px 14px;color:#00d4aa;font-size:10px;letter-spacing:.5px">&#9656; BRANDON DeBENEDET &mdash; 2 deals &middot; $156,490</td></tr>
+<tr><td>Brandon</td><td>Leasing Associates, LLC</td><td>PEO</td><td><span class="p px">Proposal to Producer</span></td><td>60</td><td>$64,090</td><td>50%</td><td>51</td><td>5/22</td><td>6/5</td><td>Contingent proposal sent to Brandon 3/9</td><td>Broker</td></tr>
+<tr><td>Brandon</td><td>Valence Natural Gas Solutions</td><td>PEO</td><td><span class="p px">Proposal to Producer</span></td><td>77</td><td>$92,400</td><td>50%</td><td>11</td><td>6/30</td><td>7/17</td><td>Sent to Brent for open market 4/15</td><td>Broker</td></tr>
+
+<tr><td colspan="12" style="font-weight:700;background:rgba(124,92,252,.05);padding:6px 14px;color:#7c5cfc;font-size:10px;letter-spacing:.5px">&#9656; CARTER RHODEN (HOUSE) &mdash; 5 deals &middot; $63,676</td></tr>
+<tr><td>House</td><td>SRH Advisors LLC</td><td>PEO</td><td><span class="p px">Submitted</span></td><td>25</td><td>$15,000</td><td>45%</td><td>10</td><td>5/13</td><td>5/29</td><td>Info requested from Casie 4/16</td><td>Referral</td></tr>
+<tr><td>House</td><td>Ninja MX LLC</td><td>PEO</td><td><span class="p px">Proposal to Producer</span></td><td>9</td><td>$7,956</td><td>50%</td><td>10</td><td>5/22</td><td>6/5</td><td>Contingent sent to Eileen 4/16</td><td>Broker</td></tr>
+<tr><td>House</td><td>Southern Structural LLC</td><td>PEO</td><td><span class="p px">Proposal to Producer</span></td><td>12</td><td>$12,300</td><td>50%</td><td>9</td><td>5/22</td><td>6/5</td><td>Proposal sent to Carm 4/13</td><td>Broker</td></tr>
+<tr><td>House</td><td>Restoration Geeks Corp</td><td>PEO</td><td><span class="p px">Submitted</span></td><td>13</td><td>$12,800</td><td>45%</td><td>136</td><td>6/19</td><td>7/3</td><td>Sent to Brent 4/9</td><td>Broker</td></tr>
+<tr><td>House</td><td>Domestic Custom Metals Co.</td><td>PEO</td><td><span class="p px">Proposal to Producer</span></td><td>11</td><td>$15,620</td><td>50%</td><td>13</td><td>6/19</td><td>7/3</td><td>Proposal sent to Axis 4/16</td><td>Broker</td></tr>
+
+<tr><td colspan="12" style="font-weight:700;background:rgba(255,212,59,.08);padding:6px 14px;color:#c89800;font-size:10px;letter-spacing:.5px">&#9656; COURTNEY SUSTR &mdash; 6 deals &middot; $54,205+</td></tr>
+<tr><td>Courtney</td><td>Global Hiring Staff Corp.</td><td>PEO</td><td><span class="p pw">Proposal to Customer</span></td><td>346</td><td>&mdash;</td><td>65%</td><td>39</td><td>4/30</td><td>&mdash;</td><td>EOR Contingent Quote to Rob Beck 4/10</td><td>Broker</td></tr>
+<tr><td>Courtney</td><td>Hubbard Paint &amp; Supply Co.</td><td>PEO</td><td><span class="p pw">Proposal to Customer</span></td><td>20</td><td>$30,212</td><td>65%</td><td>18</td><td>5/8</td><td>5/22</td><td>Virtual meeting w/ owner 4/21, sent follow-up docs, awaiting decision</td><td>Broker</td></tr>
+<tr><td>Courtney</td><td>Atlantic Center for the Arts</td><td>PEO</td><td><span class="p px">Proposal to Producer</span></td><td>14</td><td>$12,180</td><td>50%</td><td>18</td><td>5/29</td><td>5/15</td><td>WC CO proposal received 4/9</td><td>Broker</td></tr>
+<tr><td>Courtney</td><td>Diofamcibo LLC</td><td>PEO</td><td><span class="p px">Proposal to Producer</span></td><td>6</td><td>$3,750</td><td>50%</td><td>3</td><td>6/5</td><td>6/19</td><td>Proposal received 4/24</td><td>Broker</td></tr>
+<tr><td>Courtney</td><td>Streampoint Solutions Inc</td><td>PEO</td><td><span class="p px">Proposal to Producer</span></td><td>17</td><td>$8,063</td><td>50%</td><td>3</td><td>6/12</td><td>6/26</td><td>Contingent proposal received 4/24</td><td>Broker</td></tr>
+<tr><td>Courtney</td><td>Division 7 Holdings (Triton)</td><td>PEO</td><td><span class="p px">Submitted</span></td><td>26</td><td>&mdash;</td><td>45%</td><td>12</td><td>6/30</td><td>&mdash;</td><td>Requested current loss runs</td><td>Broker</td></tr>
+
+<tr><td colspan="12" style="font-weight:700;background:rgba(77,171,247,.05);padding:6px 14px;color:#4dabf7;font-size:10px;letter-spacing:.5px">&#9656; DERAND WALKER &mdash; 5 deals &middot; $158,328</td></tr>
+<tr><td>Derand</td><td>Food Geeks Eatery Waxhaw</td><td>PEO</td><td><span class="p pg">CSA to Client</span></td><td>7</td><td>&mdash;</td><td>90%</td><td>18</td><td>4/30</td><td>4/27</td><td>Sign CSA</td><td>Self</td></tr>
+<tr><td>Derand</td><td>Employee Mgmt Solutions Inc.</td><td>PEO</td><td><span class="p pg">CSA to Client</span></td><td>4</td><td>$4,178</td><td>90%</td><td>9</td><td>5/15</td><td>5/29</td><td>WC Approval and send CSA</td><td>Self</td></tr>
+<tr><td>Derand</td><td>Mach 1 Security Services</td><td>PEO</td><td><span class="p pw">Proposal to Customer</span></td><td>70</td><td>$43,750</td><td>65%</td><td>10</td><td>6/30</td><td>&mdash;</td><td>&mdash;</td><td>Self</td></tr>
+<tr><td>Derand</td><td>Staffing Groups LLC</td><td>PEO</td><td><span class="p pw">Proposal to Customer</span></td><td>60</td><td>$105,000</td><td>65%</td><td>25</td><td>6/30</td><td>7/17</td><td>&mdash;</td><td>Self</td></tr>
+<tr><td>Derand</td><td>Top Dog Freight &amp; Logistics</td><td>PEO</td><td><span class="p px">Submitted</span></td><td>6</td><td>$5,400</td><td>45%</td><td>11</td><td>6/30</td><td>&mdash;</td><td>&mdash;</td><td>Self</td></tr>
+
+<tr><td colspan="12" style="font-weight:700;background:rgba(0,0,0,.04);padding:6px 14px;color:var(--muted);font-size:10px;letter-spacing:.5px">&#9656; JANET SULLIVAN &mdash; 1 deal &middot; $5,000</td></tr>
+<tr><td>Janet</td><td>Cruz Institute</td><td>PEO</td><td><span class="p px">Proposal to Producer</span></td><td>5</td><td>$5,000</td><td>50%</td><td>145</td><td>7/15</td><td>&mdash;</td><td>Contingent received 12/5</td><td>Self</td></tr>
+
+<tr><td colspan="12" style="font-weight:700;background:rgba(0,0,0,.04);padding:6px 14px;color:var(--muted);font-size:10px;letter-spacing:.5px">&#9656; JIMMY ESTRADA (Legacy) &mdash; 2 deals</td></tr>
+<tr><td>Jimmy</td><td>The Goddard School</td><td>PEO</td><td><span class="p px">Proposal to Producer</span></td><td>15</td><td>$8,320</td><td>50%</td><td>101</td><td>4/30</td><td>&mdash;</td><td>Contingent received 2/12</td><td>Self</td></tr>
+<tr><td>Jimmy</td><td>Hire Power WFS</td><td>&mdash;</td><td><span class="p pg">CSA to Client</span></td><td>&mdash;</td><td>&mdash;</td><td>90%</td><td>80</td><td>5/29</td><td>&mdash;</td><td>&mdash;</td><td>Web Lead</td></tr>
+
+<tr><td colspan="12" style="font-weight:700;background:rgba(124,92,252,.05);padding:6px 14px;color:#7c5cfc;font-size:10px;letter-spacing:.5px">&#9656; JON LIGHTBODY &mdash; 4 deals &middot; $50,124</td></tr>
+<tr><td>Jon</td><td>ROWA Inc.</td><td>PEO</td><td><span class="p px">Proposal to Producer</span></td><td>18</td><td>$14,400</td><td>50%</td><td>67</td><td>5/30</td><td>6/5</td><td>Brandon/Tyler wrapping up medical</td><td>Broker</td></tr>
+<tr><td>Jon</td><td>Infiniti of Melbourne Inc.</td><td>ASO</td><td><span class="p px">Proposal to Producer</span></td><td>40</td><td>$9,360</td><td>50%</td><td>52</td><td>5/30</td><td>6/5</td><td>Broker intro / client going through EB Now</td><td>Broker</td></tr>
+<tr><td>Jon</td><td>Makotos Japanese Steakhouse</td><td>ASO</td><td><span class="p px">Proposal to Producer</span></td><td>70</td><td>$14,820</td><td>50%</td><td>52</td><td>5/30</td><td>7/3</td><td>Broker setting up meeting to present</td><td>Broker</td></tr>
+<tr><td>Jon</td><td>Pipeliner Pros</td><td>ASO</td><td><span class="p px">Proposal to Producer</span></td><td>52</td><td>$11,544</td><td>50%</td><td>23</td><td>5/30</td><td>6/5</td><td>ASO proposal received 4/3</td><td>Broker</td></tr>
+
+<tr><td colspan="12" style="font-weight:700;background:rgba(124,92,252,.05);padding:6px 14px;color:#7c5cfc;font-size:10px;letter-spacing:.5px">&#9656; MICHAEL MATTHEWS &mdash; 1 deal &middot; $21,409</td></tr>
+<tr><td>Michael</td><td>Zenith Business Group Inc</td><td>PEO</td><td><span class="p px">Proposal to Producer</span></td><td>27</td><td>$21,409</td><td>50%</td><td>24</td><td>5/8</td><td>5/22</td><td>WC CO proposal sent to Michael 4/2</td><td>Self</td></tr>
+
+<tr class="tr"><td colspan="5">TOTAL &mdash; 28 deals &middot; 1,073 EEs</td><td>$542,761+</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table></div></div></div>
+
+
+
+<!-- WEEKLY -->
+<div id="tab-weekly" class="tc">
+<div class="kg"><div class="kpi b"><div class="lb">IAs Completed</div><div class="vl">17</div><div class="sb">Apr 20–24</div></div><div class="kpi p"><div class="lb">RFPs</div><div class="vl">8</div><div class="sb">47% conversion</div></div><div class="kpi w"><div class="lb">Proposals</div><div class="vl">4</div><div class="sb">24% conversion</div></div><div class="kpi g"><div class="lb">New Starts</div><div class="vl">2</div><div class="sb">Courtney (Main Events) + House (SK Promo)</div></div><div class="kpi r"><div class="lb">Closed Won</div><div class="vl">2</div><div class="sb">Derand 1 · House 1</div></div></div>
+<div class="sc"><div class="st">Sales Funnel</div>
+<div class="fr"><div class="fl">IA Completed</div><div style="flex:1;display:flex;align-items:center"><div class="fb" style="width:100%;background:linear-gradient(90deg,#7c5cfc,#00d4aa)">17</div></div></div>
+<div class="fr"><div class="fl">RFP</div><div style="flex:1;display:flex;align-items:center"><div class="fb" style="width:47%;background:linear-gradient(90deg,#c084fc,#7c5cfc)">8</div><div class="fp">47%</div></div></div>
+<div class="fr"><div class="fl">Proposal to Customer</div><div style="flex:1;display:flex;align-items:center"><div class="fb" style="width:24%;background:linear-gradient(90deg,#ffd43b,#fab005)">4</div><div class="fp">24%</div></div></div>
+<div class="fr"><div class="fl">Closed Won</div><div style="flex:1;display:flex;align-items:center"><div class="fb" style="width:12%;background:linear-gradient(90deg,#00d4aa,#00b4d8)">2</div><div class="fp">12%</div></div></div>
+</div>
+<div class="sc"><div class="st">Activity by Rep <span class="bd">Apr 20–24</span></div><div style="height:260px"><canvas id="c4"></canvas></div></div>
+<div class="sc"><div class="st">Weekly Detail</div><table><thead><tr><th>Rep</th><th>IAs</th><th>RFPs</th><th>Proposals</th><th>Closed</th></tr></thead><tbody>
+<tr><td><b>Alicia Costoya</b></td><td>3</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td><b>Courtney Sustr</b></td><td>4</td><td>3</td><td>3</td><td>0</td></tr>
+<tr><td><b>Derand Walker</b></td><td>5</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td><b>Jon Lightbody</b></td><td>4</td><td>3</td><td>0</td><td>0</td></tr>
+<tr><td><b>Brandon DeBenedet</b></td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td><b>Michael Matthews</b></td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td><b>New Hire (TBD)</b></td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr style="background:rgba(0,0,0,.04)"><td><b>House</b></td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+<tr class="tr"><td>TOTAL</td><td>17</td><td>8</td><td>4</td><td>2</td></tr>
+</tbody></table></div></div>
+<!-- WAR -->
+<!-- REFERRAL PARTNERS -->
+<div id="tab-referrals" class="tc">
+<div class="kg4"><div class="kpi b"><div class="lb">Referral Partners</div><div class="vl">7</div><div class="sb">Jon Lightbody</div></div><div class="kpi g"><div class="lb">Regions</div><div class="vl">6</div><div class="sb">TX · NJ · S. FLA · Miami · NC · Local</div></div><div class="kpi p"><div class="lb">Meetings This Week</div><div class="vl">3</div><div class="sb">USI Wed · PPG Thu · Archon Fri</div></div><div class="kpi w"><div class="lb">Alpha Pipeline</div><div class="vl">3</div><div class="sb">HI 300 · LA 500 · OR 50 EEs</div></div></div>
+
+<div class="sc"><div class="st">Jon Lightbody — Referral Partnerships</div>
+<table><thead><tr><th>Contact</th><th>Company</th><th>Location</th><th>Status</th><th>Notes</th></tr></thead><tbody>
+<tr><td><b>Tammie McKenzie</b></td><td>PEO Brokers LLC</td><td>TX</td><td></td><td>Careers crossed 20 yrs ago; loved Key HR flexibility on carve-outs; licensed agent</td></tr>
+<tr><td><b>Tom Bonard</b></td><td>Archon PEO Advisors</td><td>NJ</td><td><span class="p pg">Meeting Friday</span></td><td>Very receptive to outreach; formal meeting this Friday, Carm invited</td></tr>
+<tr><td><b>USI</b></td><td>USI Insurance Services</td><td>S. Florida</td><td><span class="p pg">Meeting 3/5</span></td><td>Jon visiting South Florida producers Wednesday</td></tr>
+<tr><td><b>Joe Salazar</b></td><td>Blue Water Financial</td><td>Local</td><td></td><td>Financial advisor; met at Catalina Mixers networking (50-75 attendees/month)</td></tr>
+<tr><td><b>PPG</b></td><td>PPG</td><td>NC</td><td><span class="p pg">Meeting Thursday</span></td><td>AI lead-gen software; wants 1 PEO per state — FL likely Key HR. Pricing call with Carm + Jim</td></tr>
+<tr><td><b>Sage Linsen</b></td><td>Pushgo LLC</td><td>Local</td><td></td><td>Former banker; started SMB funding biz; local payroll referral connections</td></tr>
+<tr><td><b>Steve Schwartzman</b></td><td>Faison Group</td><td>Miami</td><td></td><td>Reconnected; talking to ownership about PEO; Jon visiting Thursday in S. Florida</td></tr>
+</tbody></table></div></div>
+
+<!-- NOTES -->
+<div id="tab-notes" class="tc">
+<div class="sc" style="border:1px solid rgba(124,92,252,.3)">
+<div class="st" style="font-size:20px">Meeting Notes <span class="bd">4/20/2026</span></div>
+<div style="font-size:12px;color:var(--muted);margin:-8px 0 18px">Weekly Sales Forecasting Meeting · Chaired by Carmelite Souffront · Executive input from Scott Hanson</div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Courtney Sustr</div><div class="nb"><div class="ng pg" style="background:rgba(0,212,170,.12);color:#00a882">CSA Signed!</div></div></div>
+<div class="ns"><div class="nl">Win</div><div class="nt">Closed Venue 2106 (restaurant/bar) — resolved a Workers' Comp crisis for the client.</div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Waiting on UHC/Florida Blue for Atlantic Center for the Arts benefits pricing.</div></div></div>
+
+<div class="nc n4"><div class="nh"><div class="nn">Derand Walker</div><div class="nb"><div class="ng pg" style="background:rgba(0,212,170,.12);color:#00a882">2 CSAs Signed!</div></div></div>
+<div class="ns"><div class="nl">Wins</div><div class="nt">Closed For His Glory (cleaning) and Cammeray's (tailoring). Both CSAs signed and moving to implementation.</div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Presentation tomorrow for Mach 1 Security — 70 employees. Action item: update Cammeray's to "Closed Won" in Salesforce.</div></div></div>
+
+<div class="nc n5"><div class="nh"><div class="nn">Michael Matthews</div><div class="nb"><div class="ng">100-Life Referral!</div></div></div>
+<div class="ns"><div class="nt">Received a 100-life case referral from his CPA in Lutz — significant opportunity. Rescheduling meeting with Zenith Business Group (HVAC).</div></div></div>
+
+<div class="nc n5"><div class="nh"><div class="nn">Brandon DeBenedet</div><div class="nb"><div class="ng">68 EE Submission</div></div></div>
+<div class="ns"><div class="nt">Managing a 68-employee submission for Balance. Monitoring Leasing Associates (pending UHC underwriting).</div></div></div>
+
+<div class="nc n2"><div class="nh"><div class="nn">Jon Lightbody</div><div class="nb"><div class="ng">Networking Win</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Networking success via Bible study — All Phase, 20 employees. Coordinating open enrollment for Infiniti of Melbourne through Hub International.</div></div></div>
+
+<div class="nc n5"><div class="nh"><div class="nn">Carter Rhoden (House)</div><div class="nb"><div class="ng">2 Wins + Condo</div></div></div>
+<div class="ns"><div class="nt">Managing two house wins and a condo association. SRH Advisors (ALF) expected to onboard late May.</div></div></div>
+
+<div class="nc n6"><div class="nh"><div class="nn">Scott Hanson (Founder)</div><div class="nb"><div class="ng">Strategic Direction</div></div></div>
+<div class="ns"><div class="nl">Robinson Helicopter</div><div class="nt">Reframed the Robinson loss as a "win" for team maturation — complex 12–24 month deal that remains in the long-term pipeline. Urged the team to focus on diagnostics (identifying specific pain points) rather than being "transactional."</div></div>
+<div class="ns"><div class="nl">Enwage Platform</div><div class="nt">Key HR moving toward proprietary technology. System expected ready for sale by June 1st. New PEO-specific lead lists being loaded into Salesforce starting next week — current data is often "aged" or 5+ years behind.</div></div>
+<div class="ns"><div class="nl">Benefits Strategy Shift</div><div class="nt">New directive: Key HR open to administering benefits for larger groups (50+ lives) even without being primary broker, provided they are broker on ancillaries. Competitive move against Alpha Staff and Engage.</div></div>
+<div class="ns"><div class="nl">Target Markets</div><div class="nt">Focus remains on hospitality, "great trades" (HVAC, plumbing), and manufacturing.</div></div></div>
+
+<div class="nc n6"><div class="nh"><div class="nn">Carmelite Souffront (Leadership)</div><div class="nb"><div class="ng">Team Growth</div></div></div>
+<div class="ns"><div class="nl">New Hires</div><div class="nt">Mark Barnes and Joe Tadaro joining the team (remote) in late April/early May — covering Northeast and Midwest regions. Eileen Glantz returning to assist with internal benefits processes and quoting.</div></div>
+<div class="ns"><div class="nl">Activity Target</div><div class="nt">All reps should strive for 5–6 IAs per week to recover from being behind on quarterly goals. Jon/Carm coordinating "Swag Boxes" and networking investments for Hub producers.</div></div></div>
+
+</div>
+
+
+</div>
+
+
+<!-- HISTORICAL DATA -->
+<div id="tab-history" class="tc">
+<div class="sc"><div class="st" style="font-size:20px">Historical Data</div>
+<div style="font-size:12px;color:var(--muted);margin-bottom:18px">Archived forecasts, meeting notes, and activity from previous months</div></div>
+
+<div class="sc" style="border:1px solid var(--border)">
+<div class="st" style="font-size:18px">Archived Forecasts</div>
+<div style="margin-bottom:20px">
+<div class="kg"><div class="kpi b"><div class="lb">Feb Quota</div><div class="vl">$262,500</div><div class="sb">5 active reps</div></div><div class="kpi g"><div class="lb">Actual Ran</div><div class="vl">$7,072</div><div class="sb">Alicia $4,992 + House $2,080</div></div><div class="kpi w"><div class="lb">Forecast</div><div class="vl">$0</div><div class="sb">All deals ran or moved</div></div><div class="kpi p"><div class="lb">Total</div><div class="vl">$7,072</div><div class="sb">2.7% of Feb quota</div></div><div class="kpi r"><div class="lb">Gap</div><div class="vl">$255,428</div><div class="sb">97.3% short</div></div></div>
+<div class="sc"><div class="st">February Quota Progress</div><div style="text-align:right;margin-bottom:4px;font-size:11px;font-weight:700;color:#ff6b6b">2.7%</div><div class="pt"><div class="pf" style="width:2.7%;background:linear-gradient(90deg,#00d4aa,#00b4d8)"></div></div><div class="lg"><span><i style="background:#00d4aa"></i>Actual: $7,072</span><span><i style="background:rgba(0,0,0,.05)"></i>Gap: $255,428</span></div></div>
+<div class="sc"><div class="st">February Forecast Detail</div><table><thead><tr><th>Owner</th><th>Account</th><th>Stage</th><th>Admin Fees</th><th>EEs</th><th>Prob</th><th>1st Pay</th></tr></thead><tbody>
+<tr><td colspan="7" style="font-weight:700;background:rgba(0,212,170,.05);padding:6px 14px;color:#00d4aa;font-size:11px;letter-spacing:.5px">▸ RUNNING (ACTUAL)</td></tr>
+<tr><td>Alicia Costoya</td><td>EMG Legacy Investment 24 LLC</td><td><span class="p pg">Ran 1st Payroll</span></td><td>$4,992</td><td>12</td><td>100%</td><td>2/6/26</td></tr>
+<tr><td>House</td><td>Tim Maloney LLC</td><td><span class="p pg">Ran 1st Payroll</span></td><td>$2,080</td><td>2</td><td>100%</td><td>2/27/26</td></tr>
+<tr class="tr"><td colspan="3">TOTAL</td><td>$7,072</td><td>14</td><td></td><td></td></tr>
+</tbody></table></div>
+<div class="sc"><div class="st">Rep Detail</div><table><thead><tr><th>Rep</th><th>Feb Quota</th><th>Actual</th><th>% Goal</th><th>Status</th></tr></thead><tbody>
+<tr><td><b>Alicia Costoya</b></td><td>$45,000</td><td>$4,992</td><td><span class="cr">11.1%</span></td><td><span class="p pw">In Progress</span></td></tr>
+<tr><td><b>Jon Lightbody</b></td><td>$45,000</td><td>$0</td><td><span class="cr">0.0%</span></td><td><span class="p pr">Behind</span></td></tr>
+<tr><td><b>Courtney Sustr</b></td><td>$37,500</td><td>$0</td><td><span class="cr">0.0%</span></td><td><span class="p pr">Behind</span></td></tr>
+<tr><td><b>Derand Walker</b></td><td>$30,000</td><td>$0</td><td><span class="cr">0.0%</span></td><td><span class="p pr">Behind</span></td></tr>
+<tr><td><b>Brandon DeBenedet</b></td><td>$0</td><td>$0</td><td>—</td><td><span class="p px">Ramping</span></td></tr>
+<tr><td><b>Michael Matthews</b></td><td>$0</td><td>$0</td><td>—</td><td><span class="p px">Ramping</span></td></tr>
+<tr class="tr"><td>TOTAL</td><td>$262,500</td><td>$7,072</td><td>2.7%</td><td></td></tr>
+</tbody></table></div></div>
+
+
+<div style="margin-bottom:20px">
+<div class="kg"><div class="kpi b"><div class="lb">March Quota</div><div class="vl">$132,000</div><div class="sb">7 reps (Brandon/Michael ramping)</div></div><div class="kpi w"><div class="lb">Forecast</div><div class="vl">$3,345</div><div class="sb">3 House deals</div></div><div class="kpi p"><div class="lb">% to Goal</div><div class="vl">7.7%</div><div class="sb">Forecast + Actual</div></div><div class="kpi g"><div class="lb">Mar Actual</div><div class="vl">$6,851</div><div class="sb">11 Series $4,504 + Afterlife $2,347</div></div><div class="kpi r"><div class="lb">Gap</div><div class="vl">$121,804</div><div class="sb">92.3% short</div></div></div>
+<div class="sc"><div class="st">March Forecast Detail</div><table><thead><tr><th>Owner</th><th>Account</th><th>Stage</th><th>Admin Fees</th><th>GAP</th><th>EEs</th><th>Prob</th><th>1st Pay</th></tr></thead><tbody>
+<tr><td colspan="8" style="font-weight:700;background:rgba(0,212,170,.05);padding:6px 14px;color:#00d4aa;font-size:11px;letter-spacing:.5px">▸ RUNNING (ACTUAL)</td></tr>
+<tr><td>House</td><td>11 Series Energy, Inc</td><td><span class="p pg">Ran 1st Payroll</span></td><td>$4,504</td><td>—</td><td>5</td><td>100%</td><td>3/6/26</td></tr>
+<tr><td>House</td><td>Afterlife Mushrooms LLC</td><td><span class="p pg">Ran 1st Payroll</span></td><td>$2,347</td><td>$187,800</td><td>3</td><td>100%</td><td>3/13/26</td></tr>
+<tr><td colspan="8" style="font-weight:700;background:rgba(77,171,247,.05);padding:6px 14px;color:#4dabf7;font-size:11px;letter-spacing:.5px">▸ FORECAST</td></tr>
+<tr><td>House</td><td>SK Promotions, Inc.</td><td><span class="p pm">MSA Sent</span></td><td>$522</td><td>$36,000</td><td>1</td><td>80%</td><td>3/31/26</td></tr>
+<tr><td>House</td><td>DBS Restaurant Services (Whiskey Vixens)</td><td><span class="p pg">Implementation</span></td><td>$1,500</td><td>$100,000</td><td>3</td><td>100%</td><td>3/27/26</td></tr>
+<tr><td>House</td><td>Front Range Waste Management</td><td><span class="p pg">Implementation</span></td><td>$1,323</td><td>$105,000</td><td>3</td><td>90%</td><td>3/27/26</td></tr>
+<tr class="tr"><td colspan="3">TOTAL (Forecast + Actual)</td><td>$10,196</td><td>$428,800</td><td>15</td><td></td><td></td></tr>
+</tbody></table></div></div>
+
+
+</div>
+
+<div class="sc" style="border:1px solid var(--border)">
+<div class="st" style="font-size:18px">Archived Meeting Notes</div>
+
+<div class="sc" style="border:1px solid rgba(124,92,252,.3)">
+<div class="st" style="font-size:20px">Meeting Notes <span class="bd">4/13/2026</span></div>
+<div style="font-size:12px;color:var(--muted);margin:-8px 0 18px">Weekly Sales Forecasting Meeting · 32 min · Attendees: Carmelite Souffront, Courtney Sustr, Derand Walker, Jon Lightbody, Alicia Costoya, Carter Rhoden, Michael Matthews, Denise Vilarino</div>
+
+<div class="nc n2"><div class="nh"><div class="nn">Jon Lightbody</div><div class="nb"><div class="ng pg" style="background:rgba(0,212,170,.12);color:#00a882">Q1 Winner</div><div class="ng">Robinson + Hub</div></div></div>
+<div class="ns"><div class="nl">Robinson Helicopter</div><div class="nt">Roller coaster week — Friday was phenomenal. Team positioned well. Admin fees could be closer to $1M (currently showing $308K). Jon pushing for full PEO vs one-off ASO. Michael impressed during presentation discussing government contracts. Carm and team working on pricing strategy.</div></div>
+<div class="ns"><div class="nl">Hub International</div><div class="nt">Great meeting Thursday — Hub invited Jon to work from their office once or twice a week. Conference room with 10+ producers watching the Masters together. Huge opportunity to infiltrate their book of business. Makotos and Infiniti proposals delivered Thursday, expecting traction this week.</div></div>
+<div class="ns"><div class="nl">Pipeline Updates</div><div class="nt">Lefort — pulling out, dead in the water. ROWA — one more week, between Key HR and JustWorks. Pipeliner Pros — ASO through Hub. Vegas follow-ups: Chris with 5 AMCO locations (PA, getting loss runs), Nathan Hodgins (Ledger Fi accounting software), Bill Jones (Centris, FL West Coast), Mike Gullikson (Healthara insurance) meeting 4/15.</div></div></div>
+
+<div class="nc n4"><div class="nh"><div class="nn">Derand Walker</div><div class="nb"><div class="ng">2 CSAs Signed!</div><div class="ng">3 IAs</div></div></div>
+<div class="ns"><div class="nl">Wins</div><div class="nt">Food Geeks Eatery — CSA out, may have signed back already. For His Glory Cleaning — CSA signed! Cammeray's (tailoring, 10 EE) — payroll only, finalizing this week. In Atlanta today for 2 client appointments. Also working on a staffing company presentation this week.</div></div>
+<div class="ns"><div class="nl">Activity</div><div class="nt">3 IAs: Cammeray's, Ali Polly &amp; Associates (consulting, 10 EE — potential service + referral partner), Food Geeks Eatery submission. 2 submissions, 2 proposals, 1 CSA signed. Staffing group (Redemption Staffing) not yet in Salesforce — meeting ~4/27.</div></div></div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Courtney Sustr</div><div class="nb"><div class="ng">4 IAs</div><div class="ng">2 Submissions</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Hubbard Paint &amp; Supply — blew ADP Total Source out of the water (ADP charging ~$3,200/EE). Brandon helped with AMWINS benefits. Very confident. Atlantic Center for Arts — nonprofit, with Decision HR, 8 enrolled out of 12 EE, waiting on benefits market. Jimmy Johns single unit — killing this one. The real target is Eric with 5 locations (ADP, contract up August), meeting next month. Titan Solutions — employee backed out, standstill. Always Dependable &amp; F&amp;S Boatworks — broker referred, giving one more week or killing. Global Hiring Staff — denied by Key HR, approved for Frontline HRO, EOR proposal sent.</div></div></div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Alicia Costoya</div><div class="nb"><div class="ng pg" style="background:rgba(0,212,170,.12);color:#00a882">Q1 Near-Hit</div><div class="ng">Driving to Georgia</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Axia GeoCapital — killing, broker deal, they backed out. EMG Elite — hoping to run in May, clearing hiccups. Buffalo Boss — visited but owner too busy, will return for 5K event. Firehouse Subs (Guz) — needs to check in, was too busy last week. Already closed 12 S&amp;S Subs units, driving to Georgia for implementation.</div></div>
+<div class="ns"><div class="nl">MUFC Follow-ups</div><div class="nt">Kiki's Breakfast Cafe — with ADP, 2nd round meeting end of month. Jeff Bagwell council meeting Friday. Eliano's Coffee Orlando brief meeting. Working franchise leads from Vegas.</div></div></div>
+
+<div class="nc n5"><div class="nh"><div class="nn">Carter Rhoden (House)</div><div class="nb"><div class="ng">5 Submissions · 1 Close</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">A2 Ventures — May start coming in. GP US Construction — closed. ACT Design Build — probably dead, no response from Axis. Aptive Resources (580 EE staffing) — still waiting on info. First Temps — Brent communicating with Vero, not a rush (Vero does 3-month advance deals). SWC North Naples — closed, pushed to mid-May start. Leasing Associates — now Brandon's deal.</div></div></div>
+
+<div class="nc n5"><div class="nh"><div class="nn">Michael Matthews</div><div class="nb"><div class="ng">30-Life HVAC Case</div></div></div>
+<div class="ns"><div class="nt">Working a 30-life HVAC contractor case — looking good this week. Also impressive on Robinson Helicopter call discussing government contracts (new capability for Key HR). Working on benefits side and marketing machine.</div></div></div>
+
+<div class="nc n6"><div class="nh"><div class="nn">Carmelite Souffront (Leadership)</div><div class="nb"><div class="ng">Q1 Recap + Q2 Push</div></div></div>
+<div class="ns"><div class="nl">Q1 Recognition</div><div class="nt">Congratulated Jon and Alicia on great Q1s — both hit/near-hit their goals. Alicia will be over with next deals hitting. Everyone except Jon and Alicia needs to increase activity to 4-5+ IAs/week.</div></div>
+<div class="ns"><div class="nl">Activity Guidance</div><div class="nt">Divide remaining quota by per-head rate to see how many live groups needed. Tap circle of influence — friendly social media posts about what you do. Diversify approach: if calls aren't working, try emails, change target type. Build non-traditional partnerships (CPAs, adjacent industry). Don't forget LinkedIn.</div></div></div>
+
+</div>
+<div style="font-size:12px;color:var(--muted);margin:-8px 0 18px">Meeting notes from February and March 2026</div>
+<div class="sc" style="border:1px solid rgba(124,92,252,.3)">
+<div class="st" style="font-size:20px">Meeting Notes <span class="bd">3/30/2026</span></div>
+<div style="font-size:12px;color:var(--muted);margin:-8px 0 18px">Weekly Sales Forecasting Meeting · 24 min · Post-Vegas Debrief · Attendees: Carmelite Souffront, Courtney Sustr, Derand Walker, Jon Lightbody, Alicia Costoya, Carter Rhoden, Brandon DeBenedet, Denise Vilarino</div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Alicia Costoya</div><div class="nb"><div class="ng pg" style="background:rgba(0,212,170,.12);color:#00a882">10 Firehouse Subs CLOSED!</div></div></div>
+<div class="ns"><div class="nl">Major Win</div><div class="nt">Closed 10 Firehouse Subs locations last week — ~$45-50K in admin fees. CSAs already with Carter, working on implementation paperwork. Expecting another 4-5 locations this week. Jeff Bagel Run connection from MUFC is a slam dunk — founders hugged and thanked Alicia for connecting them with a franchisee who's opening 4-5 locations in TN.</div></div>
+<div class="ns"><div class="nl">MUFC Vegas Recap</div><div class="nt">At least 40 potential franchisors and franchisees very interested. Three appointments being set. Multiple corporate introductions for preferred vendor positioning. Quality of attendees was top-tier — decision makers ready to buy, not sales people selling sales people.</div></div></div>
+
+<div class="nc n4"><div class="nh"><div class="nn">Derand Walker</div><div class="nb"><div class="ng">Overwhelmed (Good Way)</div></div></div>
+<div class="ns"><div class="nl">Event Success</div><div class="nt">Had an amazing week at his event — overwhelmed with follow-ups. Business cards and spreadsheets covering his office. Met 3 PEO brokers (lunch meetings this week). Multiple leads: 2 staffing companies, 2 healthcare facilities, 1 daycare startup. 4-5 submissions expected this week. 2-3 discovery calls today alone. Calendar swamped Mon-Thurs.</div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Southern Comfort added — 50 EE healthcare agency, currently ADP, WC renewal May. Owner on spring break, meeting next week.</div></div></div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Courtney Sustr</div><div class="nb"><div class="ng">25 Warm Leads from MUFC</div></div></div>
+<div class="ns"><div class="nl">Vegas Recap</div><div class="nt">25 warm leads from MUFC, 5 are strong with meetings on the books. Called it the best conference she's attended — elevated conversations, no stiff-arming. Will provide more definitive updates in 1-on-1. Pipeline details in process.</div></div></div>
+
+<div class="nc n2"><div class="nh"><div class="nn">Jon Lightbody</div><div class="nb"><div class="ng">Robinson Helicopter — LA Trip!</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Robinson Helicopter moving to LA visit — Carm and Jon going out together. Could kill quota with one deal. Meeting in Orlando tomorrow with Carm, looping Brandon in. Thursday call with Robinson. Circling back on all pipeline deals today. MUFC contacts sent text to Carm praising the entire Key HR team.</div></div>
+<div class="ns"><div class="nl">Vegas Recap</div><div class="nt">Called it the best show he's ever been to quality-wise. "Honor to be proud of Key HR and our team." Heavy complimented on swag, professionalism, and relationship building.</div></div></div>
+
+<div class="nc n3"><div class="nh"><div class="nn"></div><div class="nb"><div class="ng pg" style="background:rgba(0,212,170,.12);color:#00a882">Back!</div></div></div>
+<div class="ns"><div class="nt">Officially back and feeling much better. "Ready to run." Picking up where she left off — Carm connecting with her right after the call to get pipeline updated.</div></div></div>
+
+<div class="nc n5"><div class="nh"><div class="nn">Carter Rhoden (House)</div><div class="nb"><div class="ng">New Business</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Two new condo associations under Tina Morbitzer — rush processing. Large healthcare facility (~50 EE) from current client referral, targeting April run. Leasing Associates moving through with Brandon.</div></div></div>
+
+<div class="nc n6"><div class="nh"><div class="nn">Carmelite Souffront (Leadership)</div><div class="nb"><div class="ng">Q1 Close + Q2 Outlook</div></div></div>
+<div class="ns"><div class="nl">Q1 Status</div><div class="nt">Did not meet March or Q1 quota as a group or individually. Closest is Alicia with multiple deals expecting signatures for April starts. Courtney and Derand will have business running in April (Global Stone + Speranza). Brandon and Michael will have own pipeline breakout starting next week.</div></div>
+<div class="ns"><div class="nl">MUFC Follow-Up</div><div class="nt">Mass email to all MUFC attendees being sent. All reps to send individual follow-ups. Planning next franchise events with Alicia — met with Jeff and another contact about additional opportunities. Focus: follow up, follow up, follow up.</div></div></div>
+
+</div>
+
+<div class="sc" style="border:1px solid rgba(124,92,252,.3)">
+<div class="st" style="font-size:20px">Meeting Notes <span class="bd">3/23/2026</span></div>
+<div style="font-size:12px;color:var(--muted);margin:-8px 0 18px">Weekly Sales Forecasting Meeting · Pre-Vegas Week</div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Courtney Sustr</div><div class="nb"><div class="ng">4 IAs</div><div class="ng pg" style="background:rgba(0,212,170,.12);color:#00a882">Award Nominee</div></div></div>
+<div class="ns"><div class="nl">Recognition</div><div class="nt">Nominated for Tampa Bay Chamber's Small Business Award for Outstanding Leader of the Year. Clients now viewing her as a "trusted advisor" — credibility strategy through chamber involvement paying dividends.</div></div>
+<div class="ns"><div class="nl">Broker Wins</div><div class="nt">Met face-to-face with brokers Rob and Anthony Beck in West Palm Beach. Two deals sent in immediately after the meeting — direct result of in-person relationship building.</div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Working with Chris Cunningham (Tampa Bay Business Accelerator) on his two businesses: True Value and Dry 24 Water Restoration. Submitting WC and contingent PEO quote today for Roy, owner of J Joseph Salon (3 locations).</div></div></div>
+
+<div class="nc n4"><div class="nh"><div class="nn">Derand Walker</div><div class="nb"><div class="ng">4 IAs</div><div class="ng pg" style="background:rgba(0,212,170,.12);color:#00a882">Chamber Ambassador</div></div></div>
+<div class="ns"><div class="nl">Networking</div><div class="nt">Following Courtney's lead, joined the Charlotte Chamber. Approved for Ambassador committee (new members, ribbon cuttings) and Small Business committee. Created and sent a genuine introductory ad/draft to all Charlotte Chamber members offering free consultations.</div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Several discovery meetings this week: Southern Truck Services — 30 EEs, meeting today 2:00 PM. A&amp;E Properties Upkeep — 18 EEs, discovery call today. Piedmont Grading — family-owned 58 years, 25 EEs, call Thursday. GNB Enterprise Court — golf cart sales/repair, 27 EEs, meeting Friday.</div></div></div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Alicia Costoya</div><div class="nb"><div class="ng">IAs + Vegas Prep</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Two meetings with SNS (S&amp;S Subs). Met with Orange Theory gym (4 locations), British Swim School, and Athletic Gyms. Already set up appointment in Las Vegas with a franchise CPA.</div></div>
+<div class="ns"><div class="nl">Vegas Advice</div><div class="nt">Offered mentorship on "classy" representation of Key HR at the IFA event — be consultants rather than pushy sales reps. Focus on building relationships over hard selling.</div></div></div>
+
+<div class="nc n2"><div class="nh"><div class="nn">Jon Lightbody</div><div class="nb"><div class="ng">3 Submissions</div></div></div>
+<div class="ns"><div class="nl">Activity</div><div class="nt">Three submissions last week (one declined, two in progress). Met with a representative from Hub regarding five Guava restaurants — new broker opportunity.</div></div></div>
+
+</div>
+
+<div class="sc" style="border:1px solid rgba(124,92,252,.3)">
+<div class="st" style="font-size:20px">Meeting Notes <span class="bd">3/16/2026</span></div>
+<div style="font-size:12px;color:var(--muted);margin:-8px 0 18px">Weekly Sales Forecasting Meeting · 34 min · Attendees: Carmelite Souffront, Courtney Sustr, Derand Walker, Jon Lightbody, Alicia Costoya, Carter Rhoden, Michael Matthews, Glen Lancaster</div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Alicia Costoya</div><div class="nb"><div class="ng">4 IAs</div><div class="ng">1 Submission</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Firehouse Subs — meeting with Gus this week, hoping to get CSA signed. Axia GeoCapital — very quick turnaround, expecting decision by end of business today. CSA requested over weekend. Buffalo Boss Orlando — pushed out past Vegas, needs to go back to Orlando. EMG Elite Enterprise — requested another month to get acclimated to Key HR system before bringing on 2nd location. Rapid Fire — killed, financial issues with equipment/RBI, staying with incumbent until later in year.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">Axia (small local, 4 EEs, submitted). Delby (local, 9 EEs). Silver Ash Management / Dunkin' Donuts franchisee — 8 locations in Broward &amp; Palm Beach. Corey Keisler / Smithfield's Chicken — 27 locations, North Carolina franchise. Puerto Rico trip planned for mid-June.</div></div></div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Courtney Sustr</div><div class="nb"><div class="ng">2 IAs</div><div class="ng">2 RFPs</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Jimmy Johns (Numismatic Subs) — still speaking with William, has contingent proposal but hasn't presented yet. Waiting on loss runs from Paylocity. Carm advised to present contingent with caveat. 1 WC accident past 3 years. Always Dependable — home healthcare, St. Petersburg, 41 EEs, $700K payroll, requested proposal. Certified Boom Repair — in-person meeting Wednesday, 32 EEs, waiting on current PEO invoice. Not showing in Salesforce report (date issue).</div></div>
+<div class="ns"><div class="nl">Activity</div><div class="nt">Heavy in-person week. Tampa Bay Chamber reception + in-person session (all businesses present). 2 IAs from events scheduled this week. ALF meeting rescheduled to Friday 3:30. Visiting Global Stone client with Carm tomorrow for lunch — building relationship with Yesenia (point of contact).</div></div></div>
+
+<div class="nc n4"><div class="nh"><div class="nn">Derand Walker</div><div class="nb"><div class="ng">3 IAs</div><div class="ng">10+ Door Pulls</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Speranza Dental — CLOSED last week! Sending start date to Carter today for implementation. Rise Cafe — spoke last week, waiting on husband decision, will remove if no response this week. Good Food — meeting scheduled next week to finalize (lawsuit at other location resolved). Recyclops — removed this morning, broker can't get loss runs, will re-add when info comes. Diamond Behavior — verbal yes, but new business doing hiring + finishing ADP process. Meeting this week for HR info. Target May 1 start. A&amp;R Towing — new, sending info to Brent, may need to go through agent.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">A&amp;R Towing (working on proposal). Catalyst Construction — met CFO, getting info, proposal meeting this week. Danford Construction Group — met partner, owner in today, follow-up call today. Visited 10+ locations in person, connected with 2-3 decision makers.</div></div></div>
+
+<div class="nc n2"><div class="nh"><div class="nn">Jon Lightbody</div><div class="nb"><div class="ng">1 Submission</div><div class="ng">Broker Building</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">ROWA — absolute front runner. Brandon has been tremendous. New broker Nick from Lighthouse blown away by Key HR flexibility and customization. Brandon creative with gap plan. Building blueprint for all future opportunities from this broker. First interaction was December, took until February with persistent follow-up. Lefort North America — submitted last week, Alpha deal. Rock Acquisitions — asked Tyler if should pull off, Tyler said no, great conversation, sale appears to be working out. Will give it until after Vegas. Robinson Helicopter — originally asked for ASO quote, put in $300/head estimate. Carm asked Tyler not to present anything yet until Wednesday meeting assessment.</div></div>
+<div class="ns"><div class="nl">Activity</div><div class="nt">1 submission (Lefort). Met with Tom Bonard (new broker, Archon). Cracked the Hub scenario — collecting data on two great opportunities. Infinity of Melbourne, Mercados — waiting on submission from Nick at Lighthouse. Two more from Alpha. Focus on rapport building and creative ways to stay in front of brokers beyond "send me business."</div></div></div>
+
+<div class="nc n3"><div class="nh"><div class="nn"></div><div class="nb"></div></div>
+<div class="ns"><div class="nt">Not on call. No update provided.</div></div></div>
+
+<div class="nc n5"><div class="nh"><div class="nn">Carter Rhoden (House)</div><div class="nb"><div class="ng">Key Updates</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">SWC — still waiting on estimated start date, entity purchase still in progress. GoVanGo — couldn't get comp approved, Brent couldn't work it either, will go carve-out route if client agrees. ACT Design — Axis has ASO proposal. Leasing Associates — Brandon working, targeting May start. Evergreen Landscaping — waiting on info from Axis. Green Line Botanicals — May start. Recent wins: internal referrals from existing clients, Accelerated Waste adding another entity. Derand sending Speranza start date today for implementation setup.</div></div></div>
+
+<div class="nc n6"><div class="nh"><div class="nn">Carmelite Souffront (Leadership)</div><div class="nb"><div class="ng">Key Directives</div></div></div>
+<div class="ns"><div class="nl">Wins Celebrated</div><div class="nt">Courtney (Global Stone) — broker-referred through Foundation PEO/Rob Beck, patience and negotiation key. Derand (Speranza Dental) — started from training call intro, renegotiated from full PEO to payroll solution when client pushed back on full suite. Carter (House) — internal referrals from existing clients, Accelerated Waste adding entity.</div></div>
+<div class="ns"><div class="nl">KPI Expectations</div><div class="nt">Everyone expected to set 4 IAs/week minimum — based on how far behind, should be targeting 5+. Reach out to Carm by Thursday morning if short. Diversify approach: brokers, networking, door pulls, phone, in-person. Reference sales kickoff where team set 15 meetings and 3 IAs in one 2-hour session. Michael working with Jimmy Estrada on closing his legacy cases. Jimmy signed a staffing company with SGH (congrats).</div></div></div>
+
+</div>
+
+<div class="sc" style="border:1px solid rgba(124,92,252,.3)">
+<div class="st" style="font-size:20px">Meeting Notes <span class="bd">3/9/2026</span></div>
+<div style="font-size:12px;color:var(--muted);margin:-8px 0 18px">Weekly Sales Forecasting Meeting · 40 min · Attendees: Carmelite Souffront, Courtney Sustr, Michael Matthews, Brandon DeBenedet, Alicia Costoya, Carter Rhoden, Glen Lancaster, Derand Walker</div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Alicia Costoya</div><div class="nb"><div class="ng">4 IAs</div><div class="ng">1 RFP</div><div class="ng">1 Proposal</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">No changes — all deals expected to close between this week and next. Will update at end of week. MUFC seats removed — 3 partners, one wants to keep payroll in-house, but the partner doing payroll will likely force a change.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">Wolverine — 5 franchise restaurants (Brass Tap, etc.), currently on Toast, great conversation with Matt (owner), meeting again when partner comes down this week or next. Stellar Public Adjusting — ~100 employees, currently with Paychex. Beebe University / Potbelly's franchisee — South Florida, 1 open + 2nd by June, committed to 14 locations. Potbelly's acquired by Racetrack (no longer public), major expansion planned adding Potbelly's to gas stations on East Coast — intro to VP of Ops for Racetrack East Coast. Toasted Tacos — 8 existing locations, launching franchise program now, good time to get in from the ground up.</div></div></div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Courtney Sustr</div><div class="nb"><div class="ng">3 IAs</div><div class="ng">1 Closed Won!</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Global Stone Collection — CSA SIGNED! Effective date 3/18, first pay date 3/27. Everything on schedule. Bearden Davis — removing from Salesforce, broker-referred, no response despite follow-ups. Jimmy Johns — spoke Thursday, asking broker for loss runs, going with contingent PEO quote from Carter for now. Carm advised not to push loss runs too hard (can alert current provider).</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">Boom Repair (Jeremy), Titan Solution Services, Venture Mark (from Small Business Expo Tuesday). Saving a 4th IA (assisted living facility) for this week — meeting Friday 3:30. One IA from last week converting to meeting Wednesday 1:00.</div></div>
+<div class="ns"><div class="nl">Tampa Bay Chamber</div><div class="nt">TBBA cohort reception tonight — 13 current + 13 alumni businesses (must have 3+ years, $500K+ revenue). Prospect Blind Tiger Coffee attending. Wednesday: ambassador committee roundtable — facilitating business discussions with members. Building credibility through genuine conversations rather than pitching.</div></div></div>
+
+<div class="nc n4"><div class="nh"><div class="nn">Derand Walker</div><div class="nb"><div class="ng">4 IAs</div><div class="ng">2 Verbals!</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Speranza Dental — VERBAL! Documentation sent last week, hoping for completed CSA this week. Diamond Behavior — VERBAL! Presentation delivered last week, completing paperwork tomorrow — could be 2 CSAs this week. Ry's Cafe — rescheduled to tomorrow 9am. Good Food — meeting ~3/18 (3rd week of March). Recyclops — removing until loss runs come in (broker having issues getting updated info).</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">North Carolina Coors — auto parts, 25 EEs, 2 locations, met GM, meeting owner this week. Go Groups — consulting company, sending info, scheduled revisit this week. Studying Tropics — met GM, owner in Texas, FaceTime scheduled this week.</div></div></div>
+
+<div class="nc n2"><div class="nh"><div class="nn">Jon Lightbody</div><div class="nb"><div class="ng">Not on call</div></div></div>
+<div class="ns"><div class="nt">Jon was not present on today's call. No pipeline update provided.</div></div></div>
+
+<div class="nc n3"><div class="nh"><div class="nn"></div><div class="nb"><div class="ng">Returning</div></div></div>
+<div class="ns"><div class="nt">On the mend, message received that she's hopefully going to be released to return soon. Carm expecting update this afternoon.</div></div></div>
+
+<div class="nc n5"><div class="nh"><div class="nn">Carter Rhoden (House)</div><div class="nb"><div class="ng">Key Updates</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Rockster Z — approved proposal, waiting on broker response. Limelight — Brandon working, still open, following up Tuesday with Chris and Mallory. SWC — mid-April target. Action-Pak — premium only, still working. Leasing Associates — contingent going to Brandon by Wednesday. Greenline Botanicals — United put in a fully underwritten offer when effective date changed; going back to client to see if owner will move forward despite preferring United. Rates are strong.</div></div></div>
+
+<div class="nc n6"><div class="nh"><div class="nn">Carmelite Souffront (Leadership)</div><div class="nb"><div class="ng">Key Directives</div></div></div>
+<div class="ns"><div class="nl">Marketing</div><div class="nt">New marketing team onboard — video content, social media content, paid ads, overall marketing plan. Likeness release forms coming for team members. Expect more activity on social media channels soon.</div></div>
+<div class="ns"><div class="nl">IFA Conference — Vegas 3/24-27</div><div class="nt">Multiple Unit Franchise Conference (MUFC) — one of the largest IFA events. Must have 10+ franchisees/locations to participate. Big brands and 30-40+ location startups as sponsors. Key HR giving away prize, encouraging pre-set appointments at booth. Alicia and Courtney attending. IFA membership could lead to preferred vendor status and board positions — significant for franchise division growth.</div></div>
+<div class="ns"><div class="nl">Team</div><div class="nt">Team still behind on quota as a group and individually. Alicia leading on sales side, Jon on broker side. Tampa office meeting Wednesday with Brandon, Michael, Courtney. Derand WAR not submitted (death in family — condolences given).</div></div></div>
+
+</div>
+
+<div class="sc" style="border:1px solid rgba(124,92,252,.3)">
+<div class="st" style="font-size:20px">Meeting Notes <span class="bd">3/2/2026</span></div>
+<div style="font-size:12px;color:var(--muted);margin:-8px 0 18px">Weekly Sales Forecasting Meeting · 27 min · Attendees: Carmelite Souffront, Courtney Sustr, Brandon DeBenedet, Michael Matthews, Jon Lightbody, Derand Walker, Alicia Costoya, Carter Rhoden, Glen Lancaster, Denise Vilarino</div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Alicia Costoya</div><div class="nb"><div class="ng">4 IAs</div><div class="ng">1 RFP</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">All deals slated to close in April — expects a strong month. Meeting with small Firehouse Subs this week (Thursday or Friday) to present; owner wants a clean quarter change so targeting April start rather than March.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">4 initial appointments: 2 franchisors, 2 franchisees. Fresh Zone Enterprises (Sona Fresca) — upscale fast-casual, 9 locations in South Florida (7 corporate, 2 franchise), growing. Hit it off well with ownership. Baskin — committed to opening 4 more locations within 2 years, just opened a new store in South Florida.</div></div></div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Courtney Sustr</div><div class="nb"><div class="ng">3 IAs</div><div class="ng">1 RFP</div><div class="ng">1 Proposal</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">SoNapa — decision this week between Key HR and 4th (PEO that caters to restaurants). Will follow up with Jack later this week. Bearden Davis — broker-referred, giving one more week through first week of March for update, otherwise removing from Salesforce.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">Jimmy Johns (Numismatic Subs) — owner currently with Paylocity (different from other JJ franchisee on ADP). Renewing workers comp — sent WC to Brent. Providing PEO and/or payroll-only proposal this week. One IA was a networking event with a meeting booked for Friday.</div></div></div>
+
+<div class="nc n4"><div class="nh"><div class="nn">Derand Walker</div><div class="nb"><div class="ng">3 IAs</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Speranza Dental — meeting today after this call, hoping to get CSA this week. Ry's Cafe — follow-up meeting tomorrow to finalize. Good Food — 2 weeks out. Recyclops — still waiting on loss runs with Brent. Empyrean Construction — removed from pipeline until Travis follows up; Carm wants to call him together and apply pressure.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">CNM Restoration — waiting on loss runs, sending for contingent proposal, meeting Friday. First Staffing — 4 locations, 135 temp staff + 30 FT internal. Just signed with competitor 6-7 months ago, not happy. Follow up in 3 months. Diamond Behavior — startup, kids behavioral health, just started hiring. Follow-up today.</div></div></div>
+
+<div class="nc n2"><div class="nh"><div class="nn">Jon Lightbody</div><div class="nb"><div class="ng">Referral Focus</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Rock Acquisitions — no new update, sale of company pickup but Tyler optimistic, not an issue of whether they'll come with Key HR. ROWA — Brandon got medical back Friday, reviewing this morning, looks great otherwise. FFLA — Julie wants to reconvene 4/1, fiscal year starts June. Carm: set standing meeting with Brandon to hold accountability. 1800-Got-Junk — still trying to figure out captive timing. SFLA — triple-digit days in pipeline. Carm directive: remove both from pipeline if no movement this week.</div></div>
+<div class="ns"><div class="nl">Referral Partners</div><div class="nt">Tammie McKenzie (PEO Brokers, TX) — careers crossed 20 years ago, loved Key HR flexibility on carve-outs, licensed agent. Tom Bonard (Archon PEO Advisors, NJ) — very receptive, formal meeting Friday, Carm invited. USI — visiting South Florida 3/5. Blue Water Financial (Joe Salazar) — met at Catalina Mixers networking (50-75 attendees/month). PPG — meeting Thursday with Carm and Jim for pricing; AI software pulling high-quality leads, wants one PEO per state, Florida likely Key HR. Sage Linsen (Pushgo) — former banker, started funding biz, local payroll referrals. Steve Schwartzman (Faison Group, Miami) — reconnected, initially said no, now talking to ownership, Jon visiting Thursday in S. Florida.</div></div>
+<div class="ns"><div class="nl">Large Opportunities (Alpha)</div><div class="nt">Behind the scenes, three large submissions coming soon through Alpha Business Solutions: restaurant chain in Hawaii (300 EEs), helicopter manufacturing company in LA (500 EEs), company in Oregon (50 EEs).</div></div></div>
+
+<div class="nc n3"><div class="nh"><div class="nn"></div><div class="nb"><div class="ng ooo">OOO</div></div></div><div class="ns"><div class="nt">Still out. Carm expecting update on return date today.</div></div></div>
+
+<div class="nc n5"><div class="nh"><div class="nn">Carter Rhoden (House)</div><div class="nb"><div class="ng">Key Updates</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Front Range Waste Management — CSA expected back this week, early March start. Curb Resource — Axis has contingent proposal. Rockster Z (Highline Security) — approved, proposal with broker. One Line Electric — approved, Brandon has proposal. SWC — April start, waiting on loss runs for approval. Green Line Botanicals — targeting 5/1 start. First Temps — sending to Brent. Moved a couple stalled deals out.</div></div></div>
+
+<div class="nc n6"><div class="nh"><div class="nn">Carmelite Souffront (Leadership)</div><div class="nb"><div class="ng">Key Directives</div></div></div>
+<div class="ns"><div class="nl">Team Changes</div><div class="nt">Jimmy Estrada moved to client services — will dabble in sales opportunistically when seeing clients. Brandon DeBenedet and Michael Matthews joining sales team with PEO experience. Still hiring in Tampa, Miami, and Orlando — interviewing candidate from Crum (Tampa), young lady in Miami, resumes in Orlando.</div></div>
+<div class="ns"><div class="nl">Sales Goals</div><div class="nt">Team is way behind on sales goal. Everyone except Jon is behind. All need to step up. Meet KPIs — if you get to Thursday without 4 IAs, call Carm for help. Get more creative in approach — will discuss in one-on-ones. Start with payroll only when possible as an easier entry, then upsell to PEO. Pricing has been challenging; payroll-only is more comparable.</div></div>
+<div class="ns"><div class="nl">Pipeline Hygiene</div><div class="nt">Deals sitting in pipeline for triple-digit days need to be removed if not truly moving. Pipeline should reflect reliable numbers for leadership review. Continue working stale deals offline but reactivate in pipeline only when ready to move.</div></div></div>
+
+</div>
+
+<div class="sc" style="border:1px solid rgba(124,92,252,.3)">
+<div class="st" style="font-size:20px">Meeting Notes <span class="bd">2/16/2026</span></div>
+<div style="font-size:12px;color:var(--muted);margin:-8px 0 18px">Weekly Sales Forecasting Meeting · 48 min · Attendees: Scott Hanson, Glen Lancaster, Carter Rhoden, Alicia Costoya, Courtney Sustr, Derand Walker, Jon Lightbody</div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Alicia Costoya</div><div class="nb"><div class="ng">4 IAs</div><div class="ng">1 RFP</div><div class="ng">1 Proposal</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Client holding off on onboarding — wife handling payroll until financially stable. Alicia agrees it's the right call to avoid chasing wires. Long-term prospect, will come on board eventually.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">EBC (proposal) — benefits broker formerly with ADP/Paychex, severed relationship. Meeting today to start processing 2 test clients. Will eventually bring 40-person internal payroll + put Key HR logo on their payroll solutions website. Also potential PEO referrals (currently using Rob Beck). Rex Subs — Jimmy John's franchisee. Inspire Foods — 7 locations. Toasted Yolk — 54 locations, franchisor interested in preferred PEO/payroll vendor. Pickleman's — 34 locations, currently ADP preferred vendor, renewal in July, willing to pivot.</div></div>
+<div class="ns"><div class="nl">Follow-ups</div><div class="nt">Maurice Gus (Firehouse Subs) confirmed coming on board, waiting on data for proposal. Other Firehouse locations targeting April 1st — overwhelmed with too many changes at once. Meeting EBC post-call today. Booked travel for tomorrow.</div></div></div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Courtney Sustr</div><div class="nb"><div class="ng">5 IAs</div><div class="ng">4 RFPs</div><div class="ng">4 Proposals</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Beard & Davis — broker (Rob, East Coast) deals, limited control on progress, not getting updates. Frustrated with limited visibility. Fitness Factory — expected Jan close, delayed due to major gym renovation (atriums, pools, saunas). Still in progress.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">So Napa — 4 individual locations, different EINs, 118 total employees for PEO. Currently using Toast, unhappy. Broker referral from chamber committee contact — sees this as very lucrative long-term relationship. Immediate start potential. B Italian (Carmen) — cold call, Orlando. Currently with Paychex, cleaning up mistakes, actively looking to switch. In-person discovery meeting Wednesday at noon. Also has a new business entity.</div></div>
+<div class="ns"><div class="nl">Action Items</div><div class="nt">Needs to update pipeline stages — deals stuck in RFP/IA stage, need to move to submitted. Connect with Carm after call to update pipeline. 4 proposals are all So Napa entities.</div></div></div>
+
+<div class="nc n4"><div class="nh"><div class="nn">Derand Walker</div><div class="nb"><div class="ng">5 IAs</div><div class="ng">1 RFP</div><div class="ng">1 Proposal</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Speranza Dental — presented last week, owner pushed back on pricing. Derand sent well-written response letter (commended by Carm). Waiting on follow-up. Rise Café — owner out with family emergency, follow-up appointment tomorrow. Empyrean Construction — removing from pipeline, been waiting on loss runs too long. Will re-add when they come back. Good Food — owner in lawsuit, wants to wait until resolved, appointment next month. Recyclops — Brent has this (broker referral), waiting on updated loss runs from owners.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">Solutions (staffing firm) — spoke with Justin (Dir of Business Operations), trying to set up follow-up with owner Patsy this week. Ladd McCall & Associates (CPA firm) — spoke with partner Kelly, 2 locations, 100+ EEs. Interested in referral partnership too, but tax season — follow up after. Creative Kids — cold call, doing proposal presentation tomorrow morning. Team Financial (CPA firm) — spoke with partner, meeting back this week. Express Employment (staffing franchise) — spoke with Sean, owner Jamie wasn't in, going back within next week. Visited two different locations.</div></div>
+<div class="ns"><div class="nl">Follow-ups</div><div class="nt">Tequila's — reached out to GM Hector, trying to get meeting with owner (Jose's son-in-law). Mexican Grill — large corporate, hour away, still trying to get appointment. Tony's — 10 locations, calling this week. Los Carolinas — calling this week. Did not log in-person visits on WAR sheet, will fix.</div></div></div>
+
+<div class="nc n3"><div class="nh"><div class="nn"></div><div class="nb"><div class="ng ooo">OOO</div></div></div>
+
+
+<div class="nc n2"><div class="nh"><div class="nn">Jon Lightbody</div><div class="nb"><div class="ng">2 IAs</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">FFLA — Jan 1 start delayed due to life insurance challenge (Brandon resolved). Owner wants April/Q2 start. Lyons (1-800-GOT-JUNK) — making headway getting into their captive, waiting on captive before joining. W/C carve-out. Rock Acquisitions — was supposed to go this month, pushed to beginning of next month. Still a sale — paperwork hiccup on ownership change. Carm saw Friday request, will follow up separately.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">Joe Salazar — financial advisor, met at Akars Thursday night, local guy working with smaller business owners. New to PEOs, building relationship. USI — going to Fort Lauderdale next week to meet local producers. Family Practice of Century — doctor's office with ADP, looking to switch, getting census for Brandon.</div></div>
+<div class="ns"><div class="nl">Notes</div><div class="nt">Cleaned up pipeline per Scott's recommendation — keeping only solid deals, removed less certain broker deals. Was PTO Monday. Planning Fort Lauderdale trip next week (staying overnight, Alicia may join for dinner).</div></div></div>
+
+
+
+<div class="nc n6"><div class="nh"><div class="nn">Carter Rhoden (House)</div><div class="nb"><div class="ng">Pipeline Update</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Healing Advanced Solutions — with Argen Bright, waiting on decision to move. SK Promotions — Eileen has CSA, expecting back this week. Sunprint — Brandon working on it, has CSA. JRCC — Argen Bright has CSA, owner slow moving, been open a few weeks. Sparrow Staffing — waiting on underwriting decision. Front Range Waste Management — addition to Accelerated Waste (Access Group), waiting on approval to send CSA. Fonco — Jason Miller working on it, no update. Limelight Electric — Brandon working, has proposal. SWC — another ALF, looking to start beginning of April.</div></div></div>
+
+<div class="nc n6"><div class="nh"><div class="nn">Scott Hanson (Leadership)</div><div class="nb"><div class="ng">Key Directives</div></div></div>
+<div class="ns"><div class="nl">PAYRO Product</div><div class="nt">Encouraged all reps to learn about PAYRO — payroll funding product at ~1.5 points (not a merchant lender at 40-60%). More people using it than expected. Morris's team easier to deal with than old alternatives. Especially useful for owners afraid of cash flow disruption. Will have Sales Ops send more info.</div></div>
+<div class="ns"><div class="nl">Activity Expectations</div><div class="nt">Working with Jim on close ratio calculator. Example: at 5% close ratio with $300K annual quota, need 23 IAs/week. Guideline: 4 qualified IAs should convert to 2 RFPs, which should yield ~0.5 deals/week (2/month). Will provide individualized close ratios from Salesforce. If high activity + low close rate → need to assess quality of IAs and approach.</div></div>
+<div class="ns"><div class="nl">Direct Message to Team</div><div class="nt">Sales has no hours, only a number. Cold calling is mandatory, no exceptions. Meet the number first, then have opinions. Early enough in the year to fix trajectory. Org will help identify issues, but activity levels must be met. Market is competitive with consolidation at the top — need to work harder than competition.</div></div>
+<div class="ns"><div class="nl">Action Items</div><div class="nt">Scott & Glen to discuss pipeline stages after call. Carm to discuss declines and lack of agency solutions (re: Intercoastal, H&H). Carm to create condensed RFP form (Jotform/AI) — quick link for email/text to capture bare minimum info and qualify leads faster. Alicia to send Nashville form as starting point.</div></div></div>
+
+
+</div>
+
+<div class="sc" style="border:1px solid var(--border);margin-top:24px">
+<div class="st" style="font-size:20px">Meeting Notes <span class="bd">2/9/2026</span></div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Alicia Costoya</div><div class="nb"><div class="ng">3.5 IAs</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Firehouse Subs — 30 locations, March start. Still working on Franchises.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">All IAs reconnecting with Firehouse Subs.</div></div>
+<div class="ns"><div class="nl">Follow-ups</div><div class="nt">Oliver's Nanny's sending RFP docs. Donut NV meeting today. World Schools franchise moving forward.</div></div></div>
+
+<div class="nc n1"><div class="nh"><div class="nn">Courtney Sustr</div><div class="nb"><div class="ng">2 IAs</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Fitness Factory delayed — construction, rehaul, major internal issue. Still interested. No broker deal updates.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">Village Inn franchise — Danny, 6 locations. Elite Staffing — in-person Orlando Friday.</div></div></div>
+
+<div class="nc n4"><div class="nh"><div class="nn">Derand Walker</div><div class="nb"><div class="ng">2 IAs</div><div class="ng">2 RFPs</div><div class="ng">2 Proposals</div></div></div>
+<div class="ns"><div class="nl">Pipeline</div><div class="nt">Speranza Dental proposal f/u tomorrow. Rise Café f/u 10am. Empyrean owner getting loss runs. Good Food — owner legal issue, reconnect next month. Recyclops to Brent — BOR requested.</div></div>
+<div class="ns"><div class="nl">IA Details</div><div class="nt">Melani's Mexican Grill — 10 locations, 300+ EEs, met GM. A&B Tequillas — met GM, scheduling owner.</div></div>
+<div class="ns"><div class="nl">Follow-ups</div><div class="nt">Tony's and Los Carolinas meetings.</div></div></div>
+
+<div class="nc n3"><div class="nh"><div class="nn"></div><div class="nb"><div class="ng ooo">OOO</div></div></div><div class="ns"><div class="nt">Out of office.</div></div></div>
+
+<div class="nc n2"><div class="nh"><div class="nn">Jon Lightbody</div><div class="nb"><div class="ng pto">PTO</div></div></div><div class="ns"><div class="nt">On PTO this week.</div></div></div>
+
+
+</div></div>
+</div>
+</div>
+
+<script>
+function T(n,e){document.querySelectorAll('.tc').forEach(t=>t.classList.remove('a'));document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById('tab-'+n).classList.add('a');e.classList.add('active');if(!window['_'+n]){window['_'+n]=1;window['I'+n]&&window['I'+n]();}}
+Chart.defaults.font.family="'Sora',sans-serif";Chart.defaults.font.size=11;Chart.defaults.color='#6b7085';Chart.defaults.plugins.legend.labels.usePointStyle=true;Chart.defaults.plugins.legend.labels.pointStyleWidth=10;Chart.defaults.plugins.legend.labels.padding=14;
+const G='rgba(0,0,0,.06)',F=v=>'$'+(v>=1e3?Math.round(v/1e3)+'K':v),R=['Costoya','Lightbody','Sustr','Walker','DeBenedet','Matthews','New Hire'];
+new Chart(document.getElementById('c1'),{type:'bar',data:{labels:R,datasets:[{label:'Jan',data:[79477,216060,0,0,0,0,0],backgroundColor:'#00d4aa',borderRadius:6,barPercentage:.55},{label:'Feb',data:[4992,0,0,0,0,0,0],backgroundColor:'#ffd43b',borderRadius:6,barPercentage:.55},{label:'Mar',data:[0,0,0,0,0,0,0],backgroundColor:'#ff6b6b',borderRadius:6,barPercentage:.55},{label:'Apr',data:[0,0,40279,1586,0,0,0],backgroundColor:'#7c5cfc',borderRadius:6,barPercentage:.55}]},options:{responsive:!0,maintainAspectRatio:!1,plugins:{legend:{position:'top'},tooltip:{callbacks:{label:c=>c.dataset.label+': $'+c.raw.toLocaleString()}}},scales:{y:{stacked:!0,beginAtZero:!0,grid:{color:G},ticks:{callback:F}},x:{stacked:!0,grid:{display:!1}}}}});
+new Chart(document.getElementById('c2'),{type:'bar',data:{labels:R,datasets:[{data:[28.2,72,16.1,0.8,0,0,0],backgroundColor:c=>c.raw>0?'#7c5cfc':'rgba(0,0,0,.04)',borderRadius:6,barPercentage:.45}]},options:{indexAxis:'y',responsive:!0,maintainAspectRatio:!1,plugins:{legend:{display:!1},tooltip:{callbacks:{label:c=>c.raw+'%'}}},scales:{x:{beginAtZero:!0,max:100,grid:{color:G},ticks:{callback:v=>v+'%'}},y:{grid:{display:!1}}}}});
+window.Ipipeline=()=>{new Chart(document.getElementById('c3'),{type:'bar',data:{labels:['Walker','DeBenedet','House','Sustr','Lightbody','Costoya','Matthews'],datasets:[{data:[158328,156490,63676,54205,50124,26208,21409],backgroundColor:['#4dabf7','#c084fc','#8b8fa3','#ffd43b','#7c5cfc','#00d4aa','#ff6b6b'],borderRadius:6,barPercentage:.45}]},options:{indexAxis:'y',responsive:!0,maintainAspectRatio:!1,plugins:{legend:{display:!1},tooltip:{callbacks:{label:c=>'$'+c.raw.toLocaleString()}}},scales:{x:{beginAtZero:!0,grid:{color:G},ticks:{callback:F}},y:{grid:{display:!1}}}}});};
+window.Iweekly=()=>{new Chart(document.getElementById('c4'),{type:'bar',data:{labels:R,datasets:[{label:'IAs',data:[3,4,4,5,0,0,0],backgroundColor:'#7c5cfc',borderRadius:3,barPercentage:.55,categoryPercentage:.75},{label:'RFPs',data:[0,3,3,1,0,0,0],backgroundColor:'#4dabf7',borderRadius:3,barPercentage:.55,categoryPercentage:.75},{label:'Proposals',data:[0,0,3,1,0,0,0],backgroundColor:'#ffd43b',borderRadius:3,barPercentage:.55,categoryPercentage:.75}]},options:{responsive:!0,maintainAspectRatio:!1,plugins:{legend:{position:'top'}},scales:{y:{stacked:!0,beginAtZero:!0,grid:{color:G},ticks:{stepSize:1}},x:{stacked:!0,grid:{display:!1}}}}});};
+
+</script>
+</body>
+</html>
