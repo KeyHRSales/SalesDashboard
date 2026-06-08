@@ -1219,7 +1219,7 @@
   <div class="top-stamp">
     <div><span class="live">LIVE DATA</span></div>
     <div>Reporting period <strong>YTD 2026</strong></div>
-    <div>Updated <strong>May 29, 2026</strong></div>
+    <div>Updated <strong>June 8, 2026</strong></div>
   </div>
 </div>
 
@@ -1243,14 +1243,14 @@
       <div class="delta">Producers $76.2K · House $34.5K · <strong>56.7% of $195K plan</strong></div>
     </div>
     <div class="kpi">
-      <div class="lbl">June Forecast</div>
-      <div class="num">$<span data-count="16859.60">0</span></div>
-      <div class="delta">House $16.9K · 2 deals · <strong>8.0% of $211.5K plan</strong></div>
+      <div class="lbl">June MTD</div>
+      <div class="num">$<span data-count="18590">0</span></div>
+      <div class="delta">House Green Edge ran 6/4 · Pipeline $1.3K · <strong>9.4% of $211.5K plan</strong></div>
     </div>
     <div class="kpi">
       <div class="lbl">July Forecast</div>
-      <div class="num">$<span data-count="11895">0</span></div>
-      <div class="delta">Michael's Acme CO · 1 deal · <strong>5.6% of $211.5K plan</strong></div>
+      <div class="num">$<span data-count="40653.93">0</span></div>
+      <div class="delta">2 deals · WCG-POINTEOB $28.8K · Acme CO $11.9K · <strong>19.2% of plan</strong></div>
     </div>
     <div class="kpi">
       <div class="lbl">Attainment Leader</div>
@@ -1266,7 +1266,7 @@
   <button class="tab" data-panel="forecast">Forecast Trend</button>
   <button class="tab" data-panel="pipeline">Pipeline <span class="badge">10</span></button>
   <button class="tab" data-panel="weekly">Weekly Snapshot</button>
-  <button class="tab" data-panel="submissions">Underwriting <span class="badge">3</span></button>
+  <button class="tab" data-panel="submissions">Underwriting <span class="badge">6</span></button>
   <button class="tab" data-panel="benefits">Benefits <span class="badge soon">Soon</span></button>
 </div>
 
@@ -1300,6 +1300,7 @@
             <th class="num-col">Mar</th>
             <th class="num-col">Apr</th>
             <th class="num-col">May</th>
+            <th class="num-col">Jun</th>
             <th class="num-col">YTD Ran</th>
             <th class="num-col">% Annual</th>
           </tr>
@@ -1313,6 +1314,7 @@
             <td class="num-col" id="perf-tot-mar">0</td>
             <td class="num-col" id="perf-tot-apr">0</td>
             <td class="num-col" id="perf-tot-may">0</td>
+            <td class="num-col" id="perf-tot-jun">0</td>
             <td class="num-col" id="perf-tot-ytd">0</td>
             <td class="num-col" id="perf-tot-pct">0%</td>
           </tr>
@@ -1324,7 +1326,7 @@
 <section class="panel" id="panel-forecast">
   <div class="card">
     <h3>April → May → June → July trend</h3>
-    <div class="sub">April &amp; May final · June &amp; July forecast · House split out</div>
+    <div class="sub">April &amp; May final · June MTD through 6/5 · July forecast · House split out</div>
     <div class="chart-wrap tall"><canvas id="forecastChart"></canvas></div>
   </div>
 
@@ -1346,14 +1348,14 @@
 <section class="panel" id="panel-pipeline">
   <div class="card">
     <h3>2026 active pipeline detail</h3>
-    <div class="sub">11 deals · $139.4K admin fees · 267 employees · $6.72M GAP · 8 running (May Final) + 2 June + 1 July</div>
+    <div class="sub">12 deals · $171.2K admin fees · 298 employees · $8.21M GAP · 8 running (May Final) + 2 June (1 running) + 2 July</div>
     <div class="filter-row" id="pipeline-filters">
       <button class="pill active" data-filter="all">All deals</button>
       <button class="pill" data-filter="Running">Running</button>
-      <button class="pill" data-filter="Handoff to Payroll">Handoff</button>
       <button class="pill" data-filter="Ran 1st Payroll">Ran 1st Payroll</button>
-      <button class="pill" data-filter="Implementation">Implementation</button>
+      <button class="pill" data-filter="CSA Received / Implementation">CSA Received</button>
       <button class="pill" data-filter="CSA Sent">CSA Sent</button>
+      <button class="pill" data-filter="Waiting on Loss Runs">Waiting on Loss Runs</button>
     </div>
     <div class="table-wrap">
       <table id="pipelineTable">
@@ -1433,14 +1435,14 @@
 <!-- PANEL: WEEKLY -->
 <section class="panel" id="panel-weekly">
   <div class="card">
-    <h3>Weekly performance snapshot <span class="acc">·</span> May 26 – May 29</h3>
-    <div class="sub">Activity metrics across the producer team · short week (Memorial Day)</div>
+    <h3>Weekly performance snapshot <span class="acc">·</span> June 1 – June 5</h3>
+    <div class="sub">Activity metrics across the producer team · first week of June</div>
 
     <div class="snapshot-grid">
       <div class="snap-card"><div class="v">20</div><div class="l">IA Completed</div></div>
-      <div class="snap-card"><div class="v">3</div><div class="l">RFPs</div></div>
-      <div class="snap-card"><div class="v">2</div><div class="l">Proposals Sent</div></div>
-      <div class="snap-card"><div class="v">0</div><div class="l">Closed Won</div></div>
+      <div class="snap-card"><div class="v">6</div><div class="l">RFPs</div></div>
+      <div class="snap-card"><div class="v">3</div><div class="l">Proposals Sent</div></div>
+      <div class="snap-card hero"><div class="v">1</div><div class="l">Closed Won</div></div>
       <div class="snap-card hero"><div class="v">1</div><div class="l">New Start</div></div>
     </div>
 
@@ -1474,10 +1476,10 @@
     <div style="margin-top: 22px; padding: 18px; background: var(--gray-50); border-radius: 12px; border-left: 3px solid var(--red);">
       <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 8px;">Highlights</div>
       <ul style="list-style: none; font-size: 13px; color: var(--gray-900); line-height: 1.9;">
-        <li>→ <strong>2 proposals sent</strong> — Derand and the House</li>
-        <li>→ <strong>3 total submissions</strong> across the team</li>
-        <li>→ <strong>0 closed deals</strong> this week</li>
-        <li>→ <strong>1 new start</strong> — congrats to the House (Halifax Landing Owners Association, $2,236 admin / 2 EE)</li>
+        <li>→ <strong>3 proposals sent</strong> — all by the House</li>
+        <li>→ <strong>6 total submissions</strong> across the team</li>
+        <li>→ <strong>1 closed deal</strong> — congrats to the House</li>
+        <li>→ <strong>1 new start</strong> — Green Edge Landscaping &amp; Design LLC ran first payroll 6/4 ($18,590 admin / 11 EE)</li>
       </ul>
     </div>
 
@@ -1495,8 +1497,8 @@
 <section class="panel" id="panel-submissions">
   <div class="grid-2">
     <div class="card">
-      <h3>May Week 5 submissions <span class="acc">·</span> 3 in queue</h3>
-      <div class="sub">Status &amp; broker disposition · received 5/26 – 5/29</div>
+      <h3>June Week 1 submissions <span class="acc">·</span> 6 in queue</h3>
+      <div class="sub">Status &amp; broker disposition · received 5/31 – 6/4</div>
       <div id="submission-list" style="display: flex; flex-direction: column; gap: 10px;"></div>
     </div>
     <div class="card">
@@ -1504,9 +1506,9 @@
       <div class="sub">Declined · Contingent · Proposal sent</div>
       <div class="chart-wrap"><canvas id="dispoChart"></canvas></div>
       <div style="margin-top: 16px; font-size: 12px; color: var(--gray-700); line-height: 1.7;">
-        <strong>Decline themes:</strong> no market for roofing contractors (1) — Premier Contractors via CarolinaPEO/Brandon.
-        <strong>Active proposal:</strong> DXH Services LLC — WC Carve Out proposal sent to owner.
-        <strong>Pending broker response:</strong> Paradise Concepts contingent proposal sent to Derand 5/29.
+        <strong>Decline themes:</strong> height exposure (Talbot Painting), fireworks/USL&amp;H exposure (North Florida Pyrotechnics), Key Risk rate competitiveness (Ergonomic Comfort), and 3-year prior coverage requirement (2LaborPower).
+        <strong>Active proposals:</strong> Reliable Construction Unlimited approved by Key Risk — premium sent to Nick.
+        <strong>Pending:</strong> Li-Mar Painting awaiting AmWins (Key Risk approved but not at target).
       </div>
     </div>
   </div>
@@ -1552,7 +1554,7 @@ const producers = [
   { name: 'Michael Matthews',  title: 'Director',                         loc: 'Tampa',         plan: 300000, ytd: 0,         type: 'producer' },
   { name: 'Mark Barnes',       title: 'Sr. Business Development Manager', loc: 'Missouri',      plan: 300000, ytd: 0,         type: 'producer' },
   { name: 'Joe Todaro',        title: 'Sr. Business Development Manager', loc: 'New York',      plan: 300000, ytd: 0,         type: 'producer' },
-  { name: 'House',             title: 'House book',                       loc: 'Centralized',   plan: 0,      ytd: 64783.87,  type: 'house' }
+  { name: 'House',             title: 'House book',                       loc: 'Centralized',   plan: 0,      ytd: 83373.87,  type: 'house' }
 ];
 
 const totalYTD = producers.reduce((s, p) => s + p.ytd, 0);
@@ -1572,40 +1574,44 @@ const aprilData = [
 
 // May pipeline
 const pipeline = [
-  // Running book (May Final - all 8 deals running/handed off)
-  { owner: 'Alicia Costoya',  account: 'S&S Subs et al (12 related entities)',     stage: 'Handoff to Payroll',            fees: 69888.00, gap: 3142993.88, ee: 168, prob: 100, payDate: '5/8/2026',  next: 'Running',                source: 'Self-generated',             type: 'WC Carve-out' },
-  { owner: 'House',           account: 'SWC North Naples OpCo LLC',                 stage: 'Handoff to Payroll',            fees: 25609.93, gap: 1219520.15, ee: 46,  prob: 100, payDate: '5/8/2026',  next: 'Running',                source: 'M3HRO',                      type: 'PEO' },
+  // May Final running book - all 8 deals running
+  { owner: 'Alicia Costoya',  account: 'S&S Subs et al (12 related entities)',     stage: 'Running',                       fees: 69888.00, gap: 3142993.88, ee: 168, prob: 100, payDate: '5/8/2026',  next: 'Recurring payroll',      source: 'Self-generated',             type: 'WC Carve-out' },
+  { owner: 'House',           account: 'SWC North Naples OpCo LLC',                 stage: 'Running',                       fees: 25609.93, gap: 1219520.15, ee: 46,  prob: 100, payDate: '5/8/2026',  next: 'Recurring payroll',      source: 'M3HRO',                      type: 'PEO' },
   { owner: 'Derand Walker',   account: 'Employee Management Solutions Inc.',        stage: 'Running',                       fees: 3515.00,  gap: 305620.00,  ee: 4,   prob: 100, payDate: '5/8/2026',  next: 'Recurring payroll',      source: 'Self-generated',             type: 'PEO' },
-  { owner: 'House',           account: 'Oceans Six Condominium Association, Inc.',  stage: 'Handoff to Payroll',            fees: 2945.00,  gap: 117643.76,  ee: 3,   prob: 100, payDate: '5/1/2026',  next: 'Running',                source: 'Argenbright HR',             type: 'PEO' },
+  { owner: 'House',           account: 'Oceans Six Condominium Association, Inc.',  stage: 'Running',                       fees: 2945.00,  gap: 117643.76,  ee: 3,   prob: 100, payDate: '5/1/2026',  next: 'Recurring payroll',      source: 'Argenbright HR',             type: 'PEO' },
   { owner: 'Courtney Sustr',  account: 'Diofamcibo LLC dba Pizza Time',             stage: 'Running',                       fees: 2783.56,  gap: 139207.12,  ee: 9,   prob: 100, payDate: '5/14/2026', next: 'Recurring payroll',      source: 'Synergy Employer Consulting', type: 'PEO' },
   { owner: 'House',           account: 'A2 Ventures, LLC dba Junk Shot Hampton Roads', stage: 'Running',                    fees: 1321.32,  gap: 36858.64,   ee: 3,   prob: 100, payDate: '5/15/2026', next: 'Recurring payroll',      source: 'Axis Group',                 type: 'PEO' },
   { owner: 'House',           account: 'GP US Construction LLC',                    stage: 'Running',                       fees: 2345.00,  gap: 93800.00,   ee: 2,   prob: 100, payDate: '5/15/2026', next: 'Recurring payroll',      source: 'BBIMI / Enwage Insurance',   type: 'PEO' },
-  { owner: 'House',           account: 'Halifax Landing Owners Association, Inc.',  stage: 'Ran 1st Payroll',               fees: 2236.00,  gap: 89440.00,   ee: 2,   prob: 100, payDate: '5/29/2026', next: 'Run 2nd Payroll',        source: 'Argenbright HR',             type: 'PEO' },
-  // June Forecast - 2 deals
-  { owner: 'House',           account: 'Green Edge Landscaping and Design LLC',     stage: 'Implementation',                fees: 15537.50, gap: 565000.00,  ee: 12,  prob: 100, payDate: '6/4/2026',  next: 'Run 1st Payroll',        source: 'Jimmy Estrada',              type: 'PEO' },
-  { owner: 'House',           account: 'One PPD Inc dba Junk Shot of Jacksonville', stage: 'CSA Sent',                      fees: 1322.10,  gap: 100000.00,  ee: 3,   prob: 85,  payDate: '6/26/2026', next: 'CSA Received/Implementation', source: 'Axis Group',              type: 'PEO' },
-  // July Forecast - 1 deal
-  { owner: 'Michael Matthews',account: 'Acme CO Manufacturing Inc.',                stage: 'CSA Sent',                      fees: 11895.00, gap: 914898.00,  ee: 15,  prob: 85,  payDate: '7/3/2026',  next: 'CSA Received/Implementation', source: 'Self-generated',          type: 'PEO' }
+  { owner: 'House',           account: 'Halifax Landing Owners Association, Inc.',  stage: 'Running',                       fees: 2236.00,  gap: 89440.00,   ee: 2,   prob: 100, payDate: '5/29/2026', next: 'Recurring payroll',      source: 'Argenbright HR',             type: 'PEO' },
+  // June - Green Edge ran first payroll, One PPD still pending
+  { owner: 'House',           account: 'Green Edge Landscaping and Design LLC',     stage: 'Ran 1st Payroll',               fees: 18590.00, gap: 676000.00,  ee: 11,  prob: 100, payDate: '6/4/2026',  next: 'Run 2nd Payroll',        source: 'Jimmy Estrada',              type: 'PEO' },
+  { owner: 'House',           account: 'One PPD Inc dba Junk Shot of Jacksonville', stage: 'CSA Received / Implementation', fees: 1322.10,  gap: 100000.00,  ee: 3,   prob: 85,  payDate: '6/26/2026', next: 'Implementation',         source: 'Axis Group',                 type: 'PEO' },
+  // July Forecast - 2 deals
+  { owner: 'Michael Matthews',account: 'Acme CO Manufacturing Inc.',                stage: 'CSA Sent',                      fees: 11895.00, gap: 914898.00,  ee: 15,  prob: 85,  payDate: '7/3/2026',  next: 'CSA Received/Implementation', source: 'Self-generated',          type: 'PEO' },
+  { owner: 'House',           account: 'WCG-POINTEOB-FL LLC dba The Pointe at Ocean Boulevard', stage: 'Waiting on Loss Runs', fees: 28758.93, gap: 1369473.00, ee: 32,  prob: 90,  payDate: '7/10/2026', next: 'CSA Received/Implementation', source: 'Agnes location addition', type: 'PEO' }
 ];
 
 // Weekly snapshot
 const weekly = [
   { rep: 'Alicia Costoya',    ia: 3, rfp: 0, prop: 0, won: 0 },
-  { rep: 'Brandon DeBenedet', ia: 6, rfp: 1, prop: 0, won: 0 },
-  { rep: 'Courtney Sustr',    ia: 3, rfp: 0, prop: 0, won: 0 },
-  { rep: 'Derand Walker',     ia: 3, rfp: 1, prop: 1, won: 0 },
-  { rep: 'Jon Lightbody',     ia: 3, rfp: 0, prop: 0, won: 0 },
-  { rep: 'Joe Todaro',        ia: 1, rfp: 0, prop: 0, won: 0 },
+  { rep: 'Brandon DeBenedet', ia: 4, rfp: 0, prop: 0, won: 0 },
+  { rep: 'Courtney Sustr',    ia: 4, rfp: 1, prop: 0, won: 0 },
+  { rep: 'Derand Walker',     ia: 3, rfp: 0, prop: 0, won: 0 },
+  { rep: 'Jon Lightbody',     ia: 2, rfp: 1, prop: 0, won: 0 },
+  { rep: 'Joe Todaro',        ia: 0, rfp: 0, prop: 0, won: 0 },
   { rep: 'Mark Barnes',       ia: 0, rfp: 0, prop: 0, won: 0 },
   { rep: 'Michael Matthews',  ia: 0, rfp: 0, prop: 0, won: 0 },
-  { rep: 'House',             ia: 1, rfp: 1, prop: 1, won: 0 }
+  { rep: 'House',             ia: 4, rfp: 4, prop: 3, won: 1 }
 ];
 
 // Submissions
 const submissions = [
-  { name: 'DXH Services LLC',          type: 'WC Carve Out', received: '5/26 8:20 AM',  sentBy: 'No broker / Carter',     status: 'Proposal Sent',   dispo: 'proposal',   notes: 'WC CO proposal sent to the owner 5/27 pm' },
-  { name: 'Premier Contractors, Inc.', type: 'PEO',          received: '5/27 3:22 PM',  sentBy: 'CarolinaPEO / Brandon',  status: 'Declined',        dispo: 'declined',   notes: 'Decline: no market for roofing contractors — sent to Brandon 5/27 pm' },
-  { name: 'Paradise Concepts Inc.',    type: 'PEO',          received: '5/29 8:34 AM',  sentBy: 'No Broker / Derand',     status: 'Contingent sent', dispo: 'contingent', notes: 'Contingent proposal sent to Derand 5/29 am' }
+  { name: 'Reliable Construction Unlimited, Inc.',                       type: 'PEO',             received: '5/31 4:49 PM',  sentBy: 'PEO Exchange / House',           status: 'Approved, Proposal Sent', dispo: 'proposal',   notes: 'Key Risk approved 6/4 · premium sent to Nick 6/4 am — broker asked if it is viable as Key Risk came in high' },
+  { name: 'Ergonomic Comfort Design, Inc.',                              type: 'PEO',             received: '5/31 4:49 PM',  sentBy: 'PEO Exchange / House',           status: 'Proposal Sent, Dead',     dispo: 'declined',   notes: 'AmWins approved · Key Risk declined (rates not competitive to target premium) · not close to target sent to Nick 6/2 pm' },
+  { name: 'Talbot Painting, Inc.',                                       type: 'PEO',             received: '6/1 11:59 AM',  sentBy: 'Foundation PEO / Courtney',      status: 'Declined',                dispo: 'declined',   notes: 'Decline: height exposure — sent to Courtney 6/2 am' },
+  { name: 'Island Outdoor Management Inc dba North Florida Pyrotechnics',type: 'PEO',             received: '6/2 3:37 PM',   sentBy: 'Comp Insurance Solutions / House',status: 'Declined',                dispo: 'declined',   notes: 'Decline: fireworks &amp; USL&amp;H exposure — sent to Linda 6/3 pm' },
+  { name: '2LaborPower, Inc.',                                           type: 'EOR / Frontline', received: '6/3 10:20 AM',  sentBy: 'Alpha Business Solutions / Jon', status: 'Declined, Submitted',     dispo: 'declined',   notes: 'AmWins decline: need 3 years of prior coverage · info requested from Jon 6/3 pm — sent to Shane 6/4 pm' },
+  { name: 'Li-Mar Painting and Design',                                  type: 'PEO',             received: '6/4 3:15 PM',   sentBy: 'PEO Exchange / House',           status: 'Submitted, Info Requested',dispo: 'info',      notes: 'Key Risk approved (not close to target) · getting AmWins questions answered as they have more competitive rates · info requested from Nick 6/5 am' }
 ];
 
 // ============== HELPERS ==============
@@ -1723,10 +1729,10 @@ new Chart(document.getElementById('bookedChart'), {
 new Chart(document.getElementById('forecastChart'), {
   type: 'bar',
   data: {
-    labels: ['April Final','May Final','June Forecast','July Forecast'],
+    labels: ['April Final','May Final','June MTD (6/5)','July Forecast'],
     datasets: [
-      { label: 'Producers', data: [41865.72, 76186.56, 0, 11895],   backgroundColor: '#E03127', borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 },
-      { label: 'House',     data: [1044.00, 34457.25, 16859.60, 0], backgroundColor: '#0A0A0A', borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 },
+      { label: 'Producers', data: [41865.72, 76186.56, 0, 11895],     backgroundColor: '#E03127', borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 },
+      { label: 'House',     data: [1044.00, 34457.25, 18590, 28758.93], backgroundColor: '#0A0A0A', borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 },
       { label: 'Monthly plan', data: [120000, 195000, 211500, 211500], type: 'line', borderColor: '#8A8A8A', borderDash: [6,4], pointRadius: 0, borderWidth: 2, fill: false, tension: 0 }
     ]
   },
@@ -1803,6 +1809,7 @@ function stageClass(s) {
   if (s === 'Ran 1st Payroll') return 'stage-1stpay';
   if (s === 'Ran 2nd Payroll') return 'stage-running';
   if (s === 'Handoff to Payroll') return 'stage-running';
+  if (s === 'Waiting on Loss Runs') return 'stage-submitted';
   return 'stage-default';
 }
 function renderPipeline(filter='all') {
@@ -1865,9 +1872,49 @@ new Chart(document.getElementById('weeklyChart'), {
 // Set "open: true" on the most recent week to default-expand it.
 const meetingNotes = [
   {
-    weekLabel: 'Week of May 26 – May 29, 2026',
+    weekLabel: 'Week of June 1 – June 5, 2026',
     weekTag: 'Current',
     open: true,
+    summary: 'Activity summary · first week of June',
+    reps: [
+      {
+        name: 'Team summary',
+        items: [
+          "<strong>Activity:</strong> 20 IAs, 6 RFPs, 3 proposals sent, 1 closed deal, and 1 new start.",
+          "<strong>House dominated</strong> the production side this week with 4 IAs, 4 RFPs, 3 proposals sent, and the only closed deal.",
+          "<strong>New start:</strong> Green Edge Landscaping &amp; Design LLC ran first payroll 6/4 — <strong>$18,590 admin / 11 EE / $676K GAP</strong> (revised up from forecast). Jimmy Estrada referral.",
+          "<strong>Producer IAs:</strong> Brandon 4, Courtney 4, Alicia 3, Derand 3, Jon 2. Joe / Mark / Michael at 0 IAs this week."
+        ]
+      },
+      {
+        name: 'May 2026 final &amp; YTD recap',
+        items: [
+          "<strong>May Final closed at $110,643.81</strong> — 56.7% of $195K plan.",
+          "<strong>YTD now $501,955</strong> against the $2.2M annual plan — <strong>22.8%</strong> of plan.",
+          "<strong>Producer YTD:</strong> $418,581 (18.6% of $2.25M producer plan). Jon leads at 72.0%, Alicia second at 51.5%, Courtney 17.2%, Derand 2.6%.",
+          "<strong>House YTD:</strong> $83,374 across 10 closed deals year-to-date."
+        ]
+      },
+      {
+        name: 'June &amp; July pipeline highlights',
+        items: [
+          "<strong>June so far:</strong> $18,590 actuals (Green Edge) · $1,322 forecast (One PPD Junk Shot Jacksonville, first pay 6/26).",
+          "<strong>July outlook stepped up:</strong> $40,654 forecast — Michael's Acme CO ($11,895 / 15 EE) plus a new <strong>House deal at $28,759</strong>: WCG-POINTEOB-FL LLC dba The Pointe at Ocean Boulevard, 32 EE, $1.37M GAP, 90% prob, first pay 7/10 (awaiting updated loss runs).",
+          "<strong>Underwriting volume picked up:</strong> 6 submissions this week, headlined by Reliable Construction Unlimited (Key Risk approved, premium sent to Nick)."
+        ]
+      },
+      {
+        name: 'Notes',
+        items: [
+          "<em>Detailed sales meeting transcript will be added here when available.</em>"
+        ]
+      }
+    ]
+  },
+  {
+    weekLabel: 'Week of May 26 – May 29, 2026',
+    weekTag: 'Archived',
+    open: false,
     summary: 'Activity summary · short Memorial Day week',
     reps: [
       {
@@ -2195,14 +2242,14 @@ renderActivityTable();
 // Monthly bookings by rep (admin fees)
 // To update each month, edit the "monthly" objects below.
 const performanceData = [
-  { rep: 'Alicia Costoya',    annual: 300000, monthly: { jan: 79477, feb: 4992,  mar: 0,    apr: 0,        may: 69888    } },
-  { rep: 'Jon Lightbody',     annual: 300000, monthly: { jan: 216060, feb: 0,    mar: 0,    apr: 0,        may: 0        } },
-  { rep: 'Courtney Sustr',    annual: 250000, monthly: { jan: 0,     feb: 0,    mar: 0,    apr: 40279.72, may: 2783.56  } },
-  { rep: 'Derand Walker',     annual: 200000, monthly: { jan: 0,     feb: 0,    mar: 0,    apr: 1586,     may: 3515     } },
-  { rep: 'Brandon DeBenedet', annual: 300000, monthly: { jan: null,  feb: null, mar: 0,    apr: 0,        may: 0        } },
-  { rep: 'Michael Matthews',  annual: 300000, monthly: { jan: null,  feb: null, mar: 0,    apr: 0,        may: 0        } },
-  { rep: 'Mark Barnes',       annual: 300000, monthly: { jan: null,  feb: null, mar: null, apr: 0,        may: 0        } },
-  { rep: 'Joe Todaro',        annual: 300000, monthly: { jan: null,  feb: null, mar: null, apr: 0,        may: 0        } }
+  { rep: 'Alicia Costoya',    annual: 300000, monthly: { jan: 79477, feb: 4992,  mar: 0,    apr: 0,        may: 69888,   jun: 0 } },
+  { rep: 'Jon Lightbody',     annual: 300000, monthly: { jan: 216060, feb: 0,    mar: 0,    apr: 0,        may: 0,       jun: 0 } },
+  { rep: 'Courtney Sustr',    annual: 250000, monthly: { jan: 0,     feb: 0,    mar: 0,    apr: 40279.72, may: 2783.56, jun: 0 } },
+  { rep: 'Derand Walker',     annual: 200000, monthly: { jan: 0,     feb: 0,    mar: 0,    apr: 1586,     may: 3515,    jun: 0 } },
+  { rep: 'Brandon DeBenedet', annual: 300000, monthly: { jan: null,  feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0 } },
+  { rep: 'Michael Matthews',  annual: 300000, monthly: { jan: null,  feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0 } },
+  { rep: 'Mark Barnes',       annual: 300000, monthly: { jan: null,  feb: null, mar: null, apr: 0,        may: 0,       jun: 0 } },
+  { rep: 'Joe Todaro',        annual: 300000, monthly: { jan: null,  feb: null, mar: null, apr: 0,        may: 0,       jun: 0 } }
 ];
 
 function renderPerfTable() {
@@ -2215,8 +2262,8 @@ function renderPerfTable() {
   };
 
   tbody.innerHTML = performanceData.map(p => {
-    const ytd = ['jan','feb','mar','apr','may'].reduce((s, m) => s + (p.monthly[m] || 0), 0);
-    const hasAnyData = ['jan','feb','mar','apr','may'].some(m => p.monthly[m] !== null && p.monthly[m] !== undefined);
+    const ytd = ['jan','feb','mar','apr','may','jun'].reduce((s, m) => s + (p.monthly[m] || 0), 0);
+    const hasAnyData = ['jan','feb','mar','apr','may','jun'].some(m => p.monthly[m] !== null && p.monthly[m] !== undefined);
     const pct = p.annual ? ytd / p.annual : 0;
     let pctClass = 'pct-cell';
     let pctText;
@@ -2241,6 +2288,7 @@ function renderPerfTable() {
         ${monthCell(p.monthly.mar)}
         ${monthCell(p.monthly.apr)}
         ${monthCell(p.monthly.may)}
+        ${monthCell(p.monthly.jun)}
         <td class="num-col ytd-val">${fmtMoney(ytd)}</td>
         <td class="num-col ${pctClass}">${pctText}</td>
       </tr>`;
@@ -2254,7 +2302,8 @@ function renderPerfTable() {
   const totMar = sumMonth('mar');
   const totApr = sumMonth('apr');
   const totMay = sumMonth('may');
-  const totYtd = totJan + totFeb + totMar + totApr + totMay;
+  const totJun = sumMonth('jun');
+  const totYtd = totJan + totFeb + totMar + totApr + totMay + totJun;
   const totPct = totAnnual ? (totYtd / totAnnual * 100).toFixed(1) + '%' : '0.0%';
 
   document.getElementById('perf-tot-jan').textContent = fmtMoney(totJan);
@@ -2262,6 +2311,7 @@ function renderPerfTable() {
   document.getElementById('perf-tot-mar').textContent = fmtMoney(totMar);
   document.getElementById('perf-tot-apr').textContent = fmtMoney(totApr);
   document.getElementById('perf-tot-may').textContent = fmtMoney(totMay);
+  document.getElementById('perf-tot-jun').textContent = fmtMoney(totJun);
   document.getElementById('perf-tot-ytd').textContent = fmtMoney(totYtd);
   document.getElementById('perf-tot-pct').textContent = totPct;
 }
@@ -2357,14 +2407,16 @@ const variancesData = [
   {
     month: 'July 2026',
     entries: [
+      { kind: 'added',    account: 'WCG-POINTEOB-FL LLC dba The Pointe at Ocean Boulevard',    owner: 'House',            note: 'New deal — Agnes location addition, 32 EE, $1.37M GAP, 90% prob, awaiting updated loss runs',    amount: '+$28,759 admin' },
       { kind: 'added',    account: 'Acme CO Manufacturing Inc.',                   owner: 'Michael Matthews', note: 'New deal — CSA Sent, first pay 7/3, 15 EE (Self-generated)',                                            amount: '+$11,895 admin' }
     ]
   },
   {
     month: 'June 2026',
     entries: [
-      { kind: 'added',    account: 'Green Edge Landscaping and Design LLC',       owner: 'House',            note: 'Moved to Implementation — first pay 6/4, 12 EE (Jimmy Estrada referral)',                            amount: '+$15,538 admin' },
-      { kind: 'added',    account: 'One PPD Inc dba Junk Shot of Jacksonville',   owner: 'House',            note: 'New deal — CSA Sent, first pay 6/26, 3 EE, 85% prob (Axis Group)',                                 amount: '+$1,322 admin' }
+      { kind: 'added',    account: 'Green Edge Landscaping and Design LLC',       owner: 'House',            note: 'Ran 1st payroll 6/4 — Closed Won (Jimmy Estrada referral)',                                          amount: '+$18,590 admin' },
+      { kind: 'increase', account: 'Green Edge Landscaping and Design LLC',       owner: 'House',            note: 'Admin revised UP $15,538 → $18,590; GAP $565K → $676K (EE 12 → 11 at first payroll)',               amount: '+$3,052 admin' },
+      { kind: 'stage',    account: 'One PPD Inc dba Junk Shot of Jacksonville',   owner: 'House',            note: 'CSA Sent → CSA Received/Implementation, first pay 6/26, 85% prob',                                amount: '$1,322 admin' }
     ]
   },
   {
