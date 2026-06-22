@@ -1219,7 +1219,7 @@
   <div class="top-stamp">
     <div><span class="live">LIVE DATA</span></div>
     <div>Reporting period <strong>YTD 2026</strong></div>
-    <div>Updated <strong>June 15, 2026</strong></div>
+    <div>Updated <strong>June 22, 2026</strong></div>
   </div>
 </div>
 
@@ -1244,13 +1244,13 @@
     </div>
     <div class="kpi">
       <div class="lbl">June MTD</div>
-      <div class="num">$<span data-count="19470.88">0</span></div>
-      <div class="delta">House Green Edge + One PPD ran · $8K open (Ninja MX) · <strong>9.2% of $211.5K plan</strong></div>
+      <div class="num">$<span data-count="25658.88">0</span></div>
+      <div class="delta">House: Green Edge + One PPD + Ninja MX all running · <strong>12.1% of $211.5K plan</strong></div>
     </div>
     <div class="kpi">
       <div class="lbl">July Forecast</div>
       <div class="num">$<span data-count="49103.93">0</span></div>
-      <div class="delta">3 deals · WCG-POINTEOB $28.8K · Acme CO $11.9K · Restoration Geeks $8.5K · <strong>23.2% of plan</strong></div>
+      <div class="delta">3 deals · Restoration Geeks pulled in to 7/3 · <strong>23.2% of plan</strong></div>
     </div>
     <div class="kpi">
       <div class="lbl">Attainment Leader</div>
@@ -1326,7 +1326,7 @@
 <section class="panel" id="panel-forecast">
   <div class="card">
     <h3>April → May → June → July trend</h3>
-    <div class="sub">April &amp; May final · June MTD through 6/12 · July forecast · House split out</div>
+    <div class="sub">April &amp; May final · June MTD through 6/18 · July forecast · House split out</div>
     <div class="chart-wrap tall"><canvas id="forecastChart"></canvas></div>
   </div>
 
@@ -1348,7 +1348,7 @@
 <section class="panel" id="panel-pipeline">
   <div class="card">
     <h3>2026 active pipeline detail</h3>
-    <div class="sub">14 deals · $187.2K admin fees · 319 employees · $9.59M GAP · 8 May running + 2 June running + 1 June open + 3 July open</div>
+    <div class="sub">14 deals · $185.4K admin fees · 311 employees · $9.78M GAP · 11 running (May + June) + 3 July active</div>
     <div class="filter-row" id="pipeline-filters">
       <button class="pill active" data-filter="all">All deals</button>
       <button class="pill" data-filter="Running">Running</button>
@@ -1436,14 +1436,14 @@
 <!-- PANEL: WEEKLY -->
 <section class="panel" id="panel-weekly">
   <div class="card">
-    <h3>Weekly performance snapshot <span class="acc">·</span> June 8 – June 12</h3>
-    <div class="sub">Activity metrics across the producer team</div>
+    <h3>Weekly performance snapshot <span class="acc">·</span> June 15 – June 18</h3>
+    <div class="sub">Activity metrics across the producer team · short week</div>
 
     <div class="snapshot-grid">
-      <div class="snap-card"><div class="v">12</div><div class="l">IA Completed</div></div>
-      <div class="snap-card"><div class="v">6</div><div class="l">RFPs</div></div>
-      <div class="snap-card"><div class="v">1</div><div class="l">Proposal Sent</div></div>
-      <div class="snap-card hero"><div class="v">1</div><div class="l">Closed Won</div></div>
+      <div class="snap-card"><div class="v">10</div><div class="l">IA Completed</div></div>
+      <div class="snap-card"><div class="v">5</div><div class="l">RFPs</div></div>
+      <div class="snap-card"><div class="v">4</div><div class="l">Proposals Sent</div></div>
+      <div class="snap-card hero"><div class="v">2</div><div class="l">Closed Won</div></div>
       <div class="snap-card hero"><div class="v">1</div><div class="l">New Start</div></div>
     </div>
 
@@ -1477,10 +1477,10 @@
     <div style="margin-top: 22px; padding: 18px; background: var(--gray-50); border-radius: 12px; border-left: 3px solid var(--red);">
       <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 8px;">Highlights</div>
       <ul style="list-style: none; font-size: 13px; color: var(--gray-900); line-height: 1.9;">
-        <li>→ <strong>1 proposal sent</strong> — Jon</li>
-        <li>→ <strong>6 total submissions</strong> across the team</li>
-        <li>→ <strong>1 closed deal</strong> — congrats to the House</li>
-        <li>→ <strong>1 new start</strong> — One PPD Inc dba Junk Shot of Jacksonville ($880.88 admin / 2 EE · Accelerated Waste franchise)</li>
+        <li>→ <strong>4 proposals sent</strong> — Courtney leading with 2</li>
+        <li>→ <strong>5 total submissions</strong> across the team</li>
+        <li>→ <strong>2 closed deals</strong> — congrats to Michael and the House</li>
+        <li>→ <strong>1 new start</strong> — House Ninja MX LLC ran first payroll 6/18 ($6,188 admin / 7 EE · Dickinson Corp referral)</li>
       </ul>
     </div>
 
@@ -1555,7 +1555,7 @@ const producers = [
   { name: 'Michael Matthews',  title: 'Director',                         loc: 'Tampa',         plan: 300000, ytd: 0,         type: 'producer' },
   { name: 'Mark Barnes',       title: 'Sr. Business Development Manager', loc: 'Missouri',      plan: 300000, ytd: 0,         type: 'producer' },
   { name: 'Joe Todaro',        title: 'Sr. Business Development Manager', loc: 'New York',      plan: 300000, ytd: 0,         type: 'producer' },
-  { name: 'House',             title: 'House book',                       loc: 'Centralized',   plan: 0,      ytd: 84254.75,  type: 'house' }
+  { name: 'House',             title: 'House book',                       loc: 'Centralized',   plan: 0,      ytd: 90442.75,  type: 'house' }
 ];
 
 const totalYTD = producers.reduce((s, p) => s + p.ytd, 0);
@@ -1584,27 +1584,27 @@ const pipeline = [
   { owner: 'House',           account: 'A2 Ventures, LLC dba Junk Shot Hampton Roads', stage: 'Running',                    fees: 1321.32,  gap: 36858.64,   ee: 3,   prob: 100, payDate: '5/15/2026', next: 'Recurring payroll',      source: 'Axis Group',                 type: 'PEO' },
   { owner: 'House',           account: 'GP US Construction LLC',                    stage: 'Running',                       fees: 2345.00,  gap: 93800.00,   ee: 2,   prob: 100, payDate: '5/15/2026', next: 'Recurring payroll',      source: 'BBIMI / Enwage Insurance',   type: 'PEO' },
   { owner: 'House',           account: 'Halifax Landing Owners Association, Inc.',  stage: 'Running',                       fees: 2236.00,  gap: 89440.00,   ee: 2,   prob: 100, payDate: '5/29/2026', next: 'Recurring payroll',      source: 'Argenbright HR',             type: 'PEO' },
-  // June - Green Edge (Ran 2nd) + One PPD (Ran 1st, revised down) + Ninja MX (new, Implementation)
-  { owner: 'House',           account: 'Green Edge Landscaping and Design LLC',     stage: 'Ran 2nd Payroll',               fees: 18590.00, gap: 676000.00,  ee: 11,  prob: 100, payDate: '6/4/2026',  next: 'Handoff to Payroll',     source: 'Jimmy Estrada',              type: 'PEO' },
-  { owner: 'House',           account: 'One PPD Inc dba Junk Shot of Jacksonville', stage: 'Ran 1st Payroll',               fees: 880.88,   gap: 74308.00,   ee: 2,   prob: 100, payDate: '6/10/2026', next: 'Run 2nd Payroll',        source: 'Axis Group',                 type: 'PEO' },
-  { owner: 'House',           account: 'Ninja MX LLC',                              stage: 'Implementation',                fees: 7956.00,  gap: 600000.00,  ee: 9,   prob: 100, payDate: '6/19/2026', next: 'Run 1st Payroll',        source: 'Dickinson Corp',             type: 'PEO' },
-  // July Forecast - 3 deals
-  { owner: 'Michael Matthews',account: 'Acme CO Manufacturing Inc.',                stage: 'CSA Sent',                      fees: 11895.00, gap: 914898.00,  ee: 15,  prob: 85,  payDate: '7/3/2026',  next: 'CSA Received/Implementation', source: 'Self-generated',          type: 'PEO' },
-  { owner: 'House',           account: 'WCG-POINTEOB-FL LLC dba The Pointe at Ocean Boulevard', stage: 'Waiting on Loss Runs', fees: 28758.93, gap: 1369473.00, ee: 32,  prob: 90,  payDate: '7/10/2026', next: 'CSA Received/Implementation', source: 'Agnes location addition', type: 'PEO' },
-  { owner: 'House',           account: 'Restoration Geeks Corp',                    stage: 'CSA Sent',                      fees: 8450.00,  gap: 811313.99,  ee: 13,  prob: 85,  payDate: '7/10/2026', next: 'CSA Received/Implementation', source: 'Kingdom Benefit Group',   type: 'WC Carve-Out' }
+  // June - all 3 running
+  { owner: 'House',           account: 'Green Edge Landscaping and Design LLC',     stage: 'Running',                       fees: 18590.00, gap: 676000.00,  ee: 11,  prob: 100, payDate: '6/4/2026',  next: 'Recurring payroll',      source: 'Jimmy Estrada',              type: 'PEO' },
+  { owner: 'House',           account: 'One PPD Inc dba Junk Shot of Jacksonville', stage: 'Ran 2nd Payroll',               fees: 880.88,   gap: 74308.00,   ee: 2,   prob: 100, payDate: '6/10/2026', next: 'Handoff to Payroll',     source: 'Axis Group',                 type: 'PEO' },
+  { owner: 'House',           account: 'Ninja MX LLC',                              stage: 'Ran 1st Payroll',               fees: 6188.00,  gap: 786514.82,  ee: 7,   prob: 100, payDate: '6/18/2026', next: 'Run 2nd Payroll',        source: 'Dickinson Corp',             type: 'PEO' },
+  // July Forecast - 3 deals (all advanced)
+  { owner: 'Michael Matthews',account: 'Acme CO Manufacturing Inc.',                stage: 'CSA Received / Implementation', fees: 11895.00, gap: 914898.00,  ee: 9,   prob: 100, payDate: '7/17/2026', next: 'Implementation',         source: 'Self-generated',             type: 'PEO' },
+  { owner: 'House',           account: 'WCG-POINTEOB-FL LLC dba The Pointe at Ocean Boulevard', stage: 'Waiting on Loss Runs', fees: 28758.93, gap: 1369473.00, ee: 32,  prob: 90,  payDate: '7/17/2026', next: 'CSA Received/Implementation', source: 'Agnes location addition', type: 'PEO' },
+  { owner: 'House',           account: 'Restoration Geeks Corp',                    stage: 'Implementation',                fees: 8450.00,  gap: 811313.99,  ee: 13,  prob: 100, payDate: '7/3/2026',  next: 'Run 1st Payroll',        source: 'Kingdom Benefit Group',      type: 'WC Carve-Out' }
 ];
 
 // Weekly snapshot
 const weekly = [
-  { rep: 'Alicia Costoya',    ia: 4, rfp: 0, prop: 0, won: 0 },
+  { rep: 'Alicia Costoya',    ia: 2, rfp: 1, prop: 1, won: 0 },
   { rep: 'Brandon DeBenedet', ia: 0, rfp: 0, prop: 0, won: 0 },
-  { rep: 'Courtney Sustr',    ia: 0, rfp: 0, prop: 0, won: 0 },
-  { rep: 'Derand Walker',     ia: 3, rfp: 1, prop: 0, won: 0 },
-  { rep: 'Jon Lightbody',     ia: 2, rfp: 2, prop: 1, won: 0 },
+  { rep: 'Courtney Sustr',    ia: 2, rfp: 2, prop: 2, won: 0 },
+  { rep: 'Derand Walker',     ia: 0, rfp: 0, prop: 0, won: 0 },
+  { rep: 'Jon Lightbody',     ia: 3, rfp: 0, prop: 0, won: 0 },
   { rep: 'Joe Todaro',        ia: 0, rfp: 0, prop: 0, won: 0 },
-  { rep: 'Mark Barnes',       ia: 0, rfp: 0, prop: 0, won: 0 },
-  { rep: 'Michael Matthews',  ia: 0, rfp: 0, prop: 0, won: 0 },
-  { rep: 'House',             ia: 3, rfp: 3, prop: 0, won: 1 }
+  { rep: 'Mark Barnes',       ia: 1, rfp: 0, prop: 0, won: 0 },
+  { rep: 'Michael Matthews',  ia: 0, rfp: 0, prop: 0, won: 1 },
+  { rep: 'House',             ia: 2, rfp: 2, prop: 1, won: 1 }
 ];
 
 // Submissions
@@ -1732,10 +1732,10 @@ new Chart(document.getElementById('bookedChart'), {
 new Chart(document.getElementById('forecastChart'), {
   type: 'bar',
   data: {
-    labels: ['April Final','May Final','June MTD (6/12)','July Forecast'],
+    labels: ['April Final','May Final','June MTD (6/18)','July Forecast'],
     datasets: [
       { label: 'Producers', data: [41865.72, 76186.56, 0, 11895],     backgroundColor: '#E03127', borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 },
-      { label: 'House',     data: [1044.00, 34457.25, 19470.88, 37208.93], backgroundColor: '#0A0A0A', borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 },
+      { label: 'House',     data: [1044.00, 34457.25, 25658.88, 37208.93], backgroundColor: '#0A0A0A', borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 },
       { label: 'Monthly plan', data: [120000, 195000, 211500, 211500], type: 'line', borderColor: '#8A8A8A', borderDash: [6,4], pointRadius: 0, borderWidth: 2, fill: false, tension: 0 }
     ]
   },
@@ -1875,9 +1875,74 @@ new Chart(document.getElementById('weeklyChart'), {
 // Set "open: true" on the most recent week to default-expand it.
 const meetingNotes = [
   {
-    weekLabel: 'Week of June 8 – June 12, 2026',
+    weekLabel: 'Week of June 15 – June 18, 2026',
     weekTag: 'Current',
     open: true,
+    summary: 'Producer pipeline updates · 5 reps reporting + strategic mandates',
+    reps: [
+      {
+        name: 'Executive summary',
+        items: [
+          "<strong>Strategic pivot:</strong> Team increasingly leveraging <strong>ASO contracts</strong> when full PEO is blocked by personal guarantees or tax history — successfully converting previously &quot;lost&quot; opportunities.",
+          "<strong>Operational efficiency:</strong> Moving to a ticketed system in Salesforce. All client issues must route through Salesforce Cases for 24-hour SLA tracking and management visibility. Direct department outreach restricted to payment emergencies only.",
+          "<strong>New tools:</strong> Cheat sheet introduced for collecting required tax documentation (RT3, 941s)."
+        ]
+      },
+      {
+        name: 'Alicia Costoya',
+        items: [
+          "<strong>Buffalo Boss:</strong> Hesitant due to history. Presenting to Jody this week.",
+          "<strong>Bibi University:</strong> Waiting on occupancy certificate.",
+          "<strong>Firehouse Subs:</strong> Signing expected at the upcoming reunion.",
+          "<strong>Baskin:</strong> Proposal pending this week."
+        ]
+      },
+      {
+        name: 'Carter Rhoden (House)',
+        items: [
+          "<strong>Fresh Factory:</strong> Approved \u2014 awaiting final rates.",
+          "<strong>Densmore Steel:</strong> Proposal in progress; working with broker contact &quot;Barb.&quot;"
+        ]
+      },
+      {
+        name: 'Courtney Sustr',
+        items: [
+          "<strong>Certified Boom Repair:</strong> Remains in long-term process.",
+          "<strong>Talbot Painting:</strong> <span style='color: var(--red);'>Marked as a loss</span> (height exposure decline).",
+          "<strong>Witherspoon Enterprise:</strong> <span style='color: #1F6F3D; font-weight: 600;'>NEW prospect</span> \u2014 21 EE."
+        ]
+      },
+      {
+        name: 'Derand Walker',
+        items: [
+          "<strong>Eugene's Hot Chicken:</strong> Follow-up pending.",
+          "<strong>Paradise Concept:</strong> Waiting on probate.",
+          "<strong>First Environmental:</strong> <span style='color: #B45309;'>Paused for 2 months</span> due to open claims.",
+          "<strong>Lane / EMT:</strong> Following up on carve-out feasibility."
+        ]
+      },
+      {
+        name: 'Michael Matthews',
+        items: [
+          "<strong>Acme CO:</strong> Closing in on tax information for the current ASO deal \u2014 advanced from CSA Sent → CSA Received/Collecting Info this week; probability 85% → 100%, first pay pushed 7/3 → 7/17.",
+          "<strong>ASO playbook:</strong> Emphasized shifting stubborn PEO prospects to ASO contracts using the <strong>1.3% pricing model</strong>."
+        ]
+      },
+      {
+        name: 'Action items',
+        items: [
+          "<strong>Salesforce hygiene:</strong> All reps must update pipeline status, employee counts, admin fees, and estimated start dates immediately.",
+          "<strong>Marketing campaigns:</strong> Reps to pull weekly lists of <strong>300\u2013500 prospects</strong> via Seamless.ai (e.g., HVAC or Attorneys by region) and submit to Carmelite for template-based email blasts.",
+          "<strong>Technical training:</strong> Carmelite ran an ad-hoc Seamless.ai training for Mark, Derand, and Joseph \u2014 navigating the tool, creating custom lists, and exporting filtered CSVs.",
+          "<strong>Compliance:</strong> All client issues route through Salesforce Cases. Direct department outreach restricted to payment emergencies only."
+        ]
+      }
+    ]
+  },
+  {
+    weekLabel: 'Week of June 8 – June 12, 2026',
+    weekTag: 'Archived',
+    open: false,
     summary: 'Producer pipeline updates · 5 reps reporting',
     reps: [
       {
@@ -2464,29 +2529,32 @@ const variancesData = [
   {
     month: 'Q3 2026 (45-day outlook)',
     entries: [
-      { kind: 'added',    account: "ELJ Investments dba Freddy's Custards and Steak Burgers", owner: 'Alicia Costoya',   note: 'Major new account — ~100 lives, new brand footprint. Onboarding expected within 45 days; doc collection and pricing begin today.', amount: '~100 lives' },
+      { kind: 'added',    account: "ELJ Investments dba Freddy's Custards and Steak Burgers", owner: 'Alicia Costoya',   note: 'Major new account — ~100 lives, new brand footprint. Onboarding within 45 days; doc collection and pricing in progress.', amount: '~100 lives' },
+      { kind: 'added',    account: 'Witherspoon Enterprise',                         owner: 'Courtney Sustr',  note: 'New prospect — 21 EE',                                                                                amount: '+21 EE' },
       { kind: 'removed',  account: 'Latin American Subs',                            owner: 'Alicia Costoya',   note: 'Removed by Carmelite — 600+ days in pipeline, no realistic 90-day close. Pushed to year-end / next year due to PR travel.', amount: '−$100,000 admin' },
-      { kind: 'removed',  account: 'EMG Elite Enterprise LLC',                       owner: 'Alicia Costoya',   note: 'Likely being removed — unresolved tax and employee non-payment issues; client requested loss runs to exit.', amount: '−$5,408 admin' },
-      { kind: 'removed',  account: '2LaborPower, Inc. (Two Labor)',                  owner: 'Jon Lightbody',    note: 'Formally removed — 1099-heavy account, risk not writable by Frontline.', amount: '—' }
+      { kind: 'removed',  account: 'EMG Elite Enterprise LLC',                       owner: 'Alicia Costoya',   note: 'Removed — unresolved tax and employee non-payment issues; client requested loss runs to exit.', amount: '−$5,408 admin' },
+      { kind: 'removed',  account: '2LaborPower, Inc. (Two Labor)',                  owner: 'Jon Lightbody',    note: 'Formally removed — 1099-heavy account, risk not writable by Frontline.', amount: '—' },
+      { kind: 'removed',  account: 'Talbot Painting',                                owner: 'Courtney Sustr',   note: 'Marked as a loss (height exposure decline confirmed earlier in June)', amount: '—' },
+      { kind: 'stage',    account: 'First Environmental Nationwide Inc',             owner: 'Derand Walker',    note: 'Paused for 2 months due to open claims', amount: 'On hold' }
     ]
   },
   {
     month: 'July 2026',
     entries: [
-      { kind: 'added',    account: 'Restoration Geeks Corp',                       owner: 'House',            note: 'New July deal — moved from "Proposal to Producer" → CSA Sent; first pay 7/10, 13 EE, 85% prob (Kingdom Benefit Group, WC Carve-Out)', amount: '+$8,450 admin' },
-      { kind: 'decrease', account: 'Restoration Geeks Corp',                       owner: 'House',            note: 'Admin revised down from 90-day forecast $10,816 → $8,450 at CSA',                                amount: '−$2,366 admin' },
-      { kind: 'added',    account: 'WCG-POINTEOB-FL LLC dba The Pointe at Ocean Boulevard',    owner: 'House',  note: 'Carried into July forecast — Agnes location addition, 32 EE, 90% prob, awaiting updated loss runs',    amount: '$28,759 admin' },
-      { kind: 'added',    account: 'Acme CO Manufacturing Inc.',                   owner: 'Michael Matthews', note: 'Carried into July forecast — CSA Sent, first pay 7/3, 15 EE',                                       amount: '$11,895 admin' }
+      { kind: 'stage',    account: 'Restoration Geeks Corp',                         owner: 'House',            note: 'Stage advanced: CSA Sent → Implementation; probability 85% → 100%; first pay PULLED IN 7/10 → 7/3', amount: '$8,450 admin' },
+      { kind: 'stage',    account: 'Acme CO Manufacturing Inc.',                     owner: 'Michael Matthews', note: 'Stage advanced: CSA Sent → CSA Received/Collecting Info; probability 85% → 100%; first pay pushed 7/3 → 7/17', amount: '$11,895 admin' },
+      { kind: 'decrease', account: 'Acme CO Manufacturing Inc.',                     owner: 'Michael Matthews', note: 'EE revised down from 15 → 9 at CSA receipt',                                                          amount: '−6 EE' },
+      { kind: 'stage',    account: 'WCG-POINTEOB-FL LLC dba The Pointe at Ocean Boulevard', owner: 'House',     note: 'First pay pushed back 7/10 → 7/17; still awaiting updated loss runs',                                amount: '$28,759 admin' }
     ]
   },
   {
     month: 'June 2026',
     entries: [
-      { kind: 'added',    account: 'One PPD Inc dba Junk Shot of Jacksonville',   owner: 'House',            note: 'Ran 1st payroll 6/10 — Closed Won (Axis Group referral)',                                              amount: '+$880.88 admin' },
-      { kind: 'decrease', account: 'One PPD Inc dba Junk Shot of Jacksonville',   owner: 'House',            note: 'Admin revised DOWN from $1,322 → $881 (forecast 3 EE → actual 2 EE; GAP $100K → $74,308)',           amount: '−$441 admin' },
-      { kind: 'added',    account: 'Ninja MX LLC',                                 owner: 'House',            note: 'New deal — Implementation, first pay 6/19, 9 EE, $600K GAP, 100% prob (Dickinson Corp referral)',     amount: '+$7,956 admin' },
-      { kind: 'stage',    account: 'Green Edge Landscaping and Design LLC',       owner: 'House',            note: 'Ran 2nd payroll — handed off to payroll',                                                              amount: '$18,590 admin' },
-      { kind: 'increase', account: 'Green Edge Landscaping and Design LLC',       owner: 'House',            note: 'Admin revised UP $15,538 → $18,590; GAP $565K → $676K (1st payroll)',                                amount: '+$3,052 admin' }
+      { kind: 'added',    account: 'Ninja MX LLC',                                   owner: 'House',            note: 'Ran 1st payroll 6/18 — House closed-won, third June new start (Dickinson Corp referral)',         amount: '+$6,188 admin' },
+      { kind: 'decrease', account: 'Ninja MX LLC',                                   owner: 'House',            note: 'Admin revised DOWN $7,956 → $6,188 at first payroll; EE 9 → 7',                                       amount: '−$1,768 admin · −2 EE' },
+      { kind: 'increase', account: 'Ninja MX LLC',                                   owner: 'House',            note: 'GAP revised UP $600K → $786,515 at first payroll',                                                   amount: '+$186K GAP' },
+      { kind: 'stage',    account: 'One PPD Inc dba Junk Shot of Jacksonville',     owner: 'House',            note: 'Ran 2nd payroll — handed off to payroll',                                                            amount: '$881 admin' },
+      { kind: 'stage',    account: 'Green Edge Landscaping and Design LLC',         owner: 'House',            note: 'Status: Running (fully recurring)',                                                                  amount: '$18,590 admin' }
     ]
   },
   {
