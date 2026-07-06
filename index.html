@@ -1219,7 +1219,7 @@
   <div class="top-stamp">
     <div><span class="live">LIVE DATA</span></div>
     <div>Reporting period <strong>YTD 2026</strong></div>
-    <div>Updated <strong>June 29, 2026</strong></div>
+    <div>Updated <strong>July 6, 2026</strong></div>
   </div>
 </div>
 
@@ -1243,19 +1243,19 @@
       <div class="delta">Producers $76.2K · House $34.5K · <strong>56.7% of $195K plan</strong></div>
     </div>
     <div class="kpi">
-      <div class="lbl">June MTD</div>
+      <div class="lbl">June Final</div>
       <div class="num">$<span data-count="25658.88">0</span></div>
-      <div class="delta">3 House deals running · no new closes this week · <strong>12.1% of $211.5K plan</strong></div>
+      <div class="delta">House only · Green Edge + One PPD + Ninja MX · <strong>12.1% of $211.5K plan</strong></div>
     </div>
     <div class="kpi">
       <div class="lbl">July Forecast</div>
-      <div class="num">$<span data-count="49103.93">0</span></div>
-      <div class="delta">3 deals · Restoration Geeks (7/3) · Acme CO &amp; WCG-POINTEOB (7/17) · <strong>23.2% of plan</strong></div>
+      <div class="num">$<span data-count="20345">0</span></div>
+      <div class="delta">2 deals · Acme CO (ASO conversion) + Restoration Geeks · <strong>9.6% of $211.5K plan</strong></div>
     </div>
     <div class="kpi">
       <div class="lbl">Attainment Leader</div>
       <div class="num">Lightbody</div>
-      <div class="delta">$216,060 booked · <strong>72.0%</strong> · Alicia 51.5% · 33 wins YTD</div>
+      <div class="delta">$216,060 booked · <strong>72.0%</strong> · Alicia 51.5% · Team restructured this week</div>
     </div>
   </div>
 </section>
@@ -1266,7 +1266,7 @@
   <button class="tab" data-panel="forecast">Forecast Trend</button>
   <button class="tab" data-panel="pipeline">Pipeline <span class="badge">10</span></button>
   <button class="tab" data-panel="weekly">Weekly Snapshot</button>
-  <button class="tab" data-panel="submissions">Underwriting <span class="badge">13</span></button>
+  <button class="tab" data-panel="submissions">Underwriting <span class="badge">2</span></button>
   <button class="tab" data-panel="benefits">Benefits <span class="badge soon">Soon</span></button>
 </div>
 
@@ -1326,14 +1326,14 @@
 <section class="panel" id="panel-forecast">
   <div class="card">
     <h3>April → May → June → July trend</h3>
-    <div class="sub">April &amp; May final · June MTD through 6/18 · July forecast · House split out</div>
+    <div class="sub">April · May · June final · July forecast · House split out</div>
     <div class="chart-wrap tall"><canvas id="forecastChart"></canvas></div>
   </div>
 
   <div class="grid-2" style="margin-top: 20px;">
     <div class="card">
       <h3>May plan vs Final</h3>
-      <div class="sub">$195K monthly plan · <strong>56.7%</strong> final attainment</div>
+      <div class="sub">$195K monthly plan · <strong>56.7%</strong> final attainment · historical (pre-restructure)</div>
       <div class="chart-wrap"><canvas id="aprilChart"></canvas></div>
     </div>
     <div class="card">
@@ -1348,15 +1348,13 @@
 <section class="panel" id="panel-pipeline">
   <div class="card">
     <h3>2026 active pipeline detail</h3>
-    <div class="sub">14 deals · $185.4K admin fees · 311 employees · $9.78M GAP · 11 running (May + June) + 3 July active</div>
+    <div class="sub">13 deals · $156.6K admin fees · 279 employees · $8.41M GAP · 11 running (May + June) + 2 July active (WCG-POINTEOB pushed out of forecast)</div>
     <div class="filter-row" id="pipeline-filters">
       <button class="pill active" data-filter="all">All deals</button>
       <button class="pill" data-filter="Running">Running</button>
       <button class="pill" data-filter="Ran 2nd Payroll">Ran 2nd Payroll</button>
       <button class="pill" data-filter="Ran 1st Payroll">Ran 1st Payroll</button>
       <button class="pill" data-filter="Implementation">Implementation</button>
-      <button class="pill" data-filter="CSA Sent">CSA Sent</button>
-      <button class="pill" data-filter="Waiting on Loss Runs">Waiting on Loss Runs</button>
     </div>
     <div class="table-wrap">
       <table id="pipelineTable">
@@ -1383,7 +1381,7 @@
     <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; margin-bottom: 4px;">
       <div>
         <h3 style="margin: 0;">Next 90 days <span class="acc">·</span> closing pipeline</h3>
-        <div class="sub" style="margin-top: 4px;">Opportunities estimated to close 6/29 – 9/23 · refreshed 6/29 · pipeline concentrated in Alicia (11 deals) &amp; Jon (8 mostly stagnant)</div>
+        <div class="sub" style="margin-top: 4px;">Opportunities estimated to close 6/29 – 9/23 · refreshed 6/29 · Courtney's 3 deals need reassignment following termination</div>
       </div>
       <div class="var-summary" id="ninety-day-summary"></div>
     </div>
@@ -1394,7 +1392,7 @@
       <button class="pill" data-filter="Brandon DeBenedet">Brandon</button>
       <button class="pill" data-filter="Carmelite Souffront">Carmelite</button>
       <button class="pill" data-filter="Carter Rhoden">Carter (House)</button>
-      <button class="pill" data-filter="Courtney Sustr">Courtney</button>
+      <button class="pill" data-filter="Courtney Sustr (TERMINATED)">Courtney (Termed)</button>
       <button class="pill" data-filter="Derand Walker">Derand</button>
       <button class="pill" data-filter="Jon Lightbody">Jon</button>
     </div>
@@ -1437,12 +1435,12 @@
 <section class="panel" id="panel-weekly">
   <div class="card">
     <h3>Weekly performance snapshot <span class="acc">·</span> June 22 – June 26</h3>
-    <div class="sub">Activity metrics across the producer team · high activity, no closes</div>
+    <div class="sub">Last recorded activity · this week's meeting canceled</div>
 
     <div class="snapshot-grid">
-      <div class="snap-card"><div class="v">20</div><div class="l">IA Completed</div></div>
-      <div class="snap-card"><div class="v">13</div><div class="l">RFPs</div></div>
-      <div class="snap-card"><div class="v">9</div><div class="l">Proposals Sent</div></div>
+      <div class="snap-card"><div class="v">19</div><div class="l">IA Completed</div></div>
+      <div class="snap-card"><div class="v">12</div><div class="l">RFPs</div></div>
+      <div class="snap-card"><div class="v">8</div><div class="l">Proposals Sent</div></div>
       <div class="snap-card"><div class="v">0</div><div class="l">Closed Won</div></div>
       <div class="snap-card"><div class="v">0</div><div class="l">New Starts</div></div>
     </div>
@@ -1477,10 +1475,10 @@
     <div style="margin-top: 22px; padding: 18px; background: var(--gray-50); border-radius: 12px; border-left: 3px solid var(--red);">
       <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 8px;">Highlights</div>
       <ul style="list-style: none; font-size: 13px; color: var(--gray-900); line-height: 1.9;">
-        <li>→ <strong>9 proposals sent</strong> — Alicia leading with 6 (5 HOUTX + ELJ Investments)</li>
-        <li>→ <strong>13 total submissions</strong> across the team — highest volume in weeks</li>
+        <li>→ <strong>8 proposals sent</strong> — Alicia leading with 6 (5 HOUTX + ELJ Investments)</li>
+        <li>→ <strong>12 total submissions</strong> across the team</li>
         <li>→ <strong>0 closed deals</strong> · <strong>0 new starts</strong> this week</li>
-        <li>→ <strong>KPI targets per rep (weekly):</strong> 4 IAs, 2 Proposals, 0.5 Signed Deals. Team hit 56% IAs / 50% proposals / 0% closes.</li>
+        <li>→ <strong>KPI targets per rep (weekly):</strong> 4 IAs, 2 Proposals, 0.5 Signed Deals.</li>
       </ul>
     </div>
 
@@ -1498,8 +1496,8 @@
 <section class="panel" id="panel-submissions">
   <div class="grid-2">
     <div class="card">
-      <h3>June Week 4 submissions <span class="acc">·</span> 13 in queue</h3>
-      <div class="sub">Status &amp; broker disposition · received 6/19 – 6/26 · highest volume week of June</div>
+      <h3>July Week 1 submissions <span class="acc">·</span> 2 in queue</h3>
+      <div class="sub">Status &amp; broker disposition · received 6/29 – 6/30 · quiet week (holiday-adjacent)</div>
       <div id="submission-list" style="display: flex; flex-direction: column; gap: 10px;"></div>
     </div>
     <div class="card">
@@ -1507,9 +1505,8 @@
       <div class="sub">Declined · Contingent · Proposal sent</div>
       <div class="chart-wrap"><canvas id="dispoChart"></canvas></div>
       <div style="margin-top: 16px; font-size: 12px; color: var(--gray-700); line-height: 1.7;">
-        <strong>Big week — 13 submissions, 8 contingent proposals out.</strong> Alicia's 5 HOUTX entities + ELJ Investments (Freddy's, $52K / 150 EE) headline. Brandon contributed 2 (Flycast info-requested, V-1 contingent). Mark's Mortgage NEKS contingent sent.
-        <strong>Decline:</strong> MDX Global lost (premium ~2x target).
-        <strong>Critical note:</strong> Underwriting denials this month spiked to <strong>65 (#1 reason for lost business)</strong> — new pre-qualification risk checklist now mandatory before any RFP.
+        <strong>Active proposal:</strong> Ajulia Executive Team LLC (Jon / BestFit PEO) — contingent proposal sent 6/30 following staffing supplemental / client list info request.
+        <strong>Decline:</strong> YCK Contracting Corp (Derand / ARC Consultants) — NY general contractor, uninsured subs fall under our policy per NY state law.
       </div>
     </div>
   </div>
@@ -1547,30 +1544,29 @@ const ANNUAL_PLAN = 2200000;
 
 const producers = [
   // Producer, Title, Location, Annual Plan, YTD Booked, Color
-  { name: 'Alicia Costoya',    title: 'Sr. Business Development Manager', loc: 'Miami',         plan: 300000, ytd: 154356.80, type: 'producer' },
-  { name: 'Jon Lightbody',     title: 'Strategic Partnerships Manager',   loc: 'Space Coast',   plan: 300000, ytd: 216060.00, type: 'producer' },
-  { name: 'Courtney Sustr',    title: 'Sr. Business Development Manager', loc: 'Tampa',         plan: 250000, ytd: 43063.28,  type: 'producer' },
-  { name: 'Derand Walker',     title: 'Sr. Business Development Manager', loc: 'NC / ATL',      plan: 200000, ytd: 5101.00,   type: 'producer' },
-  { name: 'Brandon DeBenedet', title: 'Director',                         loc: 'Tampa',         plan: 300000, ytd: 0,         type: 'producer' },
-  { name: 'Michael Matthews',  title: 'Director',                         loc: 'Tampa',         plan: 300000, ytd: 0,         type: 'producer' },
-  { name: 'Mark Barnes',       title: 'Sr. Business Development Manager', loc: 'Missouri',      plan: 300000, ytd: 0,         type: 'producer' },
-  { name: 'Joe Todaro',        title: 'Sr. Business Development Manager', loc: 'New York',      plan: 300000, ytd: 0,         type: 'producer' },
-  { name: 'House',             title: 'House book',                       loc: 'Centralized',   plan: 0,      ytd: 90442.75,  type: 'house' }
+  { name: 'Alicia Costoya',           title: 'Sr. Business Development Manager', loc: 'Miami',         plan: 300000, ytd: 154356.80, type: 'producer' },
+  { name: 'Jon Lightbody',            title: 'Strategic Partnerships Manager',   loc: 'Space Coast',   plan: 300000, ytd: 216060.00, type: 'producer' },
+  { name: 'Derand Walker',            title: 'Sr. Business Development Manager', loc: 'NC / ATL',      plan: 200000, ytd: 5101.00,   type: 'producer' },
+  { name: 'Brandon DeBenedet',        title: 'Director',                         loc: 'Tampa',         plan: 300000, ytd: 0,         type: 'producer' },
+  { name: 'Michael Matthews',         title: 'Director',                         loc: 'Tampa',         plan: 300000, ytd: 0,         type: 'producer' },
+  { name: 'Joe Todaro',               title: 'Sr. Business Development Manager', loc: 'New York',      plan: 300000, ytd: 0,         type: 'producer' },
+  { name: 'Open',                     title: 'Unfilled headcount',               loc: 'TBH',           plan: 300000, ytd: 0,         type: 'producer' },
+  { name: 'Courtney Sustr (TERMINATED)', title: 'Sr. Business Development Manager', loc: 'Tampa',      plan: 150000, ytd: 43063.28,  type: 'producer' },
+  { name: 'House',                    title: 'House book',                       loc: 'Centralized',   plan: 0,      ytd: 90442.75,  type: 'house' }
 ];
 
 const totalYTD = producers.reduce((s, p) => s + p.ytd, 0);
 
 // May Final
 const aprilData = [
-  { name: 'Alicia Costoya',    plan: 18000, actual: 69888 },
-  { name: 'Jon Lightbody',     plan: 18000, actual: 0 },
-  { name: 'Courtney Sustr',    plan: 15000, actual: 2783.56 },
-  { name: 'Derand Walker',     plan: 12000, actual: 3515 },
-  { name: 'Brandon DeBenedet', plan: 28500, actual: 0 },
-  { name: 'Michael Matthews',  plan: 28500, actual: 0 },
-  { name: 'Mark Barnes',       plan: 37500, actual: 0 },
-  { name: 'Joe Todaro',        plan: 37500, actual: 0 },
-  { name: 'House',             plan: 0,     actual: 34457.25 }
+  { name: 'Alicia Costoya',              plan: 18000, actual: 69888 },
+  { name: 'Jon Lightbody',               plan: 18000, actual: 0 },
+  { name: 'Derand Walker',               plan: 12000, actual: 3515 },
+  { name: 'Brandon DeBenedet',           plan: 28500, actual: 0 },
+  { name: 'Michael Matthews',            plan: 28500, actual: 0 },
+  { name: 'Joe Todaro',                  plan: 37500, actual: 0 },
+  { name: 'Courtney Sustr (TERMINATED)', plan: 15000, actual: 2783.56 },
+  { name: 'House',                       plan: 0,     actual: 34457.25 }
 ];
 
 // May pipeline
@@ -1580,7 +1576,7 @@ const pipeline = [
   { owner: 'House',           account: 'SWC North Naples OpCo LLC',                 stage: 'Running',                       fees: 25609.93, gap: 1219520.15, ee: 46,  prob: 100, payDate: '5/8/2026',  next: 'Recurring payroll',      source: 'M3HRO',                      type: 'PEO' },
   { owner: 'Derand Walker',   account: 'Employee Management Solutions Inc.',        stage: 'Running',                       fees: 3515.00,  gap: 305620.00,  ee: 4,   prob: 100, payDate: '5/8/2026',  next: 'Recurring payroll',      source: 'Self-generated',             type: 'PEO' },
   { owner: 'House',           account: 'Oceans Six Condominium Association, Inc.',  stage: 'Running',                       fees: 2945.00,  gap: 117643.76,  ee: 3,   prob: 100, payDate: '5/1/2026',  next: 'Recurring payroll',      source: 'Argenbright HR',             type: 'PEO' },
-  { owner: 'Courtney Sustr',  account: 'Diofamcibo LLC dba Pizza Time',             stage: 'Running',                       fees: 2783.56,  gap: 139207.12,  ee: 9,   prob: 100, payDate: '5/14/2026', next: 'Recurring payroll',      source: 'Synergy Employer Consulting', type: 'PEO' },
+  { owner: 'Courtney Sustr (TERMINATED)',  account: 'Diofamcibo LLC dba Pizza Time',             stage: 'Running',                       fees: 2783.56,  gap: 139207.12,  ee: 9,   prob: 100, payDate: '5/14/2026', next: 'Recurring payroll',      source: 'Synergy Employer Consulting', type: 'PEO' },
   { owner: 'House',           account: 'A2 Ventures, LLC dba Junk Shot Hampton Roads', stage: 'Running',                    fees: 1321.32,  gap: 36858.64,   ee: 3,   prob: 100, payDate: '5/15/2026', next: 'Recurring payroll',      source: 'Axis Group',                 type: 'PEO' },
   { owner: 'House',           account: 'GP US Construction LLC',                    stage: 'Running',                       fees: 2345.00,  gap: 93800.00,   ee: 2,   prob: 100, payDate: '5/15/2026', next: 'Recurring payroll',      source: 'BBIMI / Enwage Insurance',   type: 'PEO' },
   { owner: 'House',           account: 'Halifax Landing Owners Association, Inc.',  stage: 'Running',                       fees: 2236.00,  gap: 89440.00,   ee: 2,   prob: 100, payDate: '5/29/2026', next: 'Recurring payroll',      source: 'Argenbright HR',             type: 'PEO' },
@@ -1588,40 +1584,27 @@ const pipeline = [
   { owner: 'House',           account: 'Green Edge Landscaping and Design LLC',     stage: 'Running',                       fees: 18590.00, gap: 676000.00,  ee: 11,  prob: 100, payDate: '6/4/2026',  next: 'Recurring payroll',      source: 'Jimmy Estrada',              type: 'PEO' },
   { owner: 'House',           account: 'One PPD Inc dba Junk Shot of Jacksonville', stage: 'Ran 2nd Payroll',               fees: 880.88,   gap: 74308.00,   ee: 2,   prob: 100, payDate: '6/10/2026', next: 'Handoff to Payroll',     source: 'Axis Group',                 type: 'PEO' },
   { owner: 'House',           account: 'Ninja MX LLC',                              stage: 'Ran 1st Payroll',               fees: 6188.00,  gap: 786514.82,  ee: 7,   prob: 100, payDate: '6/18/2026', next: 'Run 2nd Payroll',        source: 'Dickinson Corp',             type: 'PEO' },
-  // July Forecast - 3 deals (all advanced)
-  { owner: 'Michael Matthews',account: 'Acme CO Manufacturing Inc.',                stage: 'CSA Received / Implementation', fees: 11895.00, gap: 914898.00,  ee: 9,   prob: 100, payDate: '7/17/2026', next: 'Implementation',         source: 'Self-generated',             type: 'PEO' },
-  { owner: 'House',           account: 'WCG-POINTEOB-FL LLC dba The Pointe at Ocean Boulevard', stage: 'Waiting on Loss Runs', fees: 28758.93, gap: 1369473.00, ee: 32,  prob: 90,  payDate: '7/17/2026', next: 'CSA Received/Implementation', source: 'Agnes location addition', type: 'PEO' },
-  { owner: 'House',           account: 'Restoration Geeks Corp',                    stage: 'Implementation',                fees: 8450.00,  gap: 811313.99,  ee: 13,  prob: 100, payDate: '7/3/2026',  next: 'Run 1st Payroll',        source: 'Kingdom Benefit Group',      type: 'WC Carve-Out' }
+  // July Forecast - 2 deals (WCG-POINTEOB removed / pushed out of forecast)
+  { owner: 'Michael Matthews',account: 'Acme CO Manufacturing Inc.',                stage: 'Implementation',                fees: 11895.00, gap: 914898.00,  ee: 9,   prob: 100, payDate: '7/17/2026', next: 'Run 1st Payroll',        source: 'Self-generated',             type: 'ASO' },
+  { owner: 'House',           account: 'Restoration Geeks Corp',                    stage: 'Implementation',                fees: 8450.00,  gap: 811313.99,  ee: 13,  prob: 100, payDate: '7/17/2026', next: 'Run 1st Payroll',        source: 'Kingdom Benefit Group',      type: 'WC Carve-Out' }
 ];
 
 // Weekly snapshot
 const weekly = [
-  { rep: 'Alicia Costoya',    ia: 7, rfp: 6, prop: 6, won: 0 },
-  { rep: 'Brandon DeBenedet', ia: 2, rfp: 2, prop: 1, won: 0 },
-  { rep: 'Courtney Sustr',    ia: 0, rfp: 0, prop: 0, won: 0 },
-  { rep: 'Derand Walker',     ia: 4, rfp: 1, prop: 1, won: 0 },
-  { rep: 'Jon Lightbody',     ia: 3, rfp: 0, prop: 0, won: 0 },
-  { rep: 'Joe Todaro',        ia: 0, rfp: 0, prop: 0, won: 0 },
-  { rep: 'Mark Barnes',       ia: 1, rfp: 1, prop: 1, won: 0 },
-  { rep: 'Michael Matthews',  ia: 0, rfp: 0, prop: 0, won: 0 },
-  { rep: 'House',             ia: 3, rfp: 3, prop: 0, won: 0 }
+  { rep: 'Alicia Costoya',              ia: 7, rfp: 6, prop: 6, won: 0 },
+  { rep: 'Brandon DeBenedet',           ia: 2, rfp: 2, prop: 1, won: 0 },
+  { rep: 'Derand Walker',               ia: 4, rfp: 1, prop: 1, won: 0 },
+  { rep: 'Jon Lightbody',               ia: 3, rfp: 0, prop: 0, won: 0 },
+  { rep: 'Joe Todaro',                  ia: 0, rfp: 0, prop: 0, won: 0 },
+  { rep: 'Michael Matthews',            ia: 0, rfp: 0, prop: 0, won: 0 },
+  { rep: 'Courtney Sustr (TERMINATED)', ia: 0, rfp: 0, prop: 0, won: 0 },
+  { rep: 'House',                       ia: 3, rfp: 3, prop: 0, won: 0 }
 ];
 
 // Submissions
 const submissions = [
-  { name: 'MDX Global, Inc.',                              type: 'PEO', received: '6/19 6:31 PM',  sentBy: 'PEO Exchange / House',         status: 'Lost',                dispo: 'declined',   notes: 'Approved rates sent to Nick 6/23 pm. Pass: about double the target premium' },
-  { name: 'Kiski Valley Opportunities Unlimited',          type: 'PEO', received: '6/19 6:36 PM',  sentBy: 'PEO Exchange / House',         status: 'Info Requested',      dispo: 'info',       notes: 'Info requested from Nick 6/22 am — correct Acord info' },
-  { name: 'Mortgage NEKS LLC',                             type: 'PEO', received: '6/22 3:15 PM',  sentBy: 'Becky Finch / Mark',           status: 'Contingent Sent',     dispo: 'contingent', notes: 'Contingent exhibit sent to Mark 6/23 am' },
-  { name: 'CJ Watson Inc',                                 type: 'PEO', received: '6/24 8:50 AM',  sentBy: 'Dinsmore Steele / House',      status: 'Submitted',           dispo: 'info',       notes: 'Submitted to Key Risk 6/26 am · Info requested from Barbara 6/24 am — loss runs' },
-  { name: 'HOUTXBWV, LLC',                                 type: 'PEO', received: '6/24 10:00 AM', sentBy: 'No Broker / Alicia',           status: 'Contingent Sent',     dispo: 'contingent', notes: 'Contingent proposal sent to Alicia 6/24 am' },
-  { name: 'HOUTXBDP, LLC',                                 type: 'PEO', received: '6/24 10:00 AM', sentBy: 'No Broker / Alicia',           status: 'Contingent Sent',     dispo: 'contingent', notes: 'Contingent proposal sent to Alicia 6/24 am' },
-  { name: 'HOUTXBSW, LLC',                                 type: 'PEO', received: '6/24 10:00 AM', sentBy: 'No Broker / Alicia',           status: 'Contingent Sent',     dispo: 'contingent', notes: 'Contingent proposal sent to Alicia 6/24 am' },
-  { name: 'HOUTXBKW, LLC',                                 type: 'PEO', received: '6/24 10:00 AM', sentBy: 'No Broker / Alicia',           status: 'Contingent Sent',     dispo: 'contingent', notes: 'Contingent proposal sent to Alicia 6/24 am' },
-  { name: 'HOUTXBBL, LLC',                                 type: 'PEO', received: '6/24 10:00 AM', sentBy: 'No Broker / Alicia',           status: 'Contingent Sent',     dispo: 'contingent', notes: 'Contingent proposal sent to Alicia 6/24 am' },
-  { name: 'Ricky Jordan Auto Repair',                      type: 'PEO', received: '6/24 6:11 PM',  sentBy: 'No Broker / Derand',           status: 'Contingent Sent',     dispo: 'contingent', notes: 'Contingent proposal sent to Derand 6/25 pm' },
-  { name: 'ELJ Investments LLC',                           type: 'PEO', received: '6/25 9:00 AM',  sentBy: 'No Broker / Alicia',           status: 'Contingent Sent',     dispo: 'contingent', notes: 'Contingent proposal sent to Alicia 6/25 pm — the Freddy\'s deal, $52K admin / 150 EE' },
-  { name: 'Flycast Partners Inc',                          type: 'PEO', received: '6/26 9:57 AM',  sentBy: 'PEO Consultants / Brandon',    status: 'Info Requested',      dispo: 'info',       notes: 'Info requested from Brandon 6/26 am — Acord' },
-  { name: 'V-1 Consulting LLC',                            type: 'PEO', received: '6/26 10:02 AM', sentBy: 'PEO Consultants / Brandon',    status: 'Contingent Sent',     dispo: 'contingent', notes: 'Contingent proposal sent to Brandon 6/26 am' }
+  { name: 'Ajulia Executive Team LLC',   type: 'PEO', received: '6/29 3:28 PM',  sentBy: 'BestFit PEO / Jon',        status: 'Contingent Sent', dispo: 'contingent', notes: 'Info requested from Jon 6/29 pm — staffing supplemental and client list. Contingent proposal sent to Jon 6/30 pm.' },
+  { name: 'YCK Contracting Corp',        type: 'PEO', received: '6/30 5:45 PM',  sentBy: 'ARC Consultants / Derand', status: 'Declined',        dispo: 'declined',   notes: 'Decline sent to Derand 7/1 am — NY general contractor / uninsured subs fall under our policy per NY state law' }
 ];
 
 // ============== HELPERS ==============
@@ -1739,10 +1722,10 @@ new Chart(document.getElementById('bookedChart'), {
 new Chart(document.getElementById('forecastChart'), {
   type: 'bar',
   data: {
-    labels: ['April Final','May Final','June MTD (6/18)','July Forecast'],
+    labels: ['April Final','May Final','June Final','July Forecast'],
     datasets: [
       { label: 'Producers', data: [41865.72, 76186.56, 0, 11895],     backgroundColor: '#E03127', borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 },
-      { label: 'House',     data: [1044.00, 34457.25, 25658.88, 37208.93], backgroundColor: '#0A0A0A', borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 },
+      { label: 'House',     data: [1044.00, 34457.25, 25658.88, 8450], backgroundColor: '#0A0A0A', borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 },
       { label: 'Monthly plan', data: [120000, 195000, 211500, 211500], type: 'line', borderColor: '#8A8A8A', borderDash: [6,4], pointRadius: 0, borderWidth: 2, fill: false, tension: 0 }
     ]
   },
@@ -1882,9 +1865,51 @@ new Chart(document.getElementById('weeklyChart'), {
 // Set "open: true" on the most recent week to default-expand it.
 const meetingNotes = [
   {
-    weekLabel: 'Week of June 22 – June 26, 2026',
+    weekLabel: 'Week of June 29 – July 3, 2026',
     weekTag: 'Current',
     open: true,
+    summary: 'Meeting canceled · team restructure · quiet holiday-adjacent week',
+    reps: [
+      {
+        name: 'Meeting status',
+        items: [
+          "<strong>This week's meeting was canceled.</strong> No updated producer pipeline notes available.",
+          "Weekly activity snapshot reflects the last recorded week (June 22\u201326)."
+        ]
+      },
+      {
+        name: 'Team restructure',
+        items: [
+          "<strong style='color:var(--red);'>Courtney Sustr — Terminated.</strong> Now displayed as &quot;Courtney Sustr (TERMINATED)&quot; across the dashboard. YTD $43,063 and historical deal ownership preserved for continuity. Annual plan reduced $250K → $150K (partial year).",
+          "<strong style='color:var(--red);'>Mark Barnes — Removed from active team.</strong> No longer displayed in producer rosters or activity tables.",
+          "<strong style='color:#1F6F3D;'>Open — New producer bucket added.</strong> $55K/mo · $300K annual to absorb reallocated plan pending hire.",
+          "<strong>Monthly plans rebalanced</strong> (still $211.5K/mo total): Alicia $18K→$21K, Jon $18K→$21K, Derand $12K→$14K, Brandon &amp; Michael $28.5K→$31.5K, Joe $37.5K (unchanged), Open $55K (new)."
+        ]
+      },
+      {
+        name: 'Forecast movement',
+        items: [
+          "<strong>June closed final at $25,659</strong> (House-only: Green Edge $18,590 + One PPD $881 + Ninja MX $6,188). No producer bookings for June.",
+          "<strong>July Forecast revised DOWN $49,104 → $20,345</strong> — <strong>WCG-POINTEOB removed from forecast</strong> (pushed out, was $28,759 / 32 EE / 90% prob).",
+          "<strong>Acme CO Manufacturing</strong> advanced to Implementation stage; <strong>type converted PEO → ASO</strong> per Michael's ASO pivot strategy.",
+          "<strong>Restoration Geeks Corp</strong> first pay pushed back 7/3 → 7/17.",
+          "<strong>August Forecast: empty</strong> — no deals booked yet for August."
+        ]
+      },
+      {
+        name: 'Underwriting',
+        items: [
+          "<strong>July Week 1: 2 submissions</strong> — quiet holiday-adjacent week.",
+          "<strong>Ajulia Executive Team LLC</strong> (Jon / BestFit PEO) — contingent proposal sent 6/30 following staffing supplemental / client list info request.",
+          "<strong>YCK Contracting Corp</strong> (Derand / ARC Consultants) — declined: NY general contractor, uninsured subs fall under our policy per NY state law."
+        ]
+      }
+    ]
+  },
+  {
+    weekLabel: 'Week of June 22 – June 26, 2026',
+    weekTag: 'Archived',
+    open: false,
     summary: 'Executive summary · activity vs targets · pipeline concentration · data integrity mandate',
     reps: [
       {
@@ -2437,14 +2462,14 @@ renderActivityTable();
 // Monthly bookings by rep (admin fees)
 // To update each month, edit the "monthly" objects below.
 const performanceData = [
-  { rep: 'Alicia Costoya',    annual: 300000, monthly: { jan: 79477, feb: 4992,  mar: 0,    apr: 0,        may: 69888,   jun: 0 } },
-  { rep: 'Jon Lightbody',     annual: 300000, monthly: { jan: 216060, feb: 0,    mar: 0,    apr: 0,        may: 0,       jun: 0 } },
-  { rep: 'Courtney Sustr',    annual: 250000, monthly: { jan: 0,     feb: 0,    mar: 0,    apr: 40279.72, may: 2783.56, jun: 0 } },
-  { rep: 'Derand Walker',     annual: 200000, monthly: { jan: 0,     feb: 0,    mar: 0,    apr: 1586,     may: 3515,    jun: 0 } },
-  { rep: 'Brandon DeBenedet', annual: 300000, monthly: { jan: null,  feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0 } },
-  { rep: 'Michael Matthews',  annual: 300000, monthly: { jan: null,  feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0 } },
-  { rep: 'Mark Barnes',       annual: 300000, monthly: { jan: null,  feb: null, mar: null, apr: 0,        may: 0,       jun: 0 } },
-  { rep: 'Joe Todaro',        annual: 300000, monthly: { jan: null,  feb: null, mar: null, apr: 0,        may: 0,       jun: 0 } }
+  { rep: 'Alicia Costoya',              annual: 300000, monthly: { jan: 79477, feb: 4992,  mar: 0,    apr: 0,        may: 69888,   jun: 0 } },
+  { rep: 'Jon Lightbody',               annual: 300000, monthly: { jan: 216060, feb: 0,    mar: 0,    apr: 0,        may: 0,       jun: 0 } },
+  { rep: 'Derand Walker',               annual: 200000, monthly: { jan: 0,     feb: 0,    mar: 0,    apr: 1586,     may: 3515,    jun: 0 } },
+  { rep: 'Brandon DeBenedet',           annual: 300000, monthly: { jan: null,  feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0 } },
+  { rep: 'Michael Matthews',            annual: 300000, monthly: { jan: null,  feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0 } },
+  { rep: 'Joe Todaro',                  annual: 300000, monthly: { jan: null,  feb: null, mar: null, apr: 0,        may: 0,       jun: 0 } },
+  { rep: 'Open',                        annual: 300000, monthly: { jan: null,  feb: null, mar: null, apr: null,     may: null,    jun: null } },
+  { rep: 'Courtney Sustr (TERMINATED)', annual: 150000, monthly: { jan: 0,     feb: 0,    mar: 0,    apr: 40279.72, may: 2783.56, jun: 0 } }
 ];
 
 function renderPerfTable() {
@@ -2536,9 +2561,9 @@ const ninetyDayDeals = [
   { owner: 'Carter Rhoden',     name: 'Fresh Factory Manufacturing, LLC',        type: 'PEO',                stage: 'Proposal to Producer', fees: 120000.00, ee: 220, prob: 50, closeDate: '6/30/2026', age: 17  },
   { owner: 'Carter Rhoden',     name: 'CJ Watson Inc',                           type: 'PEO',                stage: 'Submitted',            fees: 0,         ee: 37,  prob: 45, closeDate: '7/24/2026', age: 5   },
   // Courtney - 3 deals
-  { owner: 'Courtney Sustr',    name: 'Certified Boom Repair',                   type: 'PEO',                stage: 'Submitted',            fees: 0,         ee: 32,  prob: 45, closeDate: '6/30/2026', age: 115 },
-  { owner: 'Courtney Sustr',    name: 'Talbot Painting, Inc',                    type: '—',                  stage: 'Submitted',            fees: 0,         ee: 27,  prob: 45, closeDate: '6/30/2026', age: 28  },
-  { owner: 'Courtney Sustr',    name: 'A Witherspoon Enterprise, LLC',           type: 'PEO',                stage: 'Proposal to Producer', fees: 12525.57,  ee: 21,  prob: 50, closeDate: '6/30/2026', age: 14  },
+  { owner: 'Courtney Sustr (TERMINATED)',    name: 'Certified Boom Repair',                   type: 'PEO',                stage: 'Submitted',            fees: 0,         ee: 32,  prob: 45, closeDate: '6/30/2026', age: 115 },
+  { owner: 'Courtney Sustr (TERMINATED)',    name: 'Talbot Painting, Inc',                    type: '—',                  stage: 'Submitted',            fees: 0,         ee: 27,  prob: 45, closeDate: '6/30/2026', age: 28  },
+  { owner: 'Courtney Sustr (TERMINATED)',    name: 'A Witherspoon Enterprise, LLC',           type: 'PEO',                stage: 'Proposal to Producer', fees: 12525.57,  ee: 21,  prob: 50, closeDate: '6/30/2026', age: 14  },
   // Derand - 2 deals
   { owner: 'Derand Walker',     name: 'Paradise Concepts Inc.',                  type: 'PEO',                stage: 'Proposal to Customer', fees: 0,         ee: 7,   prob: 65, closeDate: '6/30/2026', age: 32  },
   { owner: 'Derand Walker',     name: "Ricky Jordan's Auto Repair",              type: 'PEO',                stage: 'Proposal to Producer', fees: 5460.00,   ee: 7,   prob: 50, closeDate: '7/10/2026', age: 5   },
@@ -2610,31 +2635,36 @@ document.querySelectorAll('#ninety-day-filters .pill').forEach(b => {
 // To log a new entry, prepend to the appropriate month's `entries` array.
 const variancesData = [
   {
-    month: 'Q3 2026 (90-day outlook · refreshed 6/29)',
+    month: 'Team restructure (July 2026)',
     entries: [
-      { kind: 'added',    account: 'HOUTXBWV, LLC + HOUTXBDP + HOUTXBSW + HOUTXBKW + HOUTXBBL',     owner: 'Alicia Costoya',   note: 'New cluster — 5 related entities under HOUTX umbrella, all at Proposal to Customer/Producer; first pay 7/17',  amount: '+$20,384 admin · 49 EE' },
-      { kind: 'added',    account: 'Jode LLC',                                            owner: 'Alicia Costoya',   note: 'New deal — Proposal to Customer, $59,072 / 125 EE, first pay 8/14',                                       amount: '+$59,072 admin' },
-      { kind: 'added',    account: 'Visiting Angels Tracy, CA',                           owner: 'Carmelite Souffront', note: 'New deal — House-owned, Proposal to Producer, $67,590 / 130 EE, first pay 7/10',                       amount: '+$67,590 admin' },
-      { kind: 'added',    account: 'A Witherspoon Enterprise, LLC',                       owner: 'Courtney Sustr',   note: 'New deal — Proposal to Producer, $12,525 / 21 EE',                                                       amount: '+$12,525 admin' },
-      { kind: 'added',    account: 'Fresh Factory Manufacturing, LLC',                    owner: 'House (Carter)',   note: 'New deal — Proposal to Producer, $120K / 220 EE — concentration headline',                              amount: '+$120,000 admin' },
-      { kind: 'added',    account: "Ricky Jordan's Auto Repair",                          owner: 'Derand Walker',    note: 'New deal — Proposal to Producer, $5,460 / 7 EE, first pay 7/10',                                         amount: '+$5,460 admin' },
-      { kind: 'added',    account: 'CJ Watson Inc',                                       owner: 'House (Carter)',   note: 'New submission — 37 EE / loss runs requested',                                                          amount: 'TBD' },
-      { kind: 'increase', account: 'ELJ Investments (Freddy\'s)',                         owner: 'Alicia Costoya',   note: 'Contingent proposal sent 6/25; now valued at $52,650 / 150 EE in pipeline',                              amount: '$52,650 admin' },
-      { kind: 'stage',    account: '2LaborPower, Inc',                                    owner: 'Jon Lightbody',    note: '<span style="color:var(--red);">Back in pipeline</span> as Submitted ($11,050 / 9 EE) despite earlier removal note',  amount: '$11,050 admin' },
-      { kind: 'stage',    account: 'EMG Elite Enterprise LLC',                            owner: 'Alicia Costoya',   note: '<span style="color:var(--red);">Still showing in pipeline</span> at CSA Requested despite removal flag last week', amount: '$5,408 admin' }
+      { kind: 'removed',  account: 'Mark Barnes',                                   owner: 'Producer',         note: '<strong style="color:var(--red);">Terminated</strong> — removed from active producer team. Territory / plan reallocated to Open headcount.', amount: '−$300K annual plan' },
+      { kind: 'stage',    account: 'Courtney Sustr',                                owner: 'Producer',         note: '<strong style="color:var(--red);">Terminated</strong> — kept visible with (TERMINATED) tag; YTD $43,063 preserved for reporting. Annual plan reduced $250K → $150K (partial year).', amount: '−$100K annual plan' },
+      { kind: 'added',    account: 'Open headcount',                                owner: 'TBH',              note: 'New producer bucket added — $55K/mo · $300K annual · unfilled headcount to absorb reallocated plan.', amount: '+$300K annual plan' }
     ]
   },
   {
     month: 'July 2026',
     entries: [
-      { kind: 'stage',    account: 'Restoration Geeks Corp',                         owner: 'House',            note: 'Stage advanced: CSA Sent → Implementation; probability 85% → 100%; first pay PULLED IN 7/10 → 7/3', amount: '$8,450 admin' },
-      { kind: 'stage',    account: 'Acme CO Manufacturing Inc.',                     owner: 'Michael Matthews', note: 'Stage advanced: CSA Sent → CSA Received/Collecting Info; probability 85% → 100%; first pay pushed 7/3 → 7/17', amount: '$11,895 admin' },
-      { kind: 'decrease', account: 'Acme CO Manufacturing Inc.',                     owner: 'Michael Matthews', note: 'EE revised down from 15 → 9 at CSA receipt',                                                          amount: '−6 EE' },
-      { kind: 'stage',    account: 'WCG-POINTEOB-FL LLC dba The Pointe at Ocean Boulevard', owner: 'House',     note: 'First pay pushed back 7/10 → 7/17; still awaiting updated loss runs',                                amount: '$28,759 admin' }
+      { kind: 'removed',  account: 'WCG-POINTEOB-FL LLC dba The Pointe at Ocean Boulevard', owner: 'House',    note: '<strong>Removed from July forecast</strong> — pushed out (was $28,759 / 32 EE / 90% prob).', amount: '−$28,759 admin' },
+      { kind: 'stage',    account: 'Acme CO Manufacturing Inc.',                     owner: 'Michael Matthews', note: 'Stage advanced: CSA Received → Implementation; <strong>type converted PEO → ASO</strong> per Michael\'s ASO pivot strategy; first pay 7/17.', amount: '$11,895 admin' },
+      { kind: 'stage',    account: 'Restoration Geeks Corp',                         owner: 'House',            note: 'First pay pushed back 7/3 → 7/17 (originally pulled in from 7/10 two weeks ago).', amount: '$8,450 admin' }
     ]
   },
   {
-    month: 'June 2026',
+    month: 'Q3 2026 (90-day outlook · refreshed 6/29)',
+    entries: [
+      { kind: 'added',    account: 'HOUTXBWV, LLC + HOUTXBDP + HOUTXBSW + HOUTXBKW + HOUTXBBL',     owner: 'Alicia Costoya',   note: 'New cluster — 5 related entities under HOUTX umbrella, all at Proposal to Customer/Producer; first pay 7/17',  amount: '+$20,384 admin · 49 EE' },
+      { kind: 'added',    account: 'Jode LLC',                                            owner: 'Alicia Costoya',   note: 'New deal — Proposal to Customer, $59,072 / 125 EE, first pay 8/14',                                       amount: '+$59,072 admin' },
+      { kind: 'added',    account: 'Visiting Angels Tracy, CA',                           owner: 'Carmelite Souffront', note: 'New deal — House-owned, Proposal to Producer, $67,590 / 130 EE, first pay 7/10',                       amount: '+$67,590 admin' },
+      { kind: 'added',    account: 'A Witherspoon Enterprise, LLC',                       owner: 'Courtney Sustr (TERMINATED)',   note: 'New deal — Proposal to Producer, $12,525 / 21 EE. To be reassigned given termination.',                    amount: '+$12,525 admin' },
+      { kind: 'added',    account: 'Fresh Factory Manufacturing, LLC',                    owner: 'House (Carter)',   note: 'New deal — Proposal to Producer, $120K / 220 EE — concentration headline',                              amount: '+$120,000 admin' },
+      { kind: 'added',    account: "Ricky Jordan's Auto Repair",                          owner: 'Derand Walker',    note: 'New deal — Proposal to Producer, $5,460 / 7 EE, first pay 7/10',                                         amount: '+$5,460 admin' },
+      { kind: 'added',    account: 'CJ Watson Inc',                                       owner: 'House (Carter)',   note: 'New submission — 37 EE / loss runs requested',                                                          amount: 'TBD' },
+      { kind: 'increase', account: 'ELJ Investments (Freddy\'s)',                         owner: 'Alicia Costoya',   note: 'Contingent proposal sent 6/25; now valued at $52,650 / 150 EE in pipeline',                              amount: '$52,650 admin' }
+    ]
+  },
+  {
+    month: 'June 2026 (Final)',
     entries: [
       { kind: 'added',    account: 'Ninja MX LLC',                                   owner: 'House',            note: 'Ran 1st payroll 6/18 — House closed-won, third June new start (Dickinson Corp referral)',         amount: '+$6,188 admin' },
       { kind: 'decrease', account: 'Ninja MX LLC',                                   owner: 'House',            note: 'Admin revised DOWN $7,956 → $6,188 at first payroll; EE 9 → 7',                                       amount: '−$1,768 admin · −2 EE' },
@@ -2649,7 +2679,7 @@ const variancesData = [
       { kind: 'added',    account: 'Halifax Landing Owners Association, Inc.',    owner: 'House',            note: 'Ran 1st payroll 5/29 — final May new start',                                                    amount: '+$2,236 admin' },
       { kind: 'decrease', account: 'Halifax Landing Owners Association, Inc.',    owner: 'House',            note: 'Admin revised down from $3,328 → $2,236; EE revised from 3 → 2 at first payroll',              amount: '−$1,092 admin' },
       { kind: 'removed',  account: 'For His Glory Cleaning LLC',                  owner: 'Derand Walker',    note: 'Removed from May Final — pushed out of running book',                                            amount: '−$3,328 admin' },
-      { kind: 'stage',    account: 'Diofamcibo LLC dba Pizza Time',               owner: 'Courtney Sustr',   note: 'Running (post 2nd payroll)',                                                                     amount: '$2,784 admin' },
+      { kind: 'stage',    account: 'Diofamcibo LLC dba Pizza Time',               owner: 'Courtney Sustr (TERMINATED)',   note: 'Running (post 2nd payroll) — carried under (TERMINATED) rep for historical continuity',                                                                     amount: '$2,784 admin' },
       { kind: 'stage',    account: 'A2 Ventures dba Junk Shot Hampton Roads',      owner: 'House',           note: 'Running (post 2nd payroll)',                                                                     amount: '$1,321 admin' },
       { kind: 'stage',    account: 'GP US Construction LLC',                       owner: 'House',           note: 'Running (post 2nd payroll)',                                                                     amount: '$2,345 admin' },
       { kind: 'stage',    account: 'Employee Management Solutions Inc.',          owner: 'Derand Walker',    note: 'Running (post 2nd payroll)',                                                                     amount: '$3,515 admin' },
@@ -2659,7 +2689,7 @@ const variancesData = [
   {
     month: 'April 2026',
     entries: [
-      { kind: 'added',    account: 'Diofamcibo LLC',                              owner: 'Courtney Sustr',   note: 'New deal — moved to implementation', amount: '+$3,000 admin' },
+      { kind: 'added',    account: 'Diofamcibo LLC',                              owner: 'Courtney Sustr (TERMINATED)',   note: 'New deal — moved to implementation', amount: '+$3,000 admin' },
       { kind: 'added',    account: 'Employee Management Solutions Inc.',         owner: 'Derand Walker',    note: 'New deal — Brett Masters referral',  amount: '+$4,178 admin' },
       { kind: 'added',    account: 'A2 Ventures, LLC dba Junk Shot Hampton Roads', owner: 'House',          note: 'Axis Group referral',                amount: '+$881 admin' },
       { kind: 'added',    account: 'GP US Construction LLC',                     owner: 'House',            note: 'BBIMI / Enwage Insurance referral',  amount: '+$2,145 admin' },
