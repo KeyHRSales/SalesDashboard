@@ -1219,7 +1219,7 @@
   <div class="top-stamp">
     <div><span class="live">LIVE DATA</span></div>
     <div>Reporting period <strong>YTD 2026</strong></div>
-    <div>Updated <strong>August 5, 2026</strong></div>
+    <div>Updated <strong>September 15, 2026</strong></div>
   </div>
 </div>
 
@@ -1238,24 +1238,24 @@
 
   <div class="kpi-grid">
     <div class="kpi">
-      <div class="lbl">May Final</div>
-      <div class="num">$<span data-count="110643.81">0</span></div>
-      <div class="delta">Producers $76.2K · House $34.5K · <strong>56.7% of $195K plan</strong></div>
+      <div class="lbl">YTD Booked</div>
+      <div class="num">$<span data-count="559352">0</span></div>
+      <div class="delta">Producers $420,576 · Jimmy $21,489 · House $74,224 · Historical $43,063 · <strong>26.0% of $2.15M annual</strong></div>
     </div>
     <div class="kpi">
-      <div class="lbl">June Final</div>
-      <div class="num">$<span data-count="25658.88">0</span></div>
-      <div class="delta">House only · Green Edge + One PPD + Ninja MX · <strong>12.1% of $211.5K plan</strong></div>
+      <div class="lbl">July MTD (through 7/24)</div>
+      <div class="num">$<span data-count="49015">0</span></div>
+      <div class="delta">Alicia Baskin cluster $46,644 · Carter $2,371</div>
+    </div>
+    <div class="kpi">
+      <div class="lbl">30-Day Run Forecast</div>
+      <div class="num">$<span data-count="9320">0</span></div>
+      <div class="delta"><strong style="color:var(--red);">Collapsed from $63,712</strong> after pipeline hygiene · 2 deals · 12 EE · Jon SOCO 300 (9/4) + Carter RWH Capital (9/18)</div>
     </div>
     <div class="kpi">
       <div class="lbl">Q3 90-Day Pipeline</div>
-      <div class="num">$<span data-count="522032">0</span></div>
-      <div class="delta">28 deals · Carter (House) $232K · Brandon $91K · Alicia $65K · Alaska Firehouses NEW</div>
-    </div>
-    <div class="kpi">
-      <div class="lbl">Team Update</div>
-      <div class="num">Andy Songer</div>
-      <div class="delta">New Director joined 8/3 · Nashville, TN · Alicia leads producers 51.5%</div>
+      <div class="num">$<span data-count="585866">0</span></div>
+      <div class="delta">23 deals · S&amp;F Restaurant Ventures re-added ($160K/615 EE) · Latin American Subs re-added ($100K/200 EE)</div>
     </div>
   </div>
 </section>
@@ -1266,8 +1266,9 @@
   <button class="tab" data-panel="forecast">Forecast Trend</button>
   <button class="tab" data-panel="pipeline">Pipeline <span class="badge">10</span></button>
   <button class="tab" data-panel="weekly">Weekly Snapshot</button>
-  <button class="tab" data-panel="submissions">Underwriting <span class="badge">2</span></button>
+  <button class="tab" data-panel="submissions">Underwriting <span class="badge">6</span></button>
   <button class="tab" data-panel="benefits">Benefits <span class="badge soon">Soon</span></button>
+  <button class="tab" data-panel="variances">Pipeline Variances</button>
 </div>
 
 <!-- PANEL: PRODUCERS -->
@@ -1301,6 +1302,7 @@
             <th class="num-col">Apr</th>
             <th class="num-col">May</th>
             <th class="num-col">Jun</th>
+            <th class="num-col">Jul</th>
             <th class="num-col">YTD Ran</th>
             <th class="num-col">% Annual</th>
           </tr>
@@ -1315,6 +1317,7 @@
             <td class="num-col" id="perf-tot-apr">0</td>
             <td class="num-col" id="perf-tot-may">0</td>
             <td class="num-col" id="perf-tot-jun">0</td>
+            <td class="num-col" id="perf-tot-jul">0</td>
             <td class="num-col" id="perf-tot-ytd">0</td>
             <td class="num-col" id="perf-tot-pct">0%</td>
           </tr>
@@ -1324,21 +1327,97 @@
   </div>
 </section>
 <section class="panel" id="panel-forecast">
-  <div class="card">
-    <h3>April → May → June → July trend</h3>
-    <div class="sub">April · May · June final · July forecast · House split out</div>
-    <div class="chart-wrap tall"><canvas id="forecastChart"></canvas></div>
+  <div class="card" style="margin-top: 0;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
+      <div>
+        <h3>30-Day Run Forecast <span class="acc">·</span> deals expected to run first payroll by September 23, 2026</h3>
+        <div class="sub"><strong style="color:var(--red);">Contracted sharply</strong> after pipeline hygiene cleanup · pulled from 8/24 90-day pipeline · sorted by first payroll date</div>
+      </div>
+      <div class="var-summary" style="display: flex; gap: 20px;">
+        <div style="text-align: right;">
+          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--red);">$9,320</div>
+          <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">Total admin</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--black);">2 deals</div>
+          <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">12 EE</div>
+        </div>
+      </div>
+    </div>
+    <div class="table-wrap" style="margin-top: 16px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Producer</th>
+            <th>Prospect Company</th>
+            <th class="num-col">EE</th>
+            <th class="num-col">Age (days)</th>
+            <th class="num-col">Est. Annual Admin</th>
+            <th class="num-col">Est. Close</th>
+            <th class="num-col">First Payroll</th>
+            <th>Stage</th>
+          </tr>
+        </thead>
+        <tbody id="thirty-day-tbody"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2"><strong>2-deal run forecast</strong></td>
+            <td class="num-col"><strong>12</strong></td>
+            <td class="num-col">—</td>
+            <td class="num-col"><strong>$9,320</strong></td>
+            <td class="num-col">—</td>
+            <td class="num-col">—</td>
+            <td>—</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div style="margin-top: 12px; padding: 12px 14px; background: var(--gray-50); border-left: 3px solid var(--red); font-size: 12px; color: var(--gray-900); line-height: 1.7;">
+      <div style="font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; font-size: 11px; color: var(--gray-700);">Producer breakdown</div>
+      <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 8px 20px; align-items: baseline;">
+        <div><strong>Carter Rhoden (House)</strong></div>
+        <div style="font-family: var(--font-mono);">1 deal</div>
+        <div style="font-family: var(--font-mono); font-weight: 700;">$4,900</div>
+
+        <div><strong>Jon Lightbody</strong></div>
+        <div style="font-family: var(--font-mono);">1 deal</div>
+        <div style="font-family: var(--font-mono); font-weight: 700;">$4,420</div>
+
+        <div style="color: var(--gray-700);">Alicia Costoya</div>
+        <div style="font-family: var(--font-mono); color: var(--gray-700);">0 deals</div>
+        <div style="font-family: var(--font-mono); color: var(--gray-700);">—</div>
+
+        <div style="color: var(--gray-700);">Brandon DeBenedet</div>
+        <div style="font-family: var(--font-mono); color: var(--gray-700);">0 deals</div>
+        <div style="font-family: var(--font-mono); color: var(--gray-700);">—</div>
+
+        <div style="color: var(--gray-700);">Derand Walker</div>
+        <div style="font-family: var(--font-mono); color: var(--gray-700);">0 deals</div>
+        <div style="font-family: var(--font-mono); color: var(--gray-700);">—</div>
+
+        <div style="color: var(--gray-700);">Michael Matthews</div>
+        <div style="font-family: var(--font-mono); color: var(--gray-700);">0 deals</div>
+        <div style="font-family: var(--font-mono); color: var(--gray-700);">—</div>
+
+        <div style="color: var(--gray-700);">Andy Songer</div>
+        <div style="font-family: var(--font-mono); color: var(--gray-700);">0 deals</div>
+        <div style="font-family: var(--font-mono); color: var(--gray-700);">—</div>
+      </div>
+      <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--gray-200); font-size: 11px; color: var(--gray-700);">
+        1 of 2 deals at CSA to Client (90%) probability · window: 8/24/2026 to 9/23/2026
+      </div>
+    </div>
   </div>
 
   <div class="grid-2" style="margin-top: 20px;">
     <div class="card">
-      <h3>May plan vs Final</h3>
-      <div class="sub">$195K monthly plan · <strong>56.7%</strong> final attainment · historical (pre-restructure)</div>
+      <h3>August plan vs MTD</h3>
+      <div class="sub">$150.5K monthly producer plan · 6-producer team · MTD actuals as of 8/17</div>
       <div class="chart-wrap"><canvas id="aprilChart"></canvas></div>
     </div>
     <div class="card">
-      <h3>Pipeline by stage <span class="acc">·</span> May</h3>
-      <div class="sub">Admin fee value across 10 active deals</div>
+      <h3>Pipeline by stage <span class="acc">·</span> August</h3>
+      <div class="sub">Admin fee value across active running/implementation pipeline</div>
       <div class="chart-wrap"><canvas id="stageChart"></canvas></div>
     </div>
   </div>
@@ -1381,7 +1460,7 @@
     <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; margin-bottom: 4px;">
       <div>
         <h3 style="margin: 0;">Next 90 days <span class="acc">·</span> closing pipeline</h3>
-        <div class="sub" style="margin-top: 4px;">Opportunities estimated to close 8/5 – 11/5 · refreshed 8/5 · Carter (House) leads with $232K across 9 deals · Alicia opens Alaska market · V-1 paused for acquisition</div>
+        <div class="sub" style="margin-top: 4px;">Opportunities estimated to close 8/24 – 11/24 · refreshed 8/24 · <strong>S&amp;F Restaurant Ventures re-added ($160K/615 EE)</strong> · <strong>Latin American Subs re-added ($100K/200 EE)</strong> · pipeline hygiene cleared stalled deals</div>
       </div>
       <div class="var-summary" id="ninety-day-summary"></div>
     </div>
@@ -1392,7 +1471,6 @@
       <button class="pill" data-filter="Brandon DeBenedet">Brandon</button>
       <button class="pill" data-filter="Carter Rhoden">Carter (House)</button>
       <button class="pill" data-filter="Derand Walker">Derand</button>
-      <button class="pill" data-filter="Jimmy Estrada">Jimmy</button>
       <button class="pill" data-filter="Jon Lightbody">Jon</button>
     </div>
 
@@ -1415,32 +1493,19 @@
       </table>
     </div>
   </div>
-
-  <!-- PIPELINE VARIANCES -->
-  <div class="card" style="margin-top: 20px;">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; margin-bottom: 4px;">
-      <div>
-        <h3 style="margin: 0;">Pipeline variances <span class="acc">·</span> month-over-month</h3>
-        <div class="sub" style="margin-top: 4px;">Adds, removals &amp; revisions tracked by month</div>
-      </div>
-      <div class="var-summary" id="variance-summary"></div>
-    </div>
-
-    <div class="variance-grid" id="variance-grid"></div>
-  </div>
 </section>
 
 <!-- PANEL: WEEKLY -->
 <section class="panel" id="panel-weekly">
   <div class="card">
-    <h3>Weekly performance snapshot <span class="acc">·</span> July 6 – July 10</h3>
-    <div class="sub">Last recorded activity · Aug 3 meeting pipeline updates in Meeting Notes tab</div>
+    <h3>Weekly performance snapshot <span class="acc">·</span> September 7 – September 11</h3>
+    <div class="sub">Activity metrics across the producer team · 0 closed won · House drove half of team activity</div>
 
     <div class="snapshot-grid">
-      <div class="snap-card"><div class="v">12</div><div class="l">IA Completed</div></div>
-      <div class="snap-card"><div class="v">8</div><div class="l">RFPs</div></div>
-      <div class="snap-card"><div class="v">6</div><div class="l">Proposals Sent</div></div>
-      <div class="snap-card hero"><div class="v">1</div><div class="l">Closed Won</div></div>
+      <div class="snap-card"><div class="v">11</div><div class="l">IA Completed</div></div>
+      <div class="snap-card"><div class="v">6</div><div class="l">Submissions</div></div>
+      <div class="snap-card"><div class="v">3</div><div class="l">Proposals Sent</div></div>
+      <div class="snap-card"><div class="v">0</div><div class="l">Closed Won</div></div>
       <div class="snap-card"><div class="v">0</div><div class="l">New Starts</div></div>
     </div>
 
@@ -1474,10 +1539,11 @@
     <div style="margin-top: 22px; padding: 18px; background: var(--gray-50); border-radius: 12px; border-left: 3px solid var(--red);">
       <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 8px;">Highlights</div>
       <ul style="list-style: none; font-size: 13px; color: var(--gray-900); line-height: 1.9;">
-        <li>→ <strong>6 proposals sent</strong> — House leading with 5</li>
-        <li>→ <strong>8 total submissions</strong> across the team</li>
-        <li>→ <strong>1 closed deal</strong> — Alicia closed Baskin-Robbins (5 HOUTX entities advanced to CSA Requested)</li>
-        <li>→ <strong>0 new starts</strong> this week — Freddy's Custards &amp; Steak Burgers (ELJ / 160 EE) tracking to close and payroll in ~2 weeks</li>
+        <li>→ <strong>11 IAs</strong> across the team — House led with 5, Alicia/Brandon/Derand tied at 2 each</li>
+        <li>→ <strong>3 proposals sent</strong> — House 2 (Northstar Shipping, Clarcona Laundry), Brandon 1 (Dragonfly Employees)</li>
+        <li>→ <strong>6 submissions</strong> to underwriting — House 4, Brandon 2</li>
+        <li>→ <strong style="color:var(--red);">0 closed won</strong> · <strong>0 new starts</strong> this week</li>
+        <li>→ <strong>Jon &amp; Michael reported 0 activity</strong> this week</li>
       </ul>
     </div>
 
@@ -1495,8 +1561,8 @@
 <section class="panel" id="panel-submissions">
   <div class="grid-2">
     <div class="card">
-      <h3>July Week 1 submissions <span class="acc">·</span> 2 in queue</h3>
-      <div class="sub">Status &amp; broker disposition · received 6/29 – 6/30 · quiet week (holiday-adjacent)</div>
+      <h3>September Week 2 submissions <span class="acc">·</span> 6 in queue</h3>
+      <div class="sub">Status &amp; broker disposition · received 9/8 – 9/11 · 2 CSA sent (Northstar + Clarcona ASO) · 2 declines (Proteus, Lone Star)</div>
       <div id="submission-list" style="display: flex; flex-direction: column; gap: 10px;"></div>
     </div>
     <div class="card">
@@ -1504,8 +1570,9 @@
       <div class="sub">Declined · Contingent · Proposal sent</div>
       <div class="chart-wrap"><canvas id="dispoChart"></canvas></div>
       <div style="margin-top: 16px; font-size: 12px; color: var(--gray-700); line-height: 1.7;">
-        <strong>Active proposal:</strong> Ajulia Executive Team LLC (Jon / BestFit PEO) — contingent proposal sent 6/30 following staffing supplemental / client list info request.
-        <strong>Decline:</strong> YCK Contracting Corp (Derand / ARC Consultants) — NY general contractor, uninsured subs fall under our policy per NY state law.
+        <strong>Mixed week — 6 submissions, 3 proposals/CSA out, 2 declines, 1 info requested.</strong> House drove 4 of 6 submissions (Proteus declined, Northstar &amp; Clarcona both CSA sent as ASO, Mother's Market awaiting target pricing from Axis). Brandon contributed 2 (Dragonfly Employees WC Carve proposal sent, Lone Star Labor declined).
+        <strong>Declines:</strong> Proteus Security (via PEO Exchange), Lone Star Labor (construction staffing + loss history).
+        <strong>Notable:</strong> Two ASO deals from same broker path — Northstar Shipping + Clarcona Laundry both moved straight to CSA/MSA sent to Nimesh.
       </div>
     </div>
   </div>
@@ -1528,6 +1595,21 @@
   </div>
 </section>
 
+<!-- PANEL: PIPELINE VARIANCES -->
+<section class="panel" id="panel-variances">
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; margin-bottom: 4px;">
+      <div>
+        <h3 style="margin: 0;">Pipeline variances <span class="acc">·</span> month-over-month</h3>
+        <div class="sub" style="margin-top: 4px;">Adds, removals &amp; revisions tracked by month</div>
+      </div>
+      <div class="var-summary" id="variance-summary"></div>
+    </div>
+
+    <div class="variance-grid" id="variance-grid"></div>
+  </div>
+</section>
+
 <footer>
   <div>Key HR · 605 E. Robinson Street, Suite 500 · Orlando, FL 32801 · <strong>keyhro.com</strong></div>
   <div class="legend">
@@ -1543,25 +1625,28 @@ const ANNUAL_PLAN = 2200000;
 
 const producers = [
   // Producer, Title, Location, Annual Plan, YTD Booked, Color
-  { name: 'Alicia Costoya',                 title: 'Sr. Business Development Manager', loc: 'Miami',           plan: 300000, ytd: 154356.80, type: 'producer' },
+  { name: 'Alicia Costoya',                 title: 'Sr. Business Development Manager', loc: 'Miami',           plan: 300000, ytd: 201000.80, type: 'producer' },
   { name: 'Jon Lightbody',                  title: 'Strategic Partnerships Manager',   loc: 'Space Coast',     plan: 300000, ytd: 216060.00, type: 'producer' },
-  { name: 'Derand Walker',                  title: 'Sr. Business Development Manager', loc: 'NC / ATL',        plan: 200000, ytd: 5101.00,   type: 'producer' },
+  { name: 'Derand Walker',                  title: 'Sr. Business Development Manager', loc: 'NC / ATL',        plan: 200000, ytd: 3515.00,   type: 'producer' },
   { name: 'Brandon DeBenedet',              title: 'Director',                         loc: 'Tampa',           plan: 300000, ytd: 0,         type: 'producer' },
   { name: 'Michael Matthews',               title: 'Director',                         loc: 'Tampa',           plan: 300000, ytd: 0,         type: 'producer' },
-  { name: 'Andy Songer (New Hire 8/3/26)',  title: 'Director',                         loc: 'Nashville, TN',   plan: 300000, ytd: 0,         type: 'producer' },
-  { name: 'House',                          title: 'House book',                       loc: 'Centralized',     plan: 0,      ytd: 90442.75,  type: 'house' }
+  { name: 'Andy Songer',                    title: 'Director',                         loc: 'Nashville, TN',   plan: 300000, ytd: 0,         type: 'producer' },
+  { name: 'Jimmy Estrada (internal non-sales)', title: 'Vendor Manager',                   loc: 'Orlando',         plan: 0,      ytd: 21489.00,  type: 'producer' },
+  { name: 'Courtney Sustr (Resigned)',      title: 'Sr. Business Development Manager', loc: 'Tampa',           plan: 0,      ytd: 43063.28,  type: 'producer' },
+  { name: 'House',                          title: 'House book (Carter Rhoden)',       loc: 'Centralized',     plan: 0,      ytd: 74223.95,  type: 'house' }
 ];
 
 const totalYTD = producers.reduce((s, p) => s + p.ytd, 0);
 
 // May Final
 const aprilData = [
-  { name: 'Alicia Costoya',              plan: 18000, actual: 69888 },
-  { name: 'Jon Lightbody',               plan: 18000, actual: 0 },
-  { name: 'Derand Walker',               plan: 12000, actual: 3515 },
-  { name: 'Brandon DeBenedet',           plan: 28500, actual: 0 },
-  { name: 'Michael Matthews',            plan: 28500, actual: 0 },
-  { name: 'House',                       plan: 0,     actual: 34457.25 }
+  { name: 'Alicia Costoya',              plan: 21000,  actual: 0 },
+  { name: 'Jon Lightbody',               plan: 21000,  actual: 0 },
+  { name: 'Derand Walker',               plan: 14000,  actual: 0 },
+  { name: 'Brandon DeBenedet',           plan: 31500,  actual: 0 },
+  { name: 'Michael Matthews',            plan: 31500,  actual: 0 },
+  { name: 'Andy Songer',                 plan: 31500,  actual: 0 },
+  { name: 'House',                       plan: 0,      actual: 0 }
 ];
 
 // May pipeline
@@ -1586,18 +1671,23 @@ const pipeline = [
 
 // Weekly snapshot
 const weekly = [
-  { rep: 'Alicia Costoya',              ia: 1, rfp: 1, prop: 1, won: 1 },
-  { rep: 'Brandon DeBenedet',           ia: 0, rfp: 0, prop: 0, won: 0 },
+  { rep: 'Alicia Costoya',              ia: 2, rfp: 0, prop: 0, won: 0 },
+  { rep: 'Brandon DeBenedet',           ia: 2, rfp: 2, prop: 1, won: 0 },
   { rep: 'Derand Walker',               ia: 2, rfp: 0, prop: 0, won: 0 },
-  { rep: 'Jon Lightbody',               ia: 3, rfp: 1, prop: 0, won: 0 },
+  { rep: 'Jon Lightbody',               ia: 0, rfp: 0, prop: 0, won: 0 },
   { rep: 'Michael Matthews',            ia: 0, rfp: 0, prop: 0, won: 0 },
-  { rep: 'House',                       ia: 6, rfp: 6, prop: 5, won: 0 }
+  { rep: 'Andy Songer',                 ia: 0, rfp: 0, prop: 0, won: 0 },
+  { rep: 'House',                       ia: 5, rfp: 4, prop: 2, won: 0 }
 ];
 
 // Submissions
 const submissions = [
-  { name: 'Ajulia Executive Team LLC',   type: 'PEO', received: '6/29 3:28 PM',  sentBy: 'BestFit PEO / Jon',        status: 'Contingent Sent', dispo: 'contingent', notes: 'Info requested from Jon 6/29 pm — staffing supplemental and client list. Contingent proposal sent to Jon 6/30 pm.' },
-  { name: 'YCK Contracting Corp',        type: 'PEO', received: '6/30 5:45 PM',  sentBy: 'ARC Consultants / Derand', status: 'Declined',        dispo: 'declined',   notes: 'Decline sent to Derand 7/1 am — NY general contractor / uninsured subs fall under our policy per NY state law' }
+  { name: 'Dragonfly Employees LLC',                        type: 'WC Carve Out',    received: '9/8 10:53 AM',  sentBy: 'CarolinaPEO / Brandon',           status: 'Proposal Sent',       dispo: 'proposal',   notes: 'WC CO proposal sent to Brandon 9/8 pm.' },
+  { name: 'Proteus Security Agency LLC',                    type: 'PEO',             received: '9/8 2:04 PM',   sentBy: 'PEO Exchange / House',            status: 'Declined',            dispo: 'declined',   notes: 'Decline sent to Nick 9/8 pm.' },
+  { name: 'Northstar Shipping LLC',                         type: 'ASO',             received: '9/9 3:54 PM',   sentBy: 'No Broker / House',               status: 'CSA Sent',            dispo: 'proposal',   notes: 'MSA sent to Nimesh 9/10 pm.' },
+  { name: 'Clarcona Laundry LLC',                           type: 'ASO',             received: '9/9 3:54 PM',   sentBy: 'No Broker / House',               status: 'CSA Sent',            dispo: 'proposal',   notes: 'MSA sent to Nimesh 9/10 pm.' },
+  { name: "Mother's Market &amp; Kitchen, Inc",             type: 'PEO',             received: '9/10 2:53 PM',  sentBy: 'Axis / House',                    status: 'Info Requested',      dispo: 'info',       notes: 'Info requested from Axis 9/10 pm — target pricing.' },
+  { name: 'Lone Star Labor LLC',                            type: 'PEO',             received: '9/11 7:33 AM',  sentBy: 'CarolinaPEO / Brandon',           status: 'Declined',            dispo: 'declined',   notes: 'Decline sent to Brandon 9/11 am — construction staffing and loss history.' }
 ];
 
 // ============== HELPERS ==============
@@ -1707,31 +1797,6 @@ new Chart(document.getElementById('bookedChart'), {
     scales: {
       x: { grid: { display: false }, ticks: { font: { size: 10 }, maxRotation: 35, minRotation: 35 } },
       y: { grid: { color: '#F0F0F0' }, ticks: { callback: v => '$' + (v/1000) + 'K', font: { size: 10 } } }
-    }
-  }
-});
-
-// FORECAST CHART
-new Chart(document.getElementById('forecastChart'), {
-  type: 'bar',
-  data: {
-    labels: ['April Final','May Final','June Final','July Forecast'],
-    datasets: [
-      { label: 'Producers', data: [41865.72, 76186.56, 0, 11895],     backgroundColor: '#E03127', borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 },
-      { label: 'House',     data: [1044.00, 34457.25, 25658.88, 8450], backgroundColor: '#0A0A0A', borderRadius: 6, barPercentage: 0.55, categoryPercentage: 0.7 },
-      { label: 'Monthly plan', data: [120000, 195000, 211500, 211500], type: 'line', borderColor: '#8A8A8A', borderDash: [6,4], pointRadius: 0, borderWidth: 2, fill: false, tension: 0 }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { position: 'top', align: 'end', labels: { boxWidth: 12, boxHeight: 12, padding: 14, font: { size: 11 } } },
-      tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${fmt$(ctx.parsed.y)}` } }
-    },
-    scales: {
-      x: { stacked: true, grid: { display: false } },
-      y: { stacked: true, grid: { color: '#F0F0F0' }, ticks: { callback: v => '$' + (v/1000) + 'K' } }
     }
   }
 });
@@ -1858,9 +1923,301 @@ new Chart(document.getElementById('weeklyChart'), {
 // Set "open: true" on the most recent week to default-expand it.
 const meetingNotes = [
   {
-    weekLabel: 'Week of July 27 – July 31, 2026 (meeting Aug 3)',
+    weekLabel: 'Week of September 7 – September 11, 2026 (meeting Sept 14)',
     weekTag: 'Current',
     open: true,
+    summary: 'Jon closes Gecko for Q3 · Alicia approaching annual quota · Omar Flores &amp; Neil Eakins welcomed',
+    reps: [
+      {
+        name: 'Alicia Costoya \u2014 sales activity &amp; pipeline',
+        items: [
+          "<strong style='color:#1F6F3D;'>Kentucky Firehouse Subs:</strong> <strong>Four locations scheduled to go live in October (Q4).</strong>",
+          "<strong>January pipeline:</strong> In discussions with a <strong>Firehouse prospect (450 employees)</strong>, <strong>Baskin-Robbins (140 employees)</strong>, and several smaller accounts.",
+          "<strong>Upcoming Franchise Event:</strong> Speaking at a <strong>conference in early November involving 47 franchisees</strong>; targeting conversion of up to half for January.",
+          "<strong style='color:#1F6F3D;'>Quota Status:</strong> <strong>Approaching annual quota.</strong>"
+        ]
+      },
+      {
+        name: 'Jon Lightbody \u2014 sales activity &amp; pipeline',
+        items: [
+          "<strong style='color:#1F6F3D;'>CLOSED DEAL: &quot;Gecko&quot;</strong> \u2014 running payroll on the <strong>28th/29th to close out the quarter</strong>.",
+          "<strong>3 new active prospects added</strong> including two currently with ADP: <strong>Titan Tonic (200 employees)</strong> and a <strong>catalog account (50 employees)</strong>, plus <strong>Social Distance</strong> (with Decision HR).",
+          "<strong>Partner opportunities:</strong> Sourced strong lead from <strong>Hub</strong> \u2014 <strong>Cross Catholic Outreach (~200 employees)</strong>, currently quoting benefits for a targeted <strong>January close</strong>.",
+          "<strong>Actively networking with financial advisors.</strong>"
+        ]
+      },
+      {
+        name: 'Derand Walker \u2014 sales activity &amp; pipeline',
+        items: [
+          "<strong>CSAs pending:</strong> Finalizing CSAs for <strong>MDI Builders Group</strong> (expected this week) and <strong>Paradise Concepts</strong> (targeted for month-end).",
+          "<strong>Accounting firm book roll:</strong> Partnering with <strong>Business Financial Group</strong> (accounting firm with <strong>175+ clients</strong> and back-office operations in India) to transition payroll clients \u2014 projecting <strong>2\u20133 new client referrals per month</strong>.",
+          "<strong>Follow-ups:</strong> Active discussions with two auto repair businesses: <strong>MRJ</strong> and <strong>PM Sullivan</strong>."
+        ]
+      },
+      {
+        name: 'Brandon DeBenedet \u2014 sales activity &amp; pipeline',
+        items: [
+          "<strong>Submissions:</strong> Processed <strong>5 RFPs during the week</strong> (one disqualified due to risk profile).",
+          "<strong>Near close:</strong> One CSA currently undergoing <strong>client legal review (130 employees)</strong>."
+        ]
+      },
+      {
+        name: 'Carter Rhoden \u2014 sales activity &amp; pipeline',
+        items: [
+          "<strong>Launches:</strong> Implementing <strong>2 upcoming ASO accounts</strong> and <strong>2 additional Junk Shot locations</strong> starting at month-end.",
+          "<strong>Grand Rapids opportunity</strong> remains temporarily stalled."
+        ]
+      },
+      {
+        name: 'Andy Songer \u2014 broker/channel development',
+        items: [
+          "<strong style='color:#1F6F3D;'>NASTIC partnership secured:</strong> Met with the <strong>National Association of Small Trucking Companies (NASTIC)</strong>, covering <strong>3,000+ members</strong>. NASTIC will distribute an email blast to members recommending a <strong>PEO/workers' comp review with Key HR</strong>.",
+          "<strong>Upcoming events:</strong> Preparing for the <strong>Big &quot;I&quot; conference</strong> and upcoming local staffing conventions. Scheduling lunch-and-learns, including a visit to a Hub regional office.",
+          "<strong>Sales enablement:</strong> Developing a <strong>postcard-sized quick-math commission comparison card</strong> to help producers show commercial PEO commission advantages directly to property and casualty agents."
+        ]
+      },
+      {
+        name: 'New hires \u2014 welcomed to the team',
+        items: [
+          "<strong style='color:#1F6F3D;'>Omar Flores</strong> \u2014 in-office producer, Orlando.",
+          "<strong style='color:#1F6F3D;'>Neil Eakins</strong> \u2014 producer based in Chicago."
+        ]
+      },
+      {
+        name: 'System demo \u2014 Amanda Razz (Director of Payroll)',
+        items: [
+          "<strong>Demonstrated PrismHR/Connexus:</strong> Reviewed customizable general ledgers (GLs), timesheet entries, and tracking custom employee certifications (e.g., food handler permits).",
+          "<strong>Internal Demo Request Protocol outlined:</strong>",
+          "&nbsp;&nbsp;&nbsp;\u2192 Reps must submit standard demo forms to <strong><code>submissions@keyhro.com</code></strong> detailing prospect <strong>pain points, features needed, and competitor systems</strong> (e.g., ADP) before payroll demos will be scheduled."
+        ]
+      },
+      {
+        name: 'Event support procedure',
+        items: [
+          "Reps requesting company marketing collateral, event fees, or booth materials must submit the <strong>internal Event Request Form at least 90 days in advance for large events</strong>."
+        ]
+      }
+    ]
+  },
+  {
+    weekLabel: 'Week of August 17 – August 21, 2026 (meeting Aug 24)',
+    weekTag: 'Archived',
+    open: false,
+    summary: 'Q4 activity push · Junk Shot closed (9/11 first pay) · client handoff protocol reiterated',
+    reps: [
+      {
+        name: 'Attendance',
+        items: [
+          "<strong>Alicia Costoya:</strong> PTO 8/24 &amp; 8/25.",
+          "<strong>Jon Lightbody:</strong> PTO until TBD.",
+          "<strong>Andy Songer:</strong> PTO 8/24 – 8/31."
+        ]
+      },
+      {
+        name: 'KPI &amp; activity performance',
+        items: [
+          "<strong style='color:var(--red);'>Last week notably below targets across key performance indicators</strong> — only <strong>5 Initial Appointments vs weekly goal of 20</strong>.",
+          "<strong>Team reminder:</strong> Drive activity ahead of the anticipated surge in the <strong>Q4 busy season (September–December)</strong>."
+        ]
+      },
+      {
+        name: '30-Day Run Pipeline',
+        items: [
+          "<strong style='color:#1F6F3D;'>Junk Shot: CLOSED successfully.</strong> First pay date officially scheduled for <strong>September 11, 2026</strong> and updated in Salesforce.",
+          "<strong>SOCO:</strong> Expected within the 30-day window; Carmelite to follow up with John for confirmation.",
+          "<strong>RWH Capital:</strong> Carmelite following up directly to confirm start dates and adjust forecast timeline if necessary."
+        ]
+      },
+      {
+        name: 'Partner &amp; business development updates',
+        items: [
+          "<strong>Derand — Accounting Referral Partnership:</strong> Met with <strong>George Verhees (Business Financial Group)</strong>. <strong>1 prospective client referral</strong> already scheduled for discovery this week. Follow-up strategy lunch/call on <strong>September 8</strong> including their senior accountant and Carmelite.",
+          "<strong>Michael — Key Connect opportunity:</strong> Connected with a <strong>pizza oven company CEO</strong> who requested a formal follow-up in September once their company move is complete.",
+          "<strong>Client referral:</strong> Current client <strong>Ross / 11 Series</strong> referred a new prospect. Promising initial discussion held with Carmelite and Carter."
+        ]
+      },
+      {
+        name: 'Operations &amp; client post-onboarding protocols',
+        items: [
+          "<strong>HR Assessment &amp; Service Planning (Julia Vaysman):</strong> Outlined post-implementation workflow — initial HR infrastructure assessments and custom service plans (compliant employee handbooks, job descriptions, review processes).",
+          "<strong>Client handoff protocol reiteration:</strong>",
+          "&nbsp;&nbsp;&nbsp;→ Once onboarded, <strong>account relationship management transfers entirely</strong> to the Operations/HR and Benefits service teams.",
+          "&nbsp;&nbsp;&nbsp;→ Sales reps must <strong>actively redirect client inquiries to designated support leads</strong> (e.g., Julia) rather than acting as intermediaries — prevents miscommunication and ensures proper expectation setting.",
+          "&nbsp;&nbsp;&nbsp;→ <strong>Refresher on Sales Producer's Guide guidelines</strong> to be reviewed with the full team once all members return from PTO."
+        ]
+      }
+    ]
+  },
+  {
+    weekLabel: 'Week of August 10 – August 14, 2026 (meeting Aug 17)',
+    weekTag: 'Archived',
+    open: false,
+    summary: 'Alicia closes Alaska Baskin-Robbins · pipeline hygiene mandate · Andy building Big I Tennessee blueprint',
+    reps: [
+      {
+        name: 'Internal operations &amp; housekeeping',
+        items: [
+          "<strong>Two new team members onboarding at the end of the month.</strong> Formal introductions to follow.",
+          "<strong style='color:var(--red);'>Professionalism directive:</strong> Team members must refrain from unofficial outreach to past employers or external contacts regarding new hires. Behavior has recurred in the past and most recently — reflects poorly on the team. All background inquiries must go through official channels only."
+        ]
+      },
+      {
+        name: 'Alicia Costoya \u2014 pipeline',
+        items: [
+          "<strong style='color:#1F6F3D;'>Reaffirmed preferred vendor status with Lisa</strong> \u2014 600 WSEs across franchises.",
+          "<strong style='color:#1F6F3D;'>Closed an Alaska Baskin-Robbins location.</strong>",
+          "<strong>Utah close expected this week</strong> for an October 1 start.",
+          "<strong>Launch Pad (6 Utah locations, 157 WSEs):</strong> moving to October start with a 2-month promo.",
+          "<strong>Bibi University:</strong> pushed to early October due to building electrical/inspection delays.",
+          "<strong>Harris Solutions (52 WSEs):</strong> targeting an October start.",
+          "<strong>Central Texas Restaurant Group (27 locations, 450+ WSEs)</strong> and <strong>Junie's Restaurant Group (4 locations, 55 WSEs)</strong> \u2014 active follow-ups."
+        ]
+      },
+      {
+        name: 'Carter Rhoden (House) \u2014 pipeline',
+        items: [
+          "<strong>3 additional Junk Shot franchise deals</strong> moving forward from the recent summit.",
+          "<strong>ERA Disposal and FPGH CSAs</strong> expected this week.",
+          "<strong>SNF Ventures and Grand Rapids Junk Shot:</strong> progressing toward October/Q4 starts.",
+          "<strong>Luna Learning/Psychology:</strong> moved to <strong>comp-only</strong>."
+        ]
+      },
+      {
+        name: 'Brandon DeBenedet \u2014 pipeline',
+        items: [
+          "<strong>Cypress Golf Course Management (9 courses):</strong> accepting an RFP for Q4.",
+          "<strong>Tampa Bay Chamber:</strong> benefits quotes actively in market \u2014 December est. close.",
+          "<strong>Choir:</strong> proposal submitted.",
+          "<strong>Flycast Partners:</strong> monitored \u2014 TriNet renewal defense in play."
+        ]
+      },
+      {
+        name: 'Derand Walker \u2014 pipeline',
+        items: [
+          "<strong>Paradise Concepts:</strong> ~30 days out due to estate probate.",
+          "<strong style='color:#1F6F3D;'>AMF proposal accepted</strong> \u2014 pending final benefits pricing.",
+          "<strong style='color:#1F6F3D;'>VI Electric verbal approval secured</strong> \u2014 CSA requested.",
+          "<strong>Southern Motors:</strong> presenting to ownership this week.",
+          "<strong>Discovery underway:</strong> PR Venture (4 states), Action Electric (15 WSEs), ALS Van Moving (25 WSEs)."
+        ]
+      },
+      {
+        name: 'Strategy &amp; leadership directives',
+        items: [
+          "<strong>Pipeline hygiene (Scott Hanson):</strong> Remove stalled deals from short-term forecasting to maintain accurate projections heading into Q4/Q1.",
+          "<strong>Rep target:</strong> <strong>$100K\u2013$150K in admin by February</strong> to stay on track for annual targets.",
+          "<strong>Benefits Admin &amp; broker strategy:</strong> Position Key HR's Ben Admin capabilities to win large-group broker deals \u2014 clients retain master health but place ancillary and admin with Key HR.",
+          "<strong>Broker/agent standard:</strong> Direct access to end clients remains a required standard when quoting broker/agent business \u2014 protects conversion rates."
+        ]
+      },
+      {
+        name: 'Association &amp; channel growth',
+        items: [
+          "<strong style='color:#1F6F3D;'>Andy Songer:</strong> Establishing a repeatable <strong>1-page agency blueprint with Big I Tennessee</strong> (310 independent agents) \u2014 to expand across regional states.",
+          "<strong>Strategic partnerships in pursuit:</strong> Auburn University New Venture Accelerator, USI, Hub, NASTC (trucking · minimum $50K premium)."
+        ]
+      },
+      {
+        name: '30-Day Run Forecast (through 9/16)',
+        items: [
+          "<strong>6 deals \u00b7 101 EE \u00b7 $63,712 admin</strong> expected to first-pay within the next 30 days.",
+          "<strong>Carter Rhoden (4 deals / $50,140):</strong> Mega Service Solutions ($21,616 \u00b7 9/4), AVO T&amp;L ($21,820 \u00b7 9/4), ERA Disposal Services ($880 \u00b7 9/4 \u00b7 CSA to Client), Luna Psychology Group ($5,824 \u00b7 9/11).",
+          "<strong>Jon Lightbody (1 deal / $4,420):</strong> SOCO 300 Pro-Shop LLC (9/4 \u00b7 CSA to Client).",
+          "<strong>Alicia Costoya (1 deal / $9,152):</strong> BB University LLC (9/11 first pay, close date pushed to 10/30)."
+        ]
+      },
+      {
+        name: 'Underwriting \u2014 August Week 2',
+        items: [
+          "<strong>8 submissions, 7 contingent/proposal sent, 1 decline.</strong>",
+          "<strong>Brandon:</strong> Harbor Presbyterian, Kaimetrix WC Carve, Quire \u2014 all contingent/proposal sent.",
+          "<strong>House:</strong> Luna Psychology (Normandy approved w/ Key Connect), Sietsema Waste Junk Shot, A&amp;E Security declined (armed security is excluded exposure).",
+          "<strong>Derand:</strong> V.I. Electrical Contractor contingent sent.",
+          "<strong>Jon:</strong> Bound Logistics contingent sent."
+        ]
+      }
+    ]
+  },
+  {
+    weekLabel: 'Week of August 3 – August 7, 2026 (meeting Aug 10)',
+    weekTag: 'Archived',
+    open: false,
+    summary: 'Andy Songer welcomed · weekly KPI targets reaffirmed · policy &amp; process updates · pipeline building week',
+    reps: [
+      {
+        name: 'Team announcements',
+        items: [
+          "<strong style='color:#1F6F3D;'>Andy Songer welcomed to the team call.</strong> Weekly meeting structure outlined: <em>Wins → 90-Day Pipeline Forecast → KPI &amp; Activity Updates.</em>",
+          "<strong>Weekly KPI targets reaffirmed:</strong> <strong>4 IAs, 3 RFPs, 2 proposals presented, and 0.5 closed won per week (or 2 per month)</strong> per rep."
+        ]
+      },
+      {
+        name: 'Policy &amp; process updates',
+        items: [
+          "<strong>Event Approval &amp; ROI Tracking:</strong> New Traveling Event Request Form replaces the previous SharePoint form. Requires pre-event details, post-event debriefs, and lead logging. <strong>All requests must be submitted 30–90 days in advance</strong> directly to Carmelite for routing and ROI tracking in Salesforce.",
+          "<strong>Brand &amp; Marketing Guidelines:</strong> Team reminded <strong>not to create custom materials containing the company logo</strong> or post raw sales flyers directly to social media <strong>without prior marketing team approval</strong>."
+        ]
+      },
+      {
+        name: 'Alicia Costoya \u2014 pipeline',
+        items: [
+          "<strong style='color:#1F6F3D;'>Gina closing this week</strong> \u2014 effective Thursday.",
+          "<strong style='color:#1F6F3D;'>New client with 52 EE in Alaska</strong> moving forward \u2014 groundbreaking market for Key HR (Chena River Restaurants at CSA to Client 90%, presenting today at 4:00 PM).",
+          "<strong>CCG Harris Solutions:</strong> Awaiting underwriting approval and proposal/CSA.",
+          "<strong>Launchpad Sandwich:</strong> Determining onboarding strategy for expansion.",
+          "<strong>Buffalo Boss:</strong> Back in the pipeline at Proposal to Customer."
+        ]
+      },
+      {
+        name: 'Brandon DeBenedet \u2014 pipeline',
+        items: [
+          "<strong>Flycast Partners:</strong> Proposal received; client evaluating competing retention offers from TriNet.",
+          "<strong>Two inbound RFPs</strong> currently being evaluated, including a <strong>large government contract</strong>."
+        ]
+      },
+      {
+        name: 'Carter Rhoden (House) \u2014 pipeline',
+        items: [
+          "<strong>Junk Shots progressing</strong> \u2014 continuing to build out the franchise book.",
+          "<strong>Salad Works:</strong> <strong>CSA in hand.</strong>",
+          "<strong>Follow-ups this week:</strong> S&F Restaurant Ventures (Gators docksides, 616 EE / $160K), Mega Service Solutions, AVO T&L."
+        ]
+      },
+      {
+        name: 'Derand Walker \u2014 pipeline',
+        items: [
+          "<strong>AMF Group:</strong> Proposal submitted \u2014 awaiting benefits census completion.",
+          "<strong>Southern Motor Works:</strong> Presentation scheduled for Thursday."
+        ]
+      },
+      {
+        name: 'Jon Lightbody \u2014 pipeline',
+        items: [
+          "<strong style='color:#1F6F3D;'>Go is closed \u2014 CSAs signing this week.</strong>",
+          "<strong>Mark Skiles (Glasser Ring):</strong> Presentation scheduled this week.",
+          "<strong>Leland Technology:</strong> Proposal actively being worked on."
+        ]
+      },
+      {
+        name: 'Michael Matthews \u2014 activity',
+        items: [
+          "<strong>Brooks de Barlow:</strong> Enrollment meeting completed \u2014 targeting <strong>~60 employees for October/January.</strong>"
+        ]
+      },
+      {
+        name: 'Strategic partnerships &amp; networking wins',
+        items: [
+          "<strong style='color:#1F6F3D;'>Andy Songer:</strong> Initiating partnership setup with <strong>Big I Tennessee</strong> (Independent Insurance Agents National Association) to gain direct vendor access to <strong>310+ member agents across the state.</strong>",
+          "<strong>Derand Walker:</strong> Partnering with VI Capital on a joint HR/financial literacy seminar for small business owners via the <strong>Georgia Chamber</strong>. Also on the <strong>Charlotte Chamber Top Golf event committee.</strong>",
+          "<strong>Jon Lightbody:</strong> Hosted a successful <strong>150-person networking event.</strong> Next date set for <strong>September 16.</strong> Established new leads including local Paychex switch opportunities."
+        ]
+      }
+    ]
+  },
+  {
+    weekLabel: 'Week of July 27 – July 31, 2026 (meeting Aug 3)',
+    weekTag: 'Archived',
+    open: false,
     summary: 'Team change · Andy Songer joins · Alicia opens Alaska + closes 5 Baskin-Robbins · Carter\'s pipeline surges',
     reps: [
       {
@@ -2643,12 +3000,14 @@ renderActivityTable();
 // Monthly bookings by rep (admin fees)
 // To update each month, edit the "monthly" objects below.
 const performanceData = [
-  { rep: 'Alicia Costoya',                 annual: 300000, monthly: { jan: 79477, feb: 4992,  mar: 0,    apr: 0,        may: 69888,   jun: 0 } },
-  { rep: 'Jon Lightbody',                  annual: 300000, monthly: { jan: 216060, feb: 0,    mar: 0,    apr: 0,        may: 0,       jun: 0 } },
-  { rep: 'Derand Walker',                  annual: 200000, monthly: { jan: 0,     feb: 0,    mar: 0,    apr: 1586,     may: 3515,    jun: 0 } },
-  { rep: 'Brandon DeBenedet',              annual: 300000, monthly: { jan: null,  feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0 } },
-  { rep: 'Michael Matthews',               annual: 300000, monthly: { jan: null,  feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0 } },
-  { rep: 'Andy Songer (New Hire 8/3/26)',  annual: 300000, monthly: { jan: null,  feb: null, mar: null, apr: null,     may: null,    jun: null } }
+  { rep: 'Alicia Costoya',                 annual: 300000, monthly: { jan: 79476.80, feb: 4992,  mar: 0,    apr: 0,        may: 69888,   jun: 0,        jul: 46644 } },
+  { rep: 'Jon Lightbody',                  annual: 300000, monthly: { jan: 216060,   feb: 0,    mar: 0,    apr: 0,        may: 0,       jun: 0,        jul: 0 } },
+  { rep: 'Derand Walker',                  annual: 200000, monthly: { jan: 0,        feb: 0,    mar: 0,    apr: 0,        may: 3515,    jun: 0,        jul: 0 } },
+  { rep: 'Brandon DeBenedet',              annual: 300000, monthly: { jan: null,     feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0,        jul: 0 } },
+  { rep: 'Michael Matthews',               annual: 300000, monthly: { jan: null,     feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0,        jul: 0 } },
+  { rep: 'Andy Songer',                    annual: 300000, monthly: { jan: null,     feb: null, mar: null, apr: null,     may: null,    jun: null,     jul: null } },
+  { rep: 'Jimmy Estrada (internal non-sales)', annual: 0,      monthly: { jan: 0,        feb: 0,    mar: 0,    apr: 0,        may: 0,       jun: 21489,    jul: 0 } },
+  { rep: 'Courtney Sustr (Resigned)',      annual: 0,      monthly: { jan: 0,        feb: 0,    mar: 0,    apr: 40279.72, may: 2783.56, jun: 0,        jul: 0 } }
 ];
 
 function renderPerfTable() {
@@ -2661,8 +3020,8 @@ function renderPerfTable() {
   };
 
   tbody.innerHTML = performanceData.map(p => {
-    const ytd = ['jan','feb','mar','apr','may','jun'].reduce((s, m) => s + (p.monthly[m] || 0), 0);
-    const hasAnyData = ['jan','feb','mar','apr','may','jun'].some(m => p.monthly[m] !== null && p.monthly[m] !== undefined);
+    const ytd = ['jan','feb','mar','apr','may','jun','jul'].reduce((s, m) => s + (p.monthly[m] || 0), 0);
+    const hasAnyData = ['jan','feb','mar','apr','may','jun','jul'].some(m => p.monthly[m] !== null && p.monthly[m] !== undefined);
     const pct = p.annual ? ytd / p.annual : 0;
     let pctClass = 'pct-cell';
     let pctText;
@@ -2688,6 +3047,7 @@ function renderPerfTable() {
         ${monthCell(p.monthly.apr)}
         ${monthCell(p.monthly.may)}
         ${monthCell(p.monthly.jun)}
+        ${monthCell(p.monthly.jul)}
         <td class="num-col ytd-val">${fmtMoney(ytd)}</td>
         <td class="num-col ${pctClass}">${pctText}</td>
       </tr>`;
@@ -2702,7 +3062,8 @@ function renderPerfTable() {
   const totApr = sumMonth('apr');
   const totMay = sumMonth('may');
   const totJun = sumMonth('jun');
-  const totYtd = totJan + totFeb + totMar + totApr + totMay + totJun;
+  const totJul = sumMonth('jul');
+  const totYtd = totJan + totFeb + totMar + totApr + totMay + totJun + totJul;
   const totPct = totAnnual ? (totYtd / totAnnual * 100).toFixed(1) + '%' : '0.0%';
 
   document.getElementById('perf-tot-jan').textContent = fmtMoney(totJan);
@@ -2711,47 +3072,73 @@ function renderPerfTable() {
   document.getElementById('perf-tot-apr').textContent = fmtMoney(totApr);
   document.getElementById('perf-tot-may').textContent = fmtMoney(totMay);
   document.getElementById('perf-tot-jun').textContent = fmtMoney(totJun);
+  document.getElementById('perf-tot-jul').textContent = fmtMoney(totJul);
   document.getElementById('perf-tot-ytd').textContent = fmtMoney(totYtd);
   document.getElementById('perf-tot-pct').textContent = totPct;
 }
 renderPerfTable();
 
+// ============== 30-DAY RUN FORECAST ==============
+// Deals with first payroll expected within next 30 days (8/17 - 9/17)
+// Sourced from Salesforce 90-day pipeline report 2026-08-17.
+const thirtyDayForecast = [
+  { producer: 'Jon Lightbody', company: 'SOCO 300 Pro-Shop LLC',   ee: 5, age: 32, admin: 4420, closeDate: '9/4/2026',  firstPay: '9/4/2026',  stage: 'CSA to Client' },
+  { producer: 'Carter Rhoden', company: 'RWH Capital LLC',         ee: 7, age: 3,  admin: 4900, closeDate: '9/4/2026',  firstPay: '9/18/2026', stage: 'Proposal to Producer' }
+];
+
+(function renderThirtyDay() {
+  const tbody = document.getElementById('thirty-day-tbody');
+  if (!tbody) return;
+  const fmtMoney = n => '$' + Math.round(n).toLocaleString();
+  tbody.innerHTML = thirtyDayForecast.map(d => {
+    const ageDisplay = d.age > 365 ? `${d.age} <span style="color:var(--red); font-size:10px;">(${(d.age/365).toFixed(1)}y)</span>` : String(d.age);
+    return `
+      <tr>
+        <td class="rep-cell">${d.producer}</td>
+        <td>${d.company}</td>
+        <td class="num-col">${d.ee}</td>
+        <td class="num-col">${ageDisplay}</td>
+        <td class="num-col mono-cell">${fmtMoney(d.admin)}</td>
+        <td class="num-col">${d.closeDate}</td>
+        <td class="num-col"><strong>${d.firstPay}</strong></td>
+        <td><span class="stage ${stageClass(d.stage)}">${d.stage}</span></td>
+      </tr>
+    `;
+  }).join('');
+})();
+
 // ============== 90-DAY CLOSING PIPELINE ==============
 // Opportunities closing in the next 90 days (5/18 - 8/15)
 // Sourced from Salesforce report 2026-05-18.
 const ninetyDayDeals = [
-  // Alicia Costoya - 7 deals · $65,312 · 155 EE
-  { owner: 'Alicia Costoya',    name: 'Chena River Restaurants Inc (Alaska Firehouse)',   type: 'PEO',                stage: 'Proposal to Customer', fees: 21632.00,  ee: 52,  prob: 65, closeDate: '9/30/2026',  age: 5   },
-  { owner: 'Alicia Costoya',    name: 'Front Range Subs Inc (Alaska Firehouse)',          type: 'PEO',                stage: 'Submitted',            fees: 9152.00,   ee: 20,  prob: 45, closeDate: '9/30/2026',  age: 5   },
-  { owner: 'Alicia Costoya',    name: 'CCG Store 1 LLC',                                  type: 'PEO',                stage: 'Submitted',            fees: 4160.00,   ee: 10,  prob: 45, closeDate: '9/30/2026',  age: 2   },
-  { owner: 'Alicia Costoya',    name: 'CCG Store 2 LLC',                                  type: 'PEO',                stage: 'Submitted',            fees: 4576.00,   ee: 11,  prob: 45, closeDate: '9/30/2026',  age: 2   },
-  { owner: 'Alicia Costoya',    name: 'CCG Store 3 LLC',                                  type: 'PEO',                stage: 'Submitted',            fees: 8320.00,   ee: 20,  prob: 45, closeDate: '9/30/2026',  age: 2   },
-  { owner: 'Alicia Costoya',    name: 'CCG Store 4 LLC',                                  type: 'PEO',                stage: 'Submitted',            fees: 8320.00,   ee: 20,  prob: 45, closeDate: '9/30/2026',  age: 2   },
-  { owner: 'Alicia Costoya',    name: 'BB University LLC',                                type: 'PEO',                stage: 'Proposal to Customer', fees: 9152.00,   ee: 22,  prob: 65, closeDate: '10/30/2026', age: 153 },
-  // Brandon DeBenedet - 2 deals · $90,995 · 78 EE (V-1 paused for new ownership)
-  { owner: 'Brandon DeBenedet', name: 'Flycast Partners, Inc',                            type: 'PEO',                stage: 'Proposal to Customer', fees: 57395.00,  ee: 50,  prob: 65, closeDate: '9/18/2026',  age: 40  },
-  { owner: 'Brandon DeBenedet', name: 'V-1 Consulting LLC (PAUSED - acquisition)',        type: 'PEO',                stage: 'Proposal to Customer', fees: 33600.00,  ee: 28,  prob: 65, closeDate: '10/1/2026',  age: 40  },
-  // Carter Rhoden (House) - 9 deals · $231,824 · 776 EE - concentration
-  { owner: 'Carter Rhoden',     name: 'Ericson Waste Solutions LLC',                      type: 'PEO',                stage: 'Proposal to Producer', fees: 2203.50,   ee: 5,   prob: 50, closeDate: '8/7/2026',   age: 28  },
-  { owner: 'Carter Rhoden',     name: 'FPGH Enterprises LLC',                             type: 'PEO',                stage: 'CSA to Client',        fees: 994.00,    ee: 2,   prob: 90, closeDate: '8/7/2026',   age: 27  },
-  { owner: 'Carter Rhoden',     name: 'ERA Disposal Services LLC (Junk Shot ATL)',        type: 'PEO',                stage: 'Submitted',            fees: 880.00,    ee: 3,   prob: 45, closeDate: '8/14/2026',  age: 5   },
-  { owner: 'Carter Rhoden',     name: 'S&F Restaurant Ventures Inc (Gators docksides)',   type: 'PEO',                stage: 'Proposal to Producer', fees: 160160.00, ee: 616, prob: 50, closeDate: '8/15/2026',  age: 279 },
-  { owner: 'Carter Rhoden',     name: 'Mega Service Solutions, Inc',                      type: 'PEO',                stage: 'Proposal to Customer', fees: 21616.00,  ee: 36,  prob: 65, closeDate: '8/21/2026',  age: 834 },
-  { owner: 'Carter Rhoden',     name: 'AVO T&L, LLC',                                     type: 'PEO',                stage: 'Proposal to Producer', fees: 21820.00,  ee: 28,  prob: 50, closeDate: '8/21/2026',  age: 20  },
-  { owner: 'Carter Rhoden',     name: 'US Rail Systems Inc',                              type: 'PEO',                stage: 'Submitted',            fees: 4650.00,   ee: 6,   prob: 45, closeDate: '8/21/2026',  age: 14  },
-  { owner: 'Carter Rhoden',     name: 'JDS Plumbing & Mechanical, Inc',                   type: 'PEO',                stage: 'Proposal to Customer', fees: 19500.00,  ee: 27,  prob: 65, closeDate: '8/28/2026',  age: 13  },
-  { owner: 'Carter Rhoden',     name: "Allie's Party Equipment Rental, Inc.",             type: 'PEO',                stage: 'Submitted',            fees: 0,         ee: 53,  prob: 45, closeDate: '9/30/2026',  age: 5   },
-  // Derand Walker - 4 deals · $55,654 · 66 EE
-  { owner: 'Derand Walker',     name: 'Paradise Concepts Inc.',                           type: 'PEO',                stage: 'Proposal to Customer', fees: 5824.00,   ee: 7,   prob: 65, closeDate: '8/5/2026',   age: 69  },
-  { owner: 'Derand Walker',     name: "Eugene's Hot Chicken",                             type: 'PEO',                stage: 'Proposal to Customer', fees: 28080.00,  ee: 40,  prob: 65, closeDate: '8/14/2026',  age: 90  },
-  { owner: 'Derand Walker',     name: 'AMF Group Inc. (Just Works replacement)',          type: 'PEO',                stage: 'Proposal to Producer', fees: 15510.00,  ee: 11,  prob: 50, closeDate: '9/18/2026',  age: 7   },
-  { owner: 'Derand Walker',     name: 'Southern Motor Works Inc.',                        type: 'PEO',                stage: 'Proposal to Producer', fees: 6240.00,   ee: 8,   prob: 50, closeDate: '9/30/2026',  age: 6   },
-  // Jimmy Estrada - 1 deal · $10,920 · 14 EE (NEW: first Jimmy pipeline entry)
-  { owner: 'Jimmy Estrada',     name: 'Encarnacion Industries LLC',                       type: 'PEO',                stage: 'CSA Requested',        fees: 10920.00,  ee: 14,  prob: 75, closeDate: '8/14/2026',  age: 167 },
-  // Jon Lightbody - 3 deals · $51,532 · 241 EE
-  { owner: 'Jon Lightbody',     name: 'SOCO 300 Pro-Shop LLC',                            type: 'PEO',                stage: 'CSA to Client',        fees: 4420.00,   ee: 5,   prob: 90, closeDate: '8/14/2026',  age: 13  },
-  { owner: 'Jon Lightbody',     name: 'Mothers',                                          type: 'ASO (Payroll Only)', stage: 'Proposal to Producer', fees: 7540.00,   ee: 30,  prob: 50, closeDate: '8/21/2026',  age: 13  },
-  { owner: 'Jon Lightbody',     name: 'CASS, Inc.',                                       type: 'ASO (Payroll Only)', stage: 'Proposal to Producer', fees: 39572.00,  ee: 206, prob: 50, closeDate: '10/1/2026',  age: 55  }
+  // Alicia Costoya - 5 deals · $137,440 · 318 EE
+  { owner: 'Alicia Costoya',    name: 'CCG Harris Solutions LLC',                         type: 'PEO',                stage: 'Proposal to Customer', fees: 8736.00,   ee: 21,  prob: 65, closeDate: '9/4/2026',   age: 19  },
+  { owner: 'Alicia Costoya',    name: 'Launchpad Sandwich, LLC',                          type: 'PEO',                stage: 'Proposal to Customer', fees: 10400.00,  ee: 25,  prob: 65, closeDate: '9/18/2026',  age: 18  },
+  { owner: 'Alicia Costoya',    name: 'Front Range Subs, Inc',                            type: 'PEO',                stage: 'Proposal to Customer', fees: 9152.00,   ee: 22,  prob: 65, closeDate: '9/30/2026',  age: 24  },
+  { owner: 'Alicia Costoya',    name: 'Buffalo Boss Orlando LLC',                         type: 'PEO',                stage: 'Proposal to Customer', fees: 9152.00,   ee: 50,  prob: 65, closeDate: '11/6/2026',  age: 298 },
+  { owner: 'Alicia Costoya',    name: 'Latin American Subs',                              type: 'PEO',                stage: 'Proposal to Customer', fees: 100000.00, ee: 200, prob: 55, closeDate: '11/20/2026', age: 742 },
+  // Brandon DeBenedet - 4 deals · $167,015 · 167 EE
+  { owner: 'Brandon DeBenedet', name: 'Flycast Partners, Inc',                            type: 'PEO',                stage: 'Proposal to Customer', fees: 57395.00,  ee: 50,  prob: 65, closeDate: '9/18/2026',  age: 59  },
+  { owner: 'Brandon DeBenedet', name: 'Harbor Presbyterian Church PCA',                   type: 'PEO',                stage: 'Proposal to Producer', fees: 3640.00,   ee: 4,   prob: 50, closeDate: '9/30/2026',  age: 14  },
+  { owner: 'Brandon DeBenedet', name: 'Kaimetrix, LLC',                                   type: 'PEO',                stage: 'Proposal to Producer', fees: 70980.00,  ee: 78,  prob: 50, closeDate: '10/1/2026',  age: 14  },
+  { owner: 'Brandon DeBenedet', name: 'Quire, LLC',                                       type: 'PEO',                stage: 'Proposal to Producer', fees: 35000.00,  ee: 35,  prob: 50, closeDate: '10/1/2026',  age: 10  },
+  // Carter Rhoden (House) - 5 deals · $188,383 · 654 EE
+  { owner: 'Carter Rhoden',     name: 'AVO T&L, LLC',                                     type: 'PEO',                stage: 'Proposal to Producer', fees: 21820.00,  ee: 28,  prob: 50, closeDate: '9/4/2026',   age: 39  },
+  { owner: 'Carter Rhoden',     name: 'RWH Capital LLC',                                  type: 'PEO',                stage: 'Proposal to Producer', fees: 4900.00,   ee: 7,   prob: 50, closeDate: '9/4/2026',   age: 3   },
+  { owner: 'Carter Rhoden',     name: 'FPGH Enterprises LLC',                             type: 'PEO',                stage: 'CSA to Client',        fees: 881.40,    ee: 2,   prob: 90, closeDate: '9/11/2026',  age: 46  },
+  { owner: 'Carter Rhoden',     name: 'S&F Restaurant Ventures Inc (Gators docksides)',   type: 'PEO',                stage: 'Proposal to Customer', fees: 159900.00, ee: 615, prob: 65, closeDate: '9/18/2026',  age: 298 },
+  { owner: 'Carter Rhoden',     name: 'Sietsema Waste Services LLC (Junk Shot Grand Rapids)', type: 'PEO',            stage: 'Proposal to Producer', fees: 881.40,    ee: 2,   prob: 50, closeDate: '9/30/2026',  age: 13  },
+  // Derand Walker - 3 deals · $27,574 · 26 EE
+  { owner: 'Derand Walker',     name: 'AMF Group Inc. (Just Works replacement)',          type: 'PEO',                stage: 'Proposal to Producer', fees: 15510.00,  ee: 11,  prob: 50, closeDate: '9/18/2026',  age: 26  },
+  { owner: 'Derand Walker',     name: 'Southern Motor Works Inc.',                        type: 'PEO',                stage: 'Proposal to Producer', fees: 6240.00,   ee: 8,   prob: 50, closeDate: '9/30/2026',  age: 25  },
+  { owner: 'Derand Walker',     name: 'Paradise Concepts Inc.',                           type: 'PEO',                stage: 'Proposal to Customer', fees: 5824.00,   ee: 7,   prob: 65, closeDate: '10/5/2026',  age: 88  },
+  // Jon Lightbody - 6 deals · $65,454 · 364 EE
+  { owner: 'Jon Lightbody',     name: 'SOCO 300 Pro-Shop LLC',                            type: 'PEO',                stage: 'CSA to Client',        fees: 4420.00,   ee: 5,   prob: 90, closeDate: '9/4/2026',   age: 32  },
+  { owner: 'Jon Lightbody',     name: 'Leland Technology LLC',                            type: 'PEO',                stage: 'Proposal to Producer', fees: 5460.00,   ee: 6,   prob: 50, closeDate: '9/30/2026',  age: 20  },
+  { owner: 'Jon Lightbody',     name: 'Mark Schiles Plastering, Inc.',                    type: '—',                  stage: 'Submitted',            fees: 2189.00,   ee: 13,  prob: 45, closeDate: '9/30/2026',  age: 19  },
+  { owner: 'Jon Lightbody',     name: 'Bound Logistics LLC',                              type: 'PEO',                stage: 'Proposal to Customer', fees: 6845.00,   ee: 7,   prob: 65, closeDate: '9/30/2026',  age: 12  },
+  { owner: 'Jon Lightbody',     name: 'IPS Nationwide Inc.',                              type: '—',                  stage: 'Proposal to Producer', fees: 39000.00,  ee: 303, prob: 50, closeDate: '9/30/2026',  age: 12  },
+  { owner: 'Jon Lightbody',     name: 'Mothers',                                          type: 'ASO (Payroll Only)', stage: 'Submitted',            fees: 7540.00,   ee: 30,  prob: 45, closeDate: '10/1/2026',  age: 32  }
 ];
 
 function ninetyDayStageClass(s) {
@@ -2810,6 +3197,88 @@ document.querySelectorAll('#ninety-day-filters .pill').forEach(b => {
 // kind: 'added' | 'removed' | 'increase' | 'decrease' | 'stage'
 // To log a new entry, prepend to the appropriate month's `entries` array.
 const variancesData = [
+  {
+    month: 'Q3 2026 (90-day outlook · refreshed 8/24 · pipeline hygiene executed)',
+    entries: [
+      { kind: 'stage',    account: 'Weekly performance',                            owner: 'Team',             note: '<strong style="color:var(--red);">Weakest week since tracking began</strong> (week of 8/17–8/21). From the named rep pool: 5 IA (25% of 20-target), 2 proposals (20% of 10-target), 0 closed won (0% of 2.5-target).', amount: 'weekly report' },
+      { kind: 'added',    account: 'Latin American Subs (re-added)',                owner: 'Alicia Costoya',   note: '<strong style="color:#1F6F3D;">Back in pipeline</strong> at Proposal to Customer, $100,000 / 200 EE. Was removed months ago per prior directive. Close 11/20, first pay 1/8/2027.', amount: '+$100,000 admin · 200 EE' },
+      { kind: 'added',    account: 'S&F Restaurant Ventures (Gators docksides)',    owner: 'House (Carter)',   note: '<strong style="color:#1F6F3D;">Back in pipeline</strong> at Proposal to Customer, $159,900 / 615 EE. Close 9/18, first pay 11/6.', amount: '+$159,900 admin · 615 EE' },
+      { kind: 'added',    account: 'RWH Capital LLC',                               owner: 'House (Carter)',   note: 'New — Proposal to Producer, $4,900 / 7 EE, close 9/4, first pay 9/18.', amount: '+$4,900 admin' },
+      { kind: 'removed',  account: 'V.I. Electrical Contractor, Inc.',              owner: 'Derand Walker',    note: '<strong style="color:var(--red);">Removed from pipeline</strong> — was CSA Requested (75%) last week. Notable regression given prior CSA momentum.', amount: '−$9,360 admin' },
+      { kind: 'removed',  account: 'BB University LLC',                             owner: 'Alicia Costoya',   note: 'Removed from 90-day view — pushed to early October per meeting notes (building electrical/inspection delays).', amount: '−$9,152 admin' },
+      { kind: 'removed',  account: 'Mega Service Solutions, Inc',                   owner: 'House (Carter)',   note: '<strong>Pipeline hygiene:</strong> Removed — 846 days old, stalled deal cleared per Scott Hanson\'s directive.', amount: '−$21,616 admin' },
+      { kind: 'removed',  account: 'ERA Disposal Services LLC',                     owner: 'House (Carter)',   note: 'Removed from 90-day view — was CSA to Client (90%) last week. Notable regression.', amount: '−$880 admin' },
+      { kind: 'removed',  account: 'Luna Psychology Group, PA',                     owner: 'House (Carter)',   note: 'Moved to <strong>comp-only</strong> per Aug 17 meeting — removed from PEO pipeline.', amount: '−$5,824 admin' },
+      { kind: 'stage',    account: '30-Day Run Forecast',                           owner: 'Company',          note: '<strong style="color:var(--red);">Collapsed from $63,712 (6 deals) → $9,320 (2 deals)</strong> after pipeline hygiene cleanup. Only remaining first-pay in window: Jon\'s SOCO 300 ($4,420 · 9/4 · CSA to Client) and Carter\'s RWH Capital ($4,900 · 9/18 · Proposal to Producer).', amount: '−$54,392 · −4 deals' }
+    ]
+  },
+  {
+    month: 'Q3 2026 (90-day outlook · refreshed 8/17)',
+    entries: [
+      { kind: 'removed',  account: 'Chena River Restaurants Inc (Alaska Firehouse)',      owner: 'Alicia Costoya',   note: '<strong style="color:#1F6F3D;">CLOSED WON this week — Alicia\'s 1 close.</strong> Was CSA to Client 90% last week. First payroll 9/4/2026. Alaska market opened.', amount: '−$21,632 admin · +52 EE closing' },
+      { kind: 'removed',  account: 'Encarnacion Industries LLC',                          owner: 'Jimmy Estrada',    note: 'Cleared from 90-day view (was CSA to Client 90% for 8/14 close). Not counted in weekly Closed Won per activity report.', amount: '−$10,920 admin' },
+      { kind: 'added',    account: 'Kaimetrix, LLC',                                      owner: 'Brandon DeBenedet', note: '<strong style="color:#1F6F3D;">NEW — big deal.</strong> Proposal to Producer, $70,980 / 78 EE. WC Carve Out proposal sent via CarolinaPEO.', amount: '+$70,980 admin' },
+      { kind: 'added',    account: 'Quire, LLC',                                          owner: 'Brandon DeBenedet', note: 'New submission — $35,000 / 35 EE via PEO Consultants. Contingent sent.', amount: '+$35,000 admin' },
+      { kind: 'added',    account: 'Harbor Presbyterian Church PCA',                      owner: 'Brandon DeBenedet', note: 'New — Proposal to Producer, $3,640 / 4 EE via CarolinaPEO.', amount: '+$3,640 admin' },
+      { kind: 'added',    account: 'IPS Nationwide Inc.',                                 owner: 'Jon Lightbody',    note: '<strong style="color:#1F6F3D;">NEW — staffing deal.</strong> 303 EE / $39,000. Proposal to Producer.', amount: '+$39,000 admin · 303 EE' },
+      { kind: 'added',    account: 'Bound Logistics LLC',                                 owner: 'Jon Lightbody',    note: 'New — Proposal to Customer, $6,845 / 7 EE via Kristi Harris. Contingent sent.', amount: '+$6,845 admin' },
+      { kind: 'added',    account: 'V.I. Electrical Contractor, Inc.',                    owner: 'Derand Walker',    note: 'New — <strong>CSA Requested (75%)</strong>. $9,360 / 15 EE.', amount: '+$9,360 admin' },
+      { kind: 'added',    account: 'Sietsema Waste Services LLC (Junk Shot Grand Rapids)', owner: 'House (Carter)',  note: 'New — Proposal to Producer, another Junk Shot franchise. $881 / 2 EE.', amount: '+$881 admin' },
+      { kind: 'stage',    account: 'Paradise Concepts Inc.',                              owner: 'Derand Walker',    note: 'Re-added — Proposal to Customer, close pushed to 10/5.', amount: '$5,824 admin' },
+      { kind: 'removed',  account: "V-1 Consulting LLC (was PAUSED)",                    owner: 'Brandon DeBenedet', note: 'Cleared from pipeline — new ownership situation unresolved.', amount: '−$33,600 admin' },
+      { kind: 'removed',  account: "Eugene\'s Hot Chicken",                              owner: 'Derand Walker',    note: 'Cleared from pipeline.', amount: '−$28,080 admin' },
+      { kind: 'removed',  account: "S&F Restaurant Ventures (Gators docksides)",         owner: 'House (Carter)',   note: 'Cleared from 90-day. Was $160K / 616 EE big deal — pushed out or restructured.', amount: '−$160,160 admin' },
+      { kind: 'removed',  account: "Allie\'s Party Rental",                              owner: 'House (Carter)',   note: 'Cleared from 90-day.', amount: '−$19,700 admin' },
+      { kind: 'removed',  account: 'CASS, Inc. + Morning Glory',                          owner: 'Jon Lightbody',    note: 'Both cleared from 90-day.', amount: '−$47,240 admin' }
+    ]
+  },
+  {
+    month: 'YTD Reconciliation (Salesforce workbook · 8/12)',
+    entries: [
+      { kind: 'increase', account: 'Alicia Costoya YTD',                       owner: 'Producer',         note: '<strong style="color:#1F6F3D;">YTD corrected up $154,357 → $201,001.</strong> Was missing her 7/24 Baskin cluster close of $46,644 (5 HOUTX entities running as PEO).', amount: '+$46,644' },
+      { kind: 'added',    account: 'Jimmy Estrada YTD',                        owner: 'Vendor Manager',   note: '<strong style="color:#1F6F3D;">NEW producer entry — $21,489 YTD.</strong> 6/4 first payroll close that wasn\'t previously tracked. Encarnacion Industries deal remains active in 90-day.', amount: '+$21,489' },
+      { kind: 'decrease', account: 'Derand Walker YTD',                        owner: 'Producer',         note: 'YTD corrected down $5,101 → $3,515. Prior figure included a $1,586 non-PEO deal excluded from workbook filter.', amount: '−$1,586' },
+      { kind: 'decrease', account: 'House YTD (Carter Rhoden)',                owner: 'House',            note: 'YTD corrected down $90,443 → $74,224. Prior figure double-counted Green Edge (non-PEO) among other reconciliations.', amount: '−$16,219' },
+      { kind: 'increase', account: 'June Final revised',                       owner: 'Company',          note: '$25,659 → $28,558. Jimmy\'s Encarnacion ($21,489) added; Green Edge removed as non-PEO recurring.', amount: '+$2,899' },
+      { kind: 'increase', account: 'July MTD (through 7/24)',                  owner: 'Company',          note: 'New tracking: $49,015 actual PEO closed won for July. Alicia $46,644 (Baskin cluster) · Carter $2,371 (small deals). Acme CO and Restoration Geeks excluded (ASO / WC Carve-out).', amount: '$49,015' },
+      { kind: 'stage',    account: 'Total YTD Company',                        owner: 'Company',          note: '<strong>$559,352 per Salesforce Closed Won report</strong> (PEO only, first-pay basis). Historical $43,063 (Courtney Sustr, terminated) preserved in total.', amount: '$559,352 · 26.0% of $2.15M annual' }
+    ]
+  },
+  {
+    month: 'Q3 2026 (90-day outlook · refreshed 8/10)',
+    entries: [
+      { kind: 'increase', account: 'Alicia Costoya YTD',                       owner: 'Producer',         note: '<strong style="color:#1F6F3D;">YTD corrected up $154,357 → $201,001.</strong> Was missing her 7/24 Baskin cluster close of $46,644 (5 HOUTX entities running as PEO).', amount: '+$46,644' },
+      { kind: 'added',    account: 'Jimmy Estrada YTD',                        owner: 'Vendor Manager',   note: '<strong style="color:#1F6F3D;">NEW producer entry — $21,489 YTD.</strong> 6/4 first payroll close that wasn\'t previously tracked. Encarnacion Industries deal remains active in 90-day.', amount: '+$21,489' },
+      { kind: 'decrease', account: 'Derand Walker YTD',                        owner: 'Producer',         note: 'YTD corrected down $5,101 → $3,515. Prior figure included a $1,586 non-PEO deal excluded from workbook filter.', amount: '−$1,586' },
+      { kind: 'decrease', account: 'House YTD (Carter Rhoden)',                owner: 'House',            note: 'YTD corrected down $90,443 → $74,224. Prior figure double-counted Green Edge (non-PEO) among other reconciliations.', amount: '−$16,219' },
+      { kind: 'increase', account: 'June Final revised',                       owner: 'Company',          note: '$25,659 → $28,558. Jimmy\'s Encarnacion ($21,489) added; Green Edge removed as non-PEO recurring.', amount: '+$2,899' },
+      { kind: 'increase', account: 'July MTD (through 7/24)',                  owner: 'Company',          note: 'New tracking: $49,015 actual PEO closed won for July. Alicia $46,644 (Baskin cluster) · Carter $2,371 (small deals). Acme CO and Restoration Geeks excluded (ASO / WC Carve-out).', amount: '$49,015' },
+      { kind: 'stage',    account: 'Total YTD Company',                        owner: 'Company',          note: '<strong>$559,352 per Salesforce Closed Won report</strong> (PEO only, first-pay basis). Historical $43,063 (Courtney Sustr, terminated) preserved in total.', amount: '$559,352 · 26.0% of $2.15M annual' }
+    ]
+  },
+  {
+    month: 'Q3 2026 (90-day outlook · refreshed 8/10)',
+    entries: [
+      { kind: 'stage',    account: 'Chena River Restaurants (Alaska Firehouse)',        owner: 'Alicia Costoya',   note: '<strong style="color:#1F6F3D;">Advanced Proposal to Customer → CSA to Client (90%).</strong> Close 8/14, first pay 9/4. Presenting proposal today at 4:00 PM.', amount: '$21,632 admin · 52 EE' },
+      { kind: 'stage',    account: 'Encarnacion Industries LLC',                        owner: 'Jimmy Estrada',    note: '<strong style="color:#1F6F3D;">Advanced CSA Requested (75%) → CSA to Client (90%).</strong> Close 8/14, first pay 8/28.', amount: '$10,920 admin · 14 EE' },
+      { kind: 'added',    account: 'CCG Harris Solutions LLC',                          owner: 'Alicia Costoya',   note: 'New submission — awaiting UW approval &amp; proposal / CSA. 21 EE, close 8/14.', amount: '+$8,736 admin' },
+      { kind: 'added',    account: 'Launchpad Sandwich, LLC',                           owner: 'Alicia Costoya',   note: 'New — Proposal to Customer, $10,400 / 25 EE. Determining onboarding strategy for expansion.', amount: '+$10,400 admin' },
+      { kind: 'added',    account: 'Buffalo Boss Orlando LLC (re-activated)',           owner: 'Alicia Costoya',   note: 'Back in pipeline at Proposal to Customer after January push. 50 EE, close 11/6.', amount: '+$9,152 admin' },
+      { kind: 'added',    account: 'Leland Technology LLC',                             owner: 'Jon Lightbody',    note: 'New — Proposal to Producer, $5,460 / 6 EE. Actively being worked.', amount: '+$5,460 admin' },
+      { kind: 'added',    account: 'Mark Schiles Plastering (Glasser Ring)',            owner: 'Jon Lightbody',    note: 'New submission — presentation scheduled this week. $2,189 / 13 EE.', amount: '+$2,189 admin' },
+      { kind: 'added',    account: 'Morning Glory',                                     owner: 'Jon Lightbody',    note: 'New submission — $7,668 / 25 EE, close 10/2.', amount: '+$7,668 admin' },
+      { kind: 'added',    account: 'Luna Psychology Group, PA',                         owner: 'House (Carter)',   note: 'New submission — $6,300 / 7 EE, close 8/28.', amount: '+$6,300 admin' },
+      { kind: 'stage',    account: 'ERA Disposal Services LLC (Junk Shot ATL)',         owner: 'House (Carter)',   note: 'Advanced Submitted → Proposal to Customer (65%).', amount: '$880 admin' },
+      { kind: 'increase', account: "Allie's Party Equipment Rental",                    owner: 'House (Carter)',   note: 'Advanced Submitted → Proposal to Producer; admin populated at $19,700.', amount: '+$19,700 admin' },
+      { kind: 'stage',    account: 'Mothers',                                           owner: 'Jon Lightbody',    note: 'Regressed Proposal to Producer → Submitted.', amount: '$7,540 admin' },
+      { kind: 'removed',  account: 'CCG Stores 1-4 (4 entities)',                       owner: 'Alicia Costoya',   note: 'Cleared from 90-day view — replaced by CCG Harris parent entity or restructured.', amount: '−$25,376 admin · 61 EE' },
+      { kind: 'removed',  account: 'Ericson Waste Solutions LLC',                       owner: 'House (Carter)',   note: 'Cleared from 90-day — either closed or deprioritized.', amount: '−$2,204 admin' },
+      { kind: 'removed',  account: 'JDS Plumbing &amp; Mechanical',                     owner: 'House (Carter)',   note: 'Cleared from 90-day.', amount: '−$19,500 admin' },
+      { kind: 'removed',  account: 'US Rail Systems Inc',                               owner: 'House (Carter)',   note: 'Cleared from 90-day.', amount: '−$4,650 admin' },
+      { kind: 'removed',  account: 'Paradise Concepts Inc.',                            owner: 'Derand Walker',    note: 'Cleared — Derand pushed out of system pending probate resolution.', amount: '−$5,824 admin' },
+      { kind: 'removed',  account: "Alicia's Gina + Jon's Go",                          owner: 'Various',          note: '<strong style="color:#1F6F3D;">Closed this week</strong> — moved out of 90-day into implementation. Gina effective Thursday · Go CSAs signing this week.', amount: 'moved to closed' }
+    ]
+  },
   {
     month: 'Team change (August 3, 2026)',
     entries: [
