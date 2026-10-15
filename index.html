@@ -1219,7 +1219,7 @@
   <div class="top-stamp">
     <div><span class="live">LIVE DATA</span></div>
     <div>Reporting period <strong>YTD 2026</strong></div>
-    <div>Updated <strong>October 12, 2026</strong></div>
+    <div>Updated <strong>October 15, 2026</strong></div>
   </div>
 </div>
 
@@ -1238,14 +1238,14 @@
 
   <div class="kpi-grid">
     <div class="kpi">
-      <div class="lbl">YTD Booked</div>
-      <div class="num">$<span data-count="560674">0</span></div>
-      <div class="delta">Producers $420,576 · Jimmy $21,489 · House $75,546 (incl. FPGH $1,322) · Historical $43,063 · <strong>25.5% of $2.2M annual</strong></div>
+      <div class="lbl">YTD Booked (SF 10/14)</div>
+      <div class="num">$<span data-count="630803">0</span></div>
+      <div class="delta">Alicia $258,825 · Jon $220,480 · House $76,710 · Michael $5,135 · Jimmy $21,489 · Historical $48,164 · <strong>28.7% of $2.2M annual</strong></div>
     </div>
     <div class="kpi">
-      <div class="lbl">July MTD (through 7/24)</div>
-      <div class="num">$<span data-count="49015">0</span></div>
-      <div class="delta">Alicia Baskin cluster $46,644 · Carter $2,371</div>
+      <div class="lbl">September Final</div>
+      <div class="num">$<span data-count="50254">0</span></div>
+      <div class="delta">Alicia HOUTX cluster + Chena River $44,512 · Jon SOCO 300 $4,420 · Carter FPGH $1,322 · <strong>23.8% of $211.5K plan</strong></div>
     </div>
     <div class="kpi">
       <div class="lbl">30-Day Run Forecast</div>
@@ -1303,6 +1303,9 @@
             <th class="num-col">May</th>
             <th class="num-col">Jun</th>
             <th class="num-col">Jul</th>
+            <th class="num-col">Aug</th>
+            <th class="num-col">Sep</th>
+            <th class="num-col">Oct</th>
             <th class="num-col">YTD Ran</th>
             <th class="num-col">% Annual</th>
           </tr>
@@ -1318,6 +1321,9 @@
             <td class="num-col" id="perf-tot-may">0</td>
             <td class="num-col" id="perf-tot-jun">0</td>
             <td class="num-col" id="perf-tot-jul">0</td>
+            <td class="num-col" id="perf-tot-aug">0</td>
+            <td class="num-col" id="perf-tot-sep">0</td>
+            <td class="num-col" id="perf-tot-oct">0</td>
             <td class="num-col" id="perf-tot-ytd">0</td>
             <td class="num-col" id="perf-tot-pct">0%</td>
           </tr>
@@ -1626,17 +1632,17 @@ const ANNUAL_PLAN = 2200000;
 
 const producers = [
   // Producer, Title, Location, Annual Plan, YTD Booked, Color
-  { name: 'Alicia Costoya',                 title: 'Sr. Business Development Manager', loc: 'Miami',           plan: 300000, ytd: 201000.80, type: 'producer' },
-  { name: 'Jon Lightbody',                  title: 'Strategic Partnerships Manager',   loc: 'Space Coast',     plan: 300000, ytd: 216060.00, type: 'producer' },
-  { name: 'Derand Walker (Terminated)',     title: 'Sr. Business Development Manager', loc: 'NC / ATL',        plan: 0,      ytd: 3515.00,   type: 'producer' },
+  { name: 'Alicia Costoya',                 title: 'Sr. Business Development Manager', loc: 'Miami',           plan: 300000, ytd: 258824.80, type: 'producer' },
+  { name: 'Jon Lightbody',                  title: 'Strategic Partnerships Manager',   loc: 'Space Coast',     plan: 300000, ytd: 220480.00, type: 'producer' },
+  { name: 'Derand Walker (Terminated)',     title: 'Sr. Business Development Manager', loc: 'NC / ATL',        plan: 0,      ytd: 5101.00,   type: 'producer' },
   { name: 'Brandon DeBenedet',              title: 'Director',                         loc: 'Tampa',           plan: 300000, ytd: 0,         type: 'producer' },
-  { name: 'Michael Matthews',               title: 'Director',                         loc: 'Tampa',           plan: 300000, ytd: 0,         type: 'producer' },
+  { name: 'Michael Matthews',               title: 'Director',                         loc: 'Tampa',           plan: 300000, ytd: 5135.00,   type: 'producer' },
   { name: 'Andy Songer',                    title: 'Director',                         loc: 'Nashville, TN',   plan: 300000, ytd: 0,         type: 'producer' },
-  { name: 'Neil Eakins (New Hire 9/14/26)', title: 'Producer',                         loc: 'Chicago',         plan: 87500,  ytd: 0,         type: 'producer' },
+  { name: 'Neil Eakins (Terminated)',       title: 'Producer',                         loc: 'Chicago',         plan: 0,      ytd: 0,         type: 'producer' },
   { name: 'Omar Flores (New Hire 9/14/26)', title: 'In-Office Producer',               loc: 'Orlando',         plan: 50000,  ytd: 0,         type: 'producer' },
   { name: 'Jimmy Estrada (internal non-sales)', title: 'Vendor Manager',                   loc: 'Orlando',         plan: 0,      ytd: 21489.00,  type: 'producer' },
   { name: 'Courtney Sustr (Resigned)',      title: 'Sr. Business Development Manager', loc: 'Tampa',           plan: 0,      ytd: 43063.28,  type: 'producer' },
-  { name: 'House',                          title: 'House book (Carter Rhoden)',       loc: 'Centralized',     plan: 0,      ytd: 75545.95,  type: 'house' }
+  { name: 'House',                          title: 'House book (Carter Rhoden)',       loc: 'Centralized',     plan: 0,      ytd: 76710.05,  type: 'house' }
 ];
 
 const totalYTD = producers.reduce((s, p) => s + p.ytd, 0);
@@ -1935,14 +1941,14 @@ const meetingNotes = [
     weekLabel: 'Week of October 5 – October 9, 2026',
     weekTag: 'Current',
     open: true,
-    summary: 'Derand terminated after closing 1 final deal · Alicia added 2 big new submissions · 90-day pipeline grew to $668K',
+    summary: 'Derand &amp; Neil terminated · Alicia added 2 big new submissions · 90-day pipeline grew to $668K',
     reps: [
       {
-        name: 'Team change — Derand Walker terminated',
+        name: 'Team changes — Derand Walker &amp; Neil Eakins terminated',
         items: [
-          "<strong style='color:var(--red);'>Derand Walker terminated.</strong> Closed <strong>1 final deal</strong> during his last week (admin amount pending Salesforce refresh).",
-          "<strong>3 remaining pipeline deals</strong> in Salesforce pending reassignment: Paradise Concepts ($5,824), Silk The Restaurant ($13,000), Advanced Windows (admin TBD).",
-          "<strong>Final YTD: $3,515</strong> + the pending close from Oct 5-9 week."
+          "<strong style='color:var(--red);'>Derand Walker terminated.</strong> Closed <strong>1 final deal</strong> during his last week (admin amount pending Salesforce refresh). 3 remaining pipeline deals (Paradise Concepts $5,824, Silk The Restaurant $13,000, Advanced Windows TBD) in Salesforce pending reassignment. Final YTD: $3,515 + pending close.",
+          "<strong style='color:var(--red);'>Neil Eakins terminated.</strong> Hired 9/14/26, departed before his first close — 4 weeks tenure. YTD: $0. His Food For Greater Elgin contingent submission from 9/18 will not be attributed to him.",
+          "<strong>Active producer roster now:</strong> Alicia, Jon, Brandon, Michael, Andy, Omar (6 producers) + House (Carter)."
         ]
       },
       {
@@ -3193,16 +3199,16 @@ renderActivityTable();
 // Monthly bookings by rep (admin fees)
 // To update each month, edit the "monthly" objects below.
 const performanceData = [
-  { rep: 'Alicia Costoya',                 annual: 300000, monthly: { jan: 79476.80, feb: 4992,  mar: 0,    apr: 0,        may: 69888,   jun: 0,        jul: 46644 } },
-  { rep: 'Jon Lightbody',                  annual: 300000, monthly: { jan: 216060,   feb: 0,    mar: 0,    apr: 0,        may: 0,       jun: 0,        jul: 0 } },
-  { rep: 'Derand Walker (Terminated)',     annual: 0,      monthly: { jan: 0,        feb: 0,    mar: 0,    apr: 0,        may: 3515,    jun: 0,        jul: 0 } },
-  { rep: 'Brandon DeBenedet',              annual: 300000, monthly: { jan: null,     feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0,        jul: 0 } },
-  { rep: 'Michael Matthews',               annual: 300000, monthly: { jan: null,     feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0,        jul: 0 } },
-  { rep: 'Andy Songer',                    annual: 300000, monthly: { jan: null,     feb: null, mar: null, apr: null,     may: null,    jun: null,     jul: null } },
-  { rep: 'Neil Eakins (New Hire 9/14/26)', annual: 87500,  monthly: { jan: null,     feb: null, mar: null, apr: null,     may: null,    jun: null,     jul: null } },
-  { rep: 'Omar Flores (New Hire 9/14/26)', annual: 50000,  monthly: { jan: null,     feb: null, mar: null, apr: null,     may: null,    jun: null,     jul: null } },
-  { rep: 'Jimmy Estrada (internal non-sales)', annual: 0,      monthly: { jan: 0,        feb: 0,    mar: 0,    apr: 0,        may: 0,       jun: 21489,    jul: 0 } },
-  { rep: 'Courtney Sustr (Resigned)',      annual: 0,      monthly: { jan: 0,        feb: 0,    mar: 0,    apr: 40279.72, may: 2783.56, jun: 0,        jul: 0 } }
+  { rep: 'Alicia Costoya',                 annual: 300000, monthly: { jan: 79476.80, feb: 4992,  mar: 0,    apr: 0,        may: 69888,   jun: 0,        jul: 46644,   aug: 3744,   sep: 44512,   oct: 9568 } },
+  { rep: 'Jon Lightbody',                  annual: 300000, monthly: { jan: 216060,   feb: 0,    mar: 0,    apr: 0,        may: 0,       jun: 0,        jul: 0,       aug: 0,      sep: 4420,    oct: 0 } },
+  { rep: 'Derand Walker (Terminated)',     annual: 0,      monthly: { jan: 0,        feb: 0,    mar: 0,    apr: 1586,     may: 3515,    jun: 0,        jul: 0,       aug: 0,      sep: 0,       oct: 0 } },
+  { rep: 'Brandon DeBenedet',              annual: 300000, monthly: { jan: null,     feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0,        jul: 0,       aug: 0,      sep: 0,       oct: 0 } },
+  { rep: 'Michael Matthews',               annual: 300000, monthly: { jan: null,     feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0,        jul: 5135,    aug: 0,      sep: 0,       oct: 0 } },
+  { rep: 'Andy Songer',                    annual: 300000, monthly: { jan: null,     feb: null, mar: null, apr: null,     may: null,    jun: null,     jul: null,    aug: 0,      sep: 0,       oct: 0 } },
+  { rep: 'Neil Eakins (Terminated)',       annual: 0,      monthly: { jan: null,     feb: null, mar: null, apr: null,     may: null,    jun: null,     jul: null,    aug: null,   sep: 0,       oct: 0 } },
+  { rep: 'Omar Flores (New Hire 9/14/26)', annual: 50000,  monthly: { jan: null,     feb: null, mar: null, apr: null,     may: null,    jun: null,     jul: null,    aug: null,   sep: 0,       oct: 0 } },
+  { rep: 'Jimmy Estrada (internal non-sales)', annual: 0,      monthly: { jan: 0,        feb: 0,    mar: 0,    apr: 0,        may: 0,       jun: 21489,    jul: 0,       aug: 0,      sep: 0,       oct: 0 } },
+  { rep: 'Courtney Sustr (Resigned)',      annual: 0,      monthly: { jan: 0,        feb: 0,    mar: 0,    apr: 40279.72, may: 2783.56, jun: 0,        jul: 0,       aug: 0,      sep: 0,       oct: 0 } }
 ];
 
 function renderPerfTable() {
@@ -3215,8 +3221,8 @@ function renderPerfTable() {
   };
 
   tbody.innerHTML = performanceData.map(p => {
-    const ytd = ['jan','feb','mar','apr','may','jun','jul'].reduce((s, m) => s + (p.monthly[m] || 0), 0);
-    const hasAnyData = ['jan','feb','mar','apr','may','jun','jul'].some(m => p.monthly[m] !== null && p.monthly[m] !== undefined);
+    const ytd = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct'].reduce((s, m) => s + (p.monthly[m] || 0), 0);
+    const hasAnyData = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct'].some(m => p.monthly[m] !== null && p.monthly[m] !== undefined);
     const pct = p.annual ? ytd / p.annual : 0;
     let pctClass = 'pct-cell';
     let pctText;
@@ -3243,6 +3249,9 @@ function renderPerfTable() {
         ${monthCell(p.monthly.may)}
         ${monthCell(p.monthly.jun)}
         ${monthCell(p.monthly.jul)}
+        ${monthCell(p.monthly.aug)}
+        ${monthCell(p.monthly.sep)}
+        ${monthCell(p.monthly.oct)}
         <td class="num-col ytd-val">${fmtMoney(ytd)}</td>
         <td class="num-col ${pctClass}">${pctText}</td>
       </tr>`;
@@ -3258,7 +3267,10 @@ function renderPerfTable() {
   const totMay = sumMonth('may');
   const totJun = sumMonth('jun');
   const totJul = sumMonth('jul');
-  const totYtd = totJan + totFeb + totMar + totApr + totMay + totJun + totJul;
+  const totAug = sumMonth('aug');
+  const totSep = sumMonth('sep');
+  const totOct = sumMonth('oct');
+  const totYtd = totJan + totFeb + totMar + totApr + totMay + totJun + totJul + totAug + totSep + totOct;
   const totPct = totAnnual ? (totYtd / totAnnual * 100).toFixed(1) + '%' : '0.0%';
 
   document.getElementById('perf-tot-jan').textContent = fmtMoney(totJan);
@@ -3268,6 +3280,9 @@ function renderPerfTable() {
   document.getElementById('perf-tot-may').textContent = fmtMoney(totMay);
   document.getElementById('perf-tot-jun').textContent = fmtMoney(totJun);
   document.getElementById('perf-tot-jul').textContent = fmtMoney(totJul);
+  document.getElementById('perf-tot-aug').textContent = fmtMoney(totAug);
+  document.getElementById('perf-tot-sep').textContent = fmtMoney(totSep);
+  document.getElementById('perf-tot-oct').textContent = fmtMoney(totOct);
   document.getElementById('perf-tot-ytd').textContent = fmtMoney(totYtd);
   document.getElementById('perf-tot-pct').textContent = totPct;
 }
@@ -3402,8 +3417,24 @@ document.querySelectorAll('#ninety-day-filters .pill').forEach(b => {
 // To log a new entry, prepend to the appropriate month's `entries` array.
 const variancesData = [
   {
-    month: 'Q4 2026 (90-day outlook · refreshed 10/12 · Derand terminated)',
+    month: 'YTD Reconciliation (Salesforce Closed Won · 10/14)',
     entries: [
+      { kind: 'stage',    account: 'Total YTD Company',                               owner: 'Company',          note: '<strong style="color:#1F6F3D;">$630,803 per Salesforce Closed Won report</strong> (PEO + ASO + Carve-Out, first-pay basis). <strong>28.7% of $2.2M annual plan.</strong> 62 total closed deals YTD.', amount: '$630,803 · 62 deals' },
+      { kind: 'increase', account: 'Alicia Costoya YTD',                              owner: 'Producer',         note: '<strong style="color:#1F6F3D;">$201,001 → $258,825 (+$57,824).</strong> Added Ohana Katy ($3,744 · 8/21) + HOUTX cluster + Chena River Alaska ($44,512 · 9/4) + CCG Harris ($9,568 · 10/8). 33 deals total YTD.', amount: '+$57,824 · 9 new deals' },
+      { kind: 'increase', account: 'Jon Lightbody YTD',                               owner: 'Producer',         note: '<strong style="color:#1F6F3D;">$216,060 → $220,480 (+$4,420).</strong> SOCO 300 Pro-Shop closed 9/29.', amount: '+$4,420' },
+      { kind: 'increase', account: 'Michael Matthews YTD',                            owner: 'Producer',         note: '<strong style="color:#1F6F3D;">$0 → $5,135.</strong> Acme CO Manufacturing ran as ASO (Payroll Only) on 7/17 — was missed in prior PEO-only reconciliation.', amount: '+$5,135' },
+      { kind: 'increase', account: 'House YTD (Carter Rhoden)',                       owner: 'House',            note: '<strong>$75,546 → $76,710 (+$1,164).</strong> Added Solomon IT ($120 ASO · 10/2). 20 total deals.', amount: '+$1,164' },
+      { kind: 'increase', account: 'Derand Walker YTD',                               owner: 'Producer (Terminated)', note: '<strong>$3,515 → $5,101 (+$1,586).</strong> Speranza Dental ASO ($1,586 · 4/3) added back after being excluded in prior reconciliation.', amount: '+$1,586' },
+      { kind: 'stage',    account: 'September Final',                                 owner: 'Company',          note: '<strong>$50,254</strong> across 8 deals · 23.8% of $211.5K monthly plan. Alicia drove $44,712 (HOUTX Baskin cluster + Chena River). Jon $4,420 (SOCO 300). Carter $1,322 (FPGH).', amount: '$50,254' },
+      { kind: 'stage',    account: 'October MTD (through 10/14)',                     owner: 'Company',          note: '<strong>$9,688</strong> across 2 deals · 4.6% of monthly plan. Alicia CCG Harris $9,568 · Carter Solomon IT $120 (ASO).', amount: '$9,688' },
+      { kind: 'stage',    account: 'August Final (revised)',                          owner: 'Company',          note: 'Revised from $0 to <strong>$3,744</strong>. Alicia closed Ohana Katy LLC (8/21 first pay) — was missed in prior reports.', amount: '$3,744' },
+      { kind: 'stage',    account: 'July Final (revised)',                            owner: 'Company',          note: 'Revised from $49,015 to <strong>$54,150</strong>. Added Michael\'s Acme CO Manufacturing ASO ($5,135 · 7/17) and 2 small Carter deals (DBS Restaurant $384 + HumanEdge $520).', amount: '+$5,135' }
+    ]
+  },
+  {
+    month: 'Q4 2026 (90-day outlook · refreshed 10/12 · Derand &amp; Neil terminated)',
+    entries: [
+      { kind: 'removed',  account: 'Neil Eakins TERMINATED',                             owner: 'Team change',       note: '<strong style="color:var(--red);">Neil Eakins terminated.</strong> Hired 9/14/26, departed before his first close. YTD: $0. His Food For Greater Elgin submission (contingent sent 9/18) remains in underwriting but will not be attributed.', amount: 'Team -1 · 4 weeks tenure' },
       { kind: 'removed',  account: 'Derand Walker TERMINATED',                           owner: 'Team change',       note: '<strong style="color:var(--red);">Derand Walker terminated.</strong> Closed 1 final deal in his last week (Oct 5-9, admin TBD per Salesforce). His 3 remaining pipeline deals (Paradise Concepts, Silk The Restaurant, Advanced Windows) remain in Salesforce pending reassignment. Final YTD: $3,515 + pending close.', amount: 'Team -1' },
       { kind: 'stage',    account: '90-Day Pipeline expanded',                           owner: 'Team',              note: '<strong>$492K (27 deals) → $668K (32 deals).</strong> Alicia added 2 big new submissions, Brandon returned Kaimetrix + Harbor Presbyterian to pipeline, Carter added Puff N\' Stuff Catering, Jon\'s book stable.', amount: '+$175K · +5 deals' },
       { kind: 'added',    account: 'Ameri-Companies Management, Inc',                    owner: 'Alicia Costoya',    note: '<strong style="color:#1F6F3D;">NEW big submission.</strong> Submitted stage, $40,500 / 54 EE. Close 10/30, first pay 1/8/2027.', amount: '+$40,500 · 54 EE' },
