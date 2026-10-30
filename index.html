@@ -1263,10 +1263,8 @@
 <!-- TABS -->
 <div class="tabs" role="tablist">
   <button class="tab active" data-panel="producers">Producers <span class="badge">9</span></button>
-  <button class="tab" data-panel="forecast">Forecast Trend</button>
   <button class="tab" data-panel="pipeline">Pipeline <span class="badge">10</span></button>
   <button class="tab" data-panel="weekly">Weekly Snapshot</button>
-  <button class="tab" data-panel="notes">Notes</button>
   <button class="tab" data-panel="submissions">Underwriting <span class="badge">10</span></button>
   <button class="tab" data-panel="benefits">Benefits <span class="badge soon">Soon</span></button>
   <button class="tab" data-panel="variances">Pipeline Variances</button>
@@ -1326,21 +1324,20 @@
       </table>
     </div>
   </div>
-</section>
-<section class="panel" id="panel-forecast">
-  <div class="card" style="margin-top: 0;">
+
+  <div class="card" style="margin-top: 20px;">
     <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
       <div>
         <h3>30-Day Run Forecast <span class="acc">·</span> deals expected to run first payroll by November 25, 2026</h3>
-        <div class="sub">3 deals in strict window · <strong style="color:#1F6F3D;">6 Glen batch CSA to Client deals ($51K) are just outside window (11/27 first pay)</strong> and will dominate next 30-day cycle</div>
+        <div class="sub">4 deals in strict window · <strong style="color:#1F6F3D;">6 Glen batch CSA to Client deals ($51K) are just outside window (11/27 first pay)</strong> and will dominate next 30-day cycle</div>
       </div>
       <div class="var-summary" style="display: flex; gap: 20px;">
         <div style="text-align: right;">
-          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--red);">$39,766</div>
+          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--red);">$52,566</div>
           <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">Total admin</div>
         </div>
         <div style="text-align: right;">
-          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--black);">3 deals</div>
+          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--black);">4 deals</div>
           <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">40 EE</div>
         </div>
       </div>
@@ -1362,10 +1359,10 @@
         <tbody id="thirty-day-tbody"></tbody>
         <tfoot>
           <tr>
-            <td colspan="2"><strong>3-deal run forecast</strong></td>
+            <td colspan="2"><strong>4-deal run forecast</strong></td>
             <td class="num-col"><strong>40</strong></td>
             <td class="num-col">—</td>
-            <td class="num-col"><strong>$39,766</strong></td>
+            <td class="num-col"><strong>$52,566</strong></td>
             <td class="num-col">—</td>
             <td class="num-col">—</td>
             <td>—</td>
@@ -1384,9 +1381,9 @@
         <div style="font-family: var(--font-mono);">1 deal</div>
         <div style="font-family: var(--font-mono); font-weight: 700;">$13,000</div>
 
-        <div><strong>Carter Rhoden (House)</strong></div>
-        <div style="font-family: var(--font-mono);">1 deal</div>
-        <div style="font-family: var(--font-mono); font-weight: 700;">$11,166</div>
+        <div><strong>House</strong></div>
+        <div style="font-family: var(--font-mono);">2 deals</div>
+        <div style="font-family: var(--font-mono); font-weight: 700;">$23,966</div>
 
         <div style="color: var(--gray-700);">Alicia Costoya</div>
         <div style="font-family: var(--font-mono); color: var(--gray-700);">0 deals</div>
@@ -1408,7 +1405,7 @@
         <div style="font-family: var(--font-mono); color: var(--gray-700);">0 deals</div>
         <div style="font-family: var(--font-mono); color: var(--gray-700);">—</div>
 
-        <div style="color: var(--gray-700);">Omar Flores</div>
+        <div style="color: var(--gray-700);">Marion Razz (New Hire 10/26)</div>
         <div style="font-family: var(--font-mono); color: var(--gray-700);">0 deals</div>
         <div style="font-family: var(--font-mono); color: var(--gray-700);">—</div>
       </div>
@@ -1418,17 +1415,10 @@
     </div>
   </div>
 
-  <div class="grid-2" style="margin-top: 20px;">
-    <div class="card">
-      <h3>Monthly actuals vs plan</h3>
-      <div class="sub">$211.5K monthly plan · July $54K · Aug $4K · Sept $50K · Oct MTD (10/20) $11K</div>
-      <div class="chart-wrap"><canvas id="aprilChart"></canvas></div>
-    </div>
-    <div class="card">
-      <h3>Pipeline by stage <span class="acc">·</span> October</h3>
-      <div class="sub">Admin fee value across active running/implementation pipeline</div>
-      <div class="chart-wrap"><canvas id="stageChart"></canvas></div>
-    </div>
+  <div class="card" style="margin-top: 20px;">
+    <h3>Monthly actuals vs plan</h3>
+    <div class="sub">$211.5K monthly plan · July $54K · Aug $4K · Sept $50K · Oct MTD (10/20) $11K</div>
+    <div class="chart-wrap"><canvas id="aprilChart"></canvas></div>
   </div>
 </section>
 
@@ -1439,7 +1429,7 @@
     <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; margin-bottom: 4px;">
       <div>
         <h3 style="margin: 0;">Next 90 days <span class="acc">·</span> closing pipeline</h3>
-        <div class="sub" style="margin-top: 4px;">Opportunities estimated to close 10/26 – 1/26 · refreshed 10/26 · <strong style="color:#1F6F3D;">Carter's book exploded 3 → 11 deals / $148K</strong> (Glen batch now in SF with <strong>6 at CSA to Client 90%</strong>) · <strong>Brandon's Sun Print advanced to CSA to Client (90%)</strong> at $58,760 · Arthur Lawrence $73K new submission · <strong>Pipeline total: $882K (+$103K WoW)</strong></div>
+        <div class="sub" style="margin-top: 4px;">Opportunities estimated to close 10/26 – 1/26 · refreshed 10/26 · <strong style="color:#1F6F3D;">House book 15 deals / $354K</strong> (Glen batch with <strong>6 at CSA to Client 90%</strong>) · <strong>Brandon's Sun Print at CSA to Client (90%)</strong> at $58,760 · S1 Security $177K + Arthur Lawrence $73K large submissions</div>
       </div>
       <div class="var-summary" id="ninety-day-summary"></div>
     </div>
@@ -1448,10 +1438,9 @@
       <button class="pill active" data-filter="all">All owners</button>
       <button class="pill" data-filter="Alicia Costoya">Alicia</button>
       <button class="pill" data-filter="Brandon DeBenedet">Brandon</button>
-      <button class="pill" data-filter="Carter Rhoden">Carter (House)</button>
+      <button class="pill" data-filter="House">House</button>
       <button class="pill" data-filter="Jimmy Estrada">Jimmy</button>
       <button class="pill" data-filter="Jon Lightbody">Jon</button>
-      <button class="pill" data-filter="Omar Flores">Omar</button>
       <button class="pill" data-filter="Derand Walker (Terminated)">Derand (Terminated)</button>
     </div>
 
@@ -1475,35 +1464,6 @@
     </div>
   </div>
 
-  <!-- 2026 ACTIVE PIPELINE DETAIL -->
-  <div class="card" style="margin-top: 20px;">
-    <h3>2026 active pipeline detail</h3>
-    <div class="sub">13 deals · $156.6K admin fees · 279 employees · 11 running (May + June) + 2 July active</div>
-    <div class="filter-row" id="pipeline-filters">
-      <button class="pill active" data-filter="all">All deals</button>
-      <button class="pill" data-filter="Running">Running</button>
-      <button class="pill" data-filter="Ran 2nd Payroll">Ran 2nd Payroll</button>
-      <button class="pill" data-filter="Ran 1st Payroll">Ran 1st Payroll</button>
-      <button class="pill" data-filter="Implementation">Implementation</button>
-    </div>
-    <div class="table-wrap">
-      <table id="pipelineTable">
-        <thead>
-          <tr>
-            <th>Owner</th>
-            <th>Account</th>
-            <th>Stage</th>
-            <th style="text-align:right;">Admin Fees</th>
-            <th style="text-align:right;">EE</th>
-            <th>Probability</th>
-            <th>First Pay</th>
-            <th>Lead Source</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </div>
 </section>
 
 <!-- PANEL: WEEKLY -->
@@ -1561,20 +1521,19 @@
 
     <div class="notes-section">
       <div class="notes-section-header">
-        <h4>Meeting notes <span class="acc">·</span> producer pipeline updates</h4>
+        <h4>Producer pipeline updates <span class="acc">·</span> week of October 26</h4>
+        <span class="lbl">Rep-provided weekly updates</span>
+      </div>
+      <div id="producer-notes-list" style="margin-top: 12px;"></div>
+    </div>
+
+    <div class="notes-section" style="margin-top: 24px;">
+      <div class="notes-section-header">
+        <h4>Meeting notes <span class="acc">·</span> historical pipeline updates</h4>
         <span class="lbl">Click a week to expand</span>
       </div>
       <div id="notes-list"></div>
     </div>
-  </div>
-</section>
-
-<!-- PANEL: NOTES -->
-<section class="panel" id="panel-notes">
-  <div class="card">
-    <h3>Producer pipeline updates <span class="acc">·</span> week of October 26</h3>
-    <div class="sub">Rep-provided weekly updates on their pipeline, closes, and year-end commitments</div>
-    <div id="producer-notes-list" style="margin-top: 20px;"></div>
   </div>
 </section>
 
@@ -1651,8 +1610,8 @@ const producers = [
   { name: 'Brandon DeBenedet',              title: 'Director',                         loc: 'Tampa',           plan: 300000, ytd: 0,         type: 'producer' },
   { name: 'Michael Matthews',               title: 'Director',                         loc: 'Tampa',           plan: 300000, ytd: 5135.00,   type: 'producer' },
   { name: 'Andy Songer',                    title: 'Director',                         loc: 'Nashville, TN',   plan: 300000, ytd: 0,         type: 'producer' },
-  { name: 'Omar Flores (New Hire 9/14/26)', title: 'In-Office Producer',               loc: 'Orlando',         plan: 50000,  ytd: 0,         type: 'producer' },
-  { name: 'House',                          title: 'House book (Carter Rhoden)',       loc: 'Centralized',     plan: 0,      ytd: 76710.05,  type: 'house' },
+  { name: 'Marion Razz (New Hire 10/26)',   title: 'Producer',                         loc: 'Valdosta, GA',    plan: 0,      ytd: 0,         type: 'producer' },
+  { name: 'House',                          title: 'House Accounts',                   loc: 'Centralized',     plan: 0,      ytd: 76710.05,  type: 'house' },
   { name: 'Jimmy Estrada (internal non-sales)', title: 'Vendor Manager',               loc: 'Orlando',         plan: 0,      ytd: 21489.00,  type: 'producer' },
   { name: 'Courtney Sustr (Resigned)',      title: 'Sr. Business Development Manager', loc: 'Tampa',           plan: 0,      ytd: 43063.28,  type: 'producer' },
   { name: 'Derand Walker (Terminated)',     title: 'Sr. Business Development Manager', loc: 'NC / ATL',        plan: 0,      ytd: 5101.00,   type: 'producer' }
@@ -1695,7 +1654,7 @@ const weekly = [
   { rep: 'Brandon DeBenedet',           ia: 0, rfp: 0, prop: 0, won: 1 },
   { rep: 'Jon Lightbody',               ia: 4, rfp: 0, prop: 0, won: 0 },
   { rep: 'Michael Matthews',            ia: 0, rfp: 0, prop: 0, won: 0 },
-  { rep: 'Omar Flores',                 ia: 0, rfp: 0, prop: 0, won: 0 },
+  { rep: 'Marion Razz (New Hire 10/26)', ia: 0, rfp: 0, prop: 0, won: 0 },
   { rep: 'House',                       ia: 10, rfp: 11, prop: 8, won: 0 }
 ];
 
@@ -1824,32 +1783,6 @@ new Chart(document.getElementById('aprilChart'), {
   }
 });
 
-// STAGE CHART
-const stageBuckets = pipeline.reduce((acc, p) => {
-  acc[p.stage] = (acc[p.stage] || 0) + p.fees;
-  return acc;
-}, {});
-new Chart(document.getElementById('stageChart'), {
-  type: 'doughnut',
-  data: {
-    labels: Object.keys(stageBuckets),
-    datasets: [{
-      data: Object.values(stageBuckets),
-      backgroundColor: ['#1F6F3D','#E03127','#B45309','#0F4F87','#2B2B2B'],
-      borderColor: '#FFFFFF',
-      borderWidth: 3,
-      hoverOffset: 8
-    }]
-  },
-  options: {
-    cutout: '60%',
-    plugins: {
-      legend: { position: 'right', labels: { boxWidth: 10, boxHeight: 10, padding: 10, font: { size: 11 } } },
-      tooltip: { callbacks: { label: ctx => `${ctx.label}: ${fmt$(ctx.parsed)}` } }
-    }
-  }
-});
-
 // ============== PIPELINE TABLE ==============
 function stageClass(s) {
   if (s === 'Implementation') return 'stage-impl';
@@ -1864,6 +1797,7 @@ function stageClass(s) {
 }
 function renderPipeline(filter='all') {
   const tbody = document.querySelector('#pipelineTable tbody');
+  if (!tbody) return;
   const rows = filter === 'all' ? pipeline : pipeline.filter(p => p.stage === filter);
   tbody.innerHTML = rows.map(p => `
     <tr>
@@ -3296,7 +3230,7 @@ const performanceData = [
   { rep: 'Brandon DeBenedet',              annual: 300000, monthly: { jan: null,     feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0,        jul: 0,       aug: 0,      sep: 0,       oct: 0 } },
   { rep: 'Michael Matthews',               annual: 300000, monthly: { jan: null,     feb: null, mar: 0,    apr: 0,        may: 0,       jun: 0,        jul: 5135,    aug: 0,      sep: 0,       oct: 0 } },
   { rep: 'Andy Songer',                    annual: 300000, monthly: { jan: null,     feb: null, mar: null, apr: null,     may: null,    jun: null,     jul: null,    aug: 0,      sep: 0,       oct: 0 } },
-  { rep: 'Omar Flores (New Hire 9/14/26)', annual: 50000,  monthly: { jan: null,     feb: null, mar: null, apr: null,     may: null,    jun: null,     jul: null,    aug: null,   sep: 0,       oct: 0 } },
+  { rep: 'Marion Razz (New Hire 10/26)',   annual: 0,      monthly: { jan: null,     feb: null, mar: null, apr: null,     may: null,    jun: null,     jul: null,    aug: null,   sep: null,    oct: 0 } },
   { rep: 'Jimmy Estrada (internal non-sales)', annual: 0,      monthly: { jan: 0,        feb: 0,    mar: 0,    apr: 0,        may: 0,       jun: 21489,    jul: 0,       aug: 0,      sep: 0,       oct: 0 } },
   { rep: 'Courtney Sustr (Resigned)',      annual: 0,      monthly: { jan: 0,        feb: 0,    mar: 0,    apr: 40279.72, may: 2783.56, jun: 0,        jul: 0,       aug: 0,      sep: 0,       oct: 0 } },
   { rep: 'Derand Walker (Terminated)',     annual: 0,      monthly: { jan: 0,        feb: 0,    mar: 0,    apr: 1586,     may: 3515,    jun: 0,        jul: 0,       aug: 0,      sep: 0,       oct: 0 } }
@@ -3383,7 +3317,8 @@ renderPerfTable();
 // Deals with first payroll expected within next 30 days (8/17 - 9/17)
 // Sourced from Salesforce 90-day pipeline report 2026-08-17.
 const thirtyDayForecast = [
-  { producer: 'Carter Rhoden',               company: 'Blackstone Health, LLC',     ee: 5,  age: 6,  admin: 11166, closeDate: '10/30/2026', firstPay: '11/13/2026', stage: 'Proposal to Producer' },
+  { producer: 'House',                       company: 'Blackstone Health, LLC',     ee: 5,  age: 6,  admin: 11166, closeDate: '10/30/2026', firstPay: '11/13/2026', stage: 'Proposal to Producer' },
+  { producer: 'House',                       company: '369 Fire Sprinkler Service', ee: 0,  age: 46, admin: 12800, closeDate: '10/30/2026', firstPay: '11/2/2026',  stage: 'Submitted' },
   { producer: 'Jimmy Estrada',               company: 'Bell Performance Inc',       ee: 10, age: 18, admin: 15600, closeDate: '10/30/2026', firstPay: '11/13/2026', stage: 'Proposal to Producer' },
   { producer: 'Derand Walker (Terminated)',  company: 'Silk The Restaurant, LLC',   ee: 25, age: 26, admin: 13000, closeDate: '10/26/2026', firstPay: '11/16/2026', stage: 'Proposal to Producer' }
 ];
@@ -3433,18 +3368,22 @@ const ninetyDayDeals = [
   { owner: 'Brandon DeBenedet', name: 'Pacesetter Construction, Inc.',                    type: 'PEO',                stage: 'Proposal to Producer', fees: 9000.00,   ee: 9,   prob: 50, closeDate: '12/1/2026',  age: 31  },
   { owner: 'Brandon DeBenedet', name: 'Green Line Botanicals LLC',                        type: 'PEO',                stage: 'Proposal to Producer', fees: 15600.00,  ee: 15,  prob: 50, closeDate: '12/11/2026', age: 350 },
   { owner: 'Brandon DeBenedet', name: 'Studio Green Chemists LLC',                        type: 'PEO',                stage: 'Proposal to Producer', fees: 2600.00,   ee: 2,   prob: 50, closeDate: '12/11/2026', age: 349 },
-  // Carter Rhoden (House) - 11 deals · $148,195 · 180 EE
-  { owner: 'Carter Rhoden',     name: 'Blackstone Health, LLC (Sarasota Accident Center)',type: 'PEO',                stage: 'Proposal to Producer', fees: 11166.00,  ee: 5,   prob: 50, closeDate: '10/30/2026', age: 6   },
-  { owner: 'Carter Rhoden',     name: 'Just In Rides, LLC',                               type: 'PEO',                stage: 'CSA to Client',        fees: 1404.00,   ee: 2,   prob: 90, closeDate: '11/6/2026',  age: 3   },
-  { owner: 'Carter Rhoden',     name: "JDE's Plumbing LLC (Revenge Plumbing)",            type: 'PEO',                stage: 'CSA to Client',        fees: 1404.00,   ee: 2,   prob: 90, closeDate: '11/6/2026',  age: 3   },
-  { owner: 'Carter Rhoden',     name: 'Instant Bath Inc. (Bath Fitter of Albany)',        type: 'PEO',                stage: 'CSA to Client',        fees: 25974.00,  ee: 37,  prob: 90, closeDate: '11/6/2026',  age: 3   },
-  { owner: 'Carter Rhoden',     name: 'Sunshine Bath LLC (Bath Fitter of Orlando)',       type: 'PEO',                stage: 'CSA to Client',        fees: 8424.00,   ee: 12,  prob: 90, closeDate: '11/6/2026',  age: 3   },
-  { owner: 'Carter Rhoden',     name: 'Jet Liner LLC (Bath Fitter SW Florida)',           type: 'PEO',                stage: 'CSA to Client',        fees: 12636.00,  ee: 18,  prob: 90, closeDate: '11/6/2026',  age: 3   },
-  { owner: 'Carter Rhoden',     name: 'Maple Glen Inc.',                                  type: 'PEO',                stage: 'CSA to Client',        fees: 1404.00,   ee: 2,   prob: 90, closeDate: '11/6/2026',  age: 3   },
-  { owner: 'Carter Rhoden',     name: 'Lingerfelt Mechanical, LLC',                       type: 'ASO (Payroll Only)', stage: 'Proposal to Producer', fees: 1716.00,   ee: 7,   prob: 50, closeDate: '11/13/2026', age: 21  },
-  { owner: 'Carter Rhoden',     name: 'Good 2 B Home Adult Day Healthcare, LLC',          type: 'PEO',                stage: 'Proposal to Producer', fees: 8502.00,   ee: 10,  prob: 50, closeDate: '11/20/2026', age: 6   },
-  { owner: 'Carter Rhoden',     name: 'Arthur Lawrence Management LLC',                   type: 'PEO',                stage: 'Submitted',            fees: 73361.00,  ee: 80,  prob: 45, closeDate: '12/4/2026',  age: 6   },
-  { owner: 'Carter Rhoden',     name: 'Ericson Waste Solutions LLC',                      type: 'PEO',                stage: 'Proposal to Producer', fees: 2203.50,   ee: 5,   prob: 50, closeDate: '12/18/2026', age: 110 },
+  // House (Scott, Carm, Carter) - 15 deals · $353,945 · 453 EE
+  { owner: 'House',            name: '369 Fire Sprinkler Service',                       type: 'PEO',                stage: 'Submitted',            fees: 12800.00,  ee: 0,   prob: 45, closeDate: '10/30/2026', age: 46  },
+  { owner: 'House',            name: 'Blackstone Health, LLC (Sarasota Accident Center)',type: 'PEO',                stage: 'Proposal to Producer', fees: 11166.00,  ee: 5,   prob: 50, closeDate: '10/30/2026', age: 6   },
+  { owner: 'House',            name: 'Just In Rides, LLC',                               type: 'PEO',                stage: 'CSA to Client',        fees: 1404.00,   ee: 2,   prob: 90, closeDate: '11/6/2026',  age: 3   },
+  { owner: 'House',            name: "JDE's Plumbing LLC (Revenge Plumbing)",            type: 'PEO',                stage: 'CSA to Client',        fees: 1404.00,   ee: 2,   prob: 90, closeDate: '11/6/2026',  age: 3   },
+  { owner: 'House',            name: 'Instant Bath Inc. (Bath Fitter of Albany)',        type: 'PEO',                stage: 'CSA to Client',        fees: 25974.00,  ee: 37,  prob: 90, closeDate: '11/6/2026',  age: 3   },
+  { owner: 'House',            name: 'Sunshine Bath LLC (Bath Fitter of Orlando)',       type: 'PEO',                stage: 'CSA to Client',        fees: 8424.00,   ee: 12,  prob: 90, closeDate: '11/6/2026',  age: 3   },
+  { owner: 'House',            name: 'Jet Liner LLC (Bath Fitter SW Florida)',           type: 'PEO',                stage: 'CSA to Client',        fees: 12636.00,  ee: 18,  prob: 90, closeDate: '11/6/2026',  age: 3   },
+  { owner: 'House',            name: 'Maple Glen Inc.',                                  type: 'PEO',                stage: 'CSA to Client',        fees: 1404.00,   ee: 2,   prob: 90, closeDate: '11/6/2026',  age: 3   },
+  { owner: 'House',            name: 'Lingerfelt Mechanical, LLC',                       type: 'ASO (Payroll Only)', stage: 'Proposal to Producer', fees: 1716.00,   ee: 7,   prob: 50, closeDate: '11/13/2026', age: 21  },
+  { owner: 'House',            name: 'Good 2 B Home Adult Day Healthcare, LLC',          type: 'PEO',                stage: 'Proposal to Producer', fees: 8502.00,   ee: 10,  prob: 50, closeDate: '11/20/2026', age: 6   },
+  { owner: 'House',            name: 'S1 Security Group, Inc.',                          type: 'PEO',                stage: 'Submitted',            fees: 177450.00, ee: 273, prob: 45, closeDate: '11/20/2026', age: 20  },
+  { owner: 'House',            name: 'Greater Tampa Chamber of Commerce Inc.',           type: 'PEO',                stage: 'Submitted',            fees: 15500.00,  ee: 20,  prob: 45, closeDate: '11/27/2026', age: 81  },
+  { owner: 'House',            name: 'Arthur Lawrence Management LLC',                   type: 'PEO',                stage: 'Submitted',            fees: 73361.00,  ee: 80,  prob: 45, closeDate: '12/4/2026',  age: 6   },
+  { owner: 'House',            name: 'Ericson Waste Solutions LLC',                      type: 'PEO',                stage: 'Proposal to Producer', fees: 2203.50,   ee: 5,   prob: 50, closeDate: '12/18/2026', age: 110 },
+  { owner: 'House',            name: 'ARC Development Inc.',                             type: 'PEO',                stage: 'Submitted',            fees: 0,         ee: 40,  prob: 45, closeDate: '1/1/2027',   age: 6   },
   // Derand Walker (TERMINATED) - 2 deals pending reassignment · $13,000 · 57 EE
   { owner: 'Derand Walker (Terminated)',     name: 'Silk The Restaurant, LLC',            type: 'PEO',                stage: 'Proposal to Producer', fees: 13000.00,  ee: 25,  prob: 50, closeDate: '10/26/2026', age: 26  },
   { owner: 'Derand Walker (Terminated)',     name: 'Advanced Windows Inc.',               type: 'PEO',                stage: 'Submitted',            fees: 0,         ee: 32,  prob: 45, closeDate: '11/6/2026',  age: 21  },
@@ -3455,9 +3394,7 @@ const ninetyDayDeals = [
   { owner: 'Jon Lightbody',     name: 'Funding Florida Legal Aid',                        type: 'PEO',                stage: 'Proposal to Producer', fees: 10080.00,  ee: 12,  prob: 50, closeDate: '12/11/2026', age: 608 },
   { owner: 'Jon Lightbody',     name: 'Staffed Inc',                                      type: '—',                  stage: 'Proposal to Customer', fees: 10000.00,  ee: 0,   prob: 65, closeDate: '12/31/2026', age: 24  },
   { owner: 'Jon Lightbody',     name: 'Tide and Tonic',                                   type: '—',                  stage: 'Submitted',            fees: 3900.00,   ee: 15,  prob: 45, closeDate: '1/1/2027',   age: 515 },
-  { owner: 'Jon Lightbody',     name: 'Leland Technology LLC',                            type: 'PEO',                stage: 'Proposal to Producer', fees: 5460.00,   ee: 6,   prob: 50, closeDate: '1/1/2027',   age: 83  },
-  // Omar Flores - 1 deal · $24,525 · 12 EE (Kyle Drake closed last week)
-  { owner: 'Omar Flores',       name: 'Millenia Learning Academy',                        type: '—',                  stage: 'Proposal to Producer', fees: 24524.50, ee: 12,  prob: 50, closeDate: '12/31/2026', age: 10  }
+  { owner: 'Jon Lightbody',     name: 'Leland Technology LLC',                            type: 'PEO',                stage: 'Proposal to Producer', fees: 5460.00,   ee: 6,   prob: 50, closeDate: '1/1/2027',   age: 83  }
 ];
 
 function ninetyDayStageClass(s) {
