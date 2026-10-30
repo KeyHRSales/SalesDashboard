@@ -1328,6 +1328,56 @@
   </div>
 
   <div class="card" style="margin-top: 20px;">
+    <h3>Monthly actuals vs plan</h3>
+    <div class="sub">$211.5K monthly plan · July $54K · Aug $4K · Sept $50K · Oct MTD (10/20) $11K</div>
+    <div class="chart-wrap"><canvas id="aprilChart"></canvas></div>
+  </div>
+</section>
+
+<!-- PANEL: PIPELINE -->
+<section class="panel" id="panel-pipeline">
+  <!-- 90-DAY CLOSING PIPELINE -->
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; margin-bottom: 4px;">
+      <div>
+        <h3 style="margin: 0;">Next 90 days <span class="acc">·</span> closing pipeline</h3>
+        <div class="sub" style="margin-top: 4px;">Opportunities closing 10/30 – 1/27/27 · refreshed 10/30 from Salesforce Sales Team Ops report · <strong style="color:#1F6F3D;">8 Closed Won (100%) in-window</strong> · <strong>Brown and Sons Funeral Home</strong> new submission (Carter) · Millenia Learning Academy added under House · Latin American Subs dropped · S1 $177K + Arthur Lawrence $73K large submissions still in play</div>
+      </div>
+      <div class="var-summary" id="ninety-day-summary"></div>
+    </div>
+
+    <div class="filter-row" id="ninety-day-filters" style="margin-top: 20px;">
+      <button class="pill active" data-filter="all">All owners</button>
+      <button class="pill" data-filter="House">House</button>
+      <button class="pill" data-filter="Alicia Costoya">Alicia</button>
+      <button class="pill" data-filter="Brandon DeBenedet">Brandon</button>
+      <button class="pill" data-filter="Jimmy Estrada">Jimmy</button>
+      <button class="pill" data-filter="Jon Lightbody">Jon</button>
+      <button class="pill" data-filter="Derand Walker (Terminated)">Derand (Terminated)</button>
+    </div>
+
+    <div class="table-wrap" style="margin-top: 16px;">
+      <table id="ninetyDayTable">
+        <thead>
+          <tr>
+            <th>Owner</th>
+            <th>Opportunity</th>
+            <th>Type</th>
+            <th>Stage</th>
+            <th style="text-align:right;">Admin Fees</th>
+            <th style="text-align:right;">EE</th>
+            <th style="text-align:right;">Prob.</th>
+            <th>Est. Close</th>
+            <th style="text-align:right;">Age (d)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 30-DAY RUN FORECAST -->
+  <div class="card" style="margin-top: 20px;">
     <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
       <div>
         <h3>30-Day Run Forecast <span class="acc">·</span> deals expected to run first payroll by November 25, 2026</h3>
@@ -1417,52 +1467,178 @@
     </div>
   </div>
 
+  <!-- CLOSED WON RUN FORECAST (STRATIFIED BY REP) -->
   <div class="card" style="margin-top: 20px;">
-    <h3>Monthly actuals vs plan</h3>
-    <div class="sub">$211.5K monthly plan · July $54K · Aug $4K · Sept $50K · Oct MTD (10/20) $11K</div>
-    <div class="chart-wrap"><canvas id="aprilChart"></canvas></div>
-  </div>
-</section>
-
-<!-- PANEL: PIPELINE -->
-<section class="panel" id="panel-pipeline">
-  <!-- 90-DAY CLOSING PIPELINE -->
-  <div class="card">
-    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; margin-bottom: 4px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
       <div>
-        <h3 style="margin: 0;">Next 90 days <span class="acc">·</span> closing pipeline</h3>
-        <div class="sub" style="margin-top: 4px;">Opportunities closing 10/30 – 1/27/27 · refreshed 10/30 from Salesforce Sales Team Ops report · <strong style="color:#1F6F3D;">8 Closed Won (100%) in-window</strong> · <strong>Brown and Sons Funeral Home</strong> new submission (Carter) · Millenia Learning Academy added under House · Latin American Subs dropped · S1 $177K + Arthur Lawrence $73K large submissions still in play</div>
+        <h3 style="margin: 0;">Closed Won Run Forecast <span class="acc">·</span> signed deals scheduled to run first payroll by 2/26/27</h3>
+        <div class="sub" style="margin-top: 4px;">Stratified by rep · Sourced from Salesforce First Pay Date Schedule (10/30) · 120-day window (10/30 – 2/26) · Stages: CSA Requested / CSA to Producer / CSA to Client / Closed Won</div>
       </div>
-      <div class="var-summary" id="ninety-day-summary"></div>
+      <div class="var-summary" style="display: flex; gap: 20px;">
+        <div style="text-align: right;">
+          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: #1F6F3D;">11 deals</div>
+          <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">In 120-day window</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--black);">830 EE</div>
+          <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">Signed headcount</div>
+        </div>
+      </div>
     </div>
 
-    <div class="filter-row" id="ninety-day-filters" style="margin-top: 20px;">
-      <button class="pill active" data-filter="all">All owners</button>
-      <button class="pill" data-filter="House">House</button>
-      <button class="pill" data-filter="Alicia Costoya">Alicia</button>
-      <button class="pill" data-filter="Brandon DeBenedet">Brandon</button>
-      <button class="pill" data-filter="Jimmy Estrada">Jimmy</button>
-      <button class="pill" data-filter="Jon Lightbody">Jon</button>
-      <button class="pill" data-filter="Derand Walker (Terminated)">Derand (Terminated)</button>
+    <!-- HOUSE STRATUM -->
+    <div style="margin-top: 20px; padding: 16px 18px; background: #F6FBF7; border-left: 4px solid #1F6F3D; border-radius: 6px;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;">
+        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--black);">House Accounts</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #1F6F3D; font-weight: 700;">10 DEALS · 707 EE</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Account</th>
+              <th>Type</th>
+              <th>Stage</th>
+              <th class="num-col">EE</th>
+              <th class="num-col">Est. Close</th>
+              <th class="num-col">First Payroll</th>
+              <th>Next Step</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="account">Dim Pro Clean LLC</td>
+              <td style="font-size: 12px; color: var(--gray-700);">New Business</td>
+              <td><span class="stage-pill stage-csa-cli">CSA to Client</span></td>
+              <td class="num-col">2</td>
+              <td class="num-col"><span style="font-family:'JetBrains Mono',monospace; font-size: 11px;">10/9/2026</span></td>
+              <td class="num-col"><strong>10/30/2026</strong></td>
+              <td style="font-size: 12px;">Signed</td>
+            </tr>
+            <tr>
+              <td class="account">S&amp;F Restaurant Ventures Inc.</td>
+              <td style="font-size: 12px; color: var(--gray-700);">Existing Business</td>
+              <td><span class="stage-pill stage-closed-won">Closed Won</span></td>
+              <td class="num-col"><strong>617</strong></td>
+              <td class="num-col"><span style="font-family:'JetBrains Mono',monospace; font-size: 11px;">10/7/2026</span></td>
+              <td class="num-col"><strong>11/6/2026</strong></td>
+              <td style="font-size: 12px;">Working on benefits quote 8/21</td>
+            </tr>
+            <tr>
+              <td class="account">Kyle Drake's Painting, LLC</td>
+              <td style="font-size: 12px; color: var(--gray-700);">Existing Business</td>
+              <td><span class="stage-pill stage-csa-prod">CSA to Producer</span></td>
+              <td class="num-col">6</td>
+              <td class="num-col"><span style="font-family:'JetBrains Mono',monospace; font-size: 11px;">11/6/2026</span></td>
+              <td class="num-col"><strong>11/20/2026</strong></td>
+              <td style="font-size: 12px;">Signed</td>
+            </tr>
+            <tr>
+              <td class="account">Just In Rides, LLC</td>
+              <td style="font-size: 12px; color: var(--gray-700);">Existing Business</td>
+              <td><span class="stage-pill stage-closed-won">Closed Won</span></td>
+              <td class="num-col">2</td>
+              <td class="num-col"><span style="font-family:'JetBrains Mono',monospace; font-size: 11px;">10/26/2026</span></td>
+              <td class="num-col"><strong>11/27/2026</strong></td>
+              <td style="font-size: 12px;">—</td>
+            </tr>
+            <tr>
+              <td class="account">JDE's Plumbing LLC</td>
+              <td style="font-size: 12px; color: var(--gray-700);">Existing Business</td>
+              <td><span class="stage-pill stage-closed-won">Closed Won</span></td>
+              <td class="num-col">2</td>
+              <td class="num-col"><span style="font-family:'JetBrains Mono',monospace; font-size: 11px;">10/26/2026</span></td>
+              <td class="num-col"><strong>11/27/2026</strong></td>
+              <td style="font-size: 12px;">—</td>
+            </tr>
+            <tr>
+              <td class="account">Instant Bath Inc.</td>
+              <td style="font-size: 12px; color: var(--gray-700);">Existing Business</td>
+              <td><span class="stage-pill stage-closed-won">Closed Won</span></td>
+              <td class="num-col">37</td>
+              <td class="num-col"><span style="font-family:'JetBrains Mono',monospace; font-size: 11px;">10/26/2026</span></td>
+              <td class="num-col"><strong>11/27/2026</strong></td>
+              <td style="font-size: 12px;">—</td>
+            </tr>
+            <tr>
+              <td class="account">Sunshine Bath LLC</td>
+              <td style="font-size: 12px; color: var(--gray-700);">Existing Business</td>
+              <td><span class="stage-pill stage-closed-won">Closed Won</span></td>
+              <td class="num-col">12</td>
+              <td class="num-col"><span style="font-family:'JetBrains Mono',monospace; font-size: 11px;">10/26/2026</span></td>
+              <td class="num-col"><strong>11/27/2026</strong></td>
+              <td style="font-size: 12px;">—</td>
+            </tr>
+            <tr>
+              <td class="account">Jet Liner LLC</td>
+              <td style="font-size: 12px; color: var(--gray-700);">Existing Business</td>
+              <td><span class="stage-pill stage-closed-won">Closed Won</span></td>
+              <td class="num-col">18</td>
+              <td class="num-col"><span style="font-family:'JetBrains Mono',monospace; font-size: 11px;">10/26/2026</span></td>
+              <td class="num-col"><strong>11/27/2026</strong></td>
+              <td style="font-size: 12px;">—</td>
+            </tr>
+            <tr>
+              <td class="account">Maple Glen Inc.</td>
+              <td style="font-size: 12px; color: var(--gray-700);">Existing Business</td>
+              <td><span class="stage-pill stage-closed-won">Closed Won</span></td>
+              <td class="num-col">2</td>
+              <td class="num-col"><span style="font-family:'JetBrains Mono',monospace; font-size: 11px;">10/26/2026</span></td>
+              <td class="num-col"><strong>11/27/2026</strong></td>
+              <td style="font-size: 12px;">—</td>
+            </tr>
+            <tr>
+              <td class="account">Food For Greater Elgin, Inc</td>
+              <td style="font-size: 12px; color: var(--gray-700);">Existing Business</td>
+              <td><span class="stage-pill stage-closed-won">Closed Won</span></td>
+              <td class="num-col">9</td>
+              <td class="num-col"><span style="font-family:'JetBrains Mono',monospace; font-size: 11px;">10/19/2026</span></td>
+              <td class="num-col"><strong>1/14/2027</strong></td>
+              <td style="font-size: 12px;">Signed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
-    <div class="table-wrap" style="margin-top: 16px;">
-      <table id="ninetyDayTable">
-        <thead>
-          <tr>
-            <th>Owner</th>
-            <th>Opportunity</th>
-            <th>Type</th>
-            <th>Stage</th>
-            <th style="text-align:right;">Admin Fees</th>
-            <th style="text-align:right;">EE</th>
-            <th style="text-align:right;">Prob.</th>
-            <th>Est. Close</th>
-            <th style="text-align:right;">Age (d)</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+    <!-- BRANDON STRATUM -->
+    <div style="margin-top: 16px; padding: 16px 18px; background: #F7FAFC; border-left: 4px solid #0F4F87; border-radius: 6px;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;">
+        <div style="font-family: var(--font-display); font-size: 18px; font-weight: 700; color: var(--black);">Brandon DeBenedet</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #0F4F87; font-weight: 700;">1 DEAL · 123 EE</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Account</th>
+              <th>Type</th>
+              <th>Stage</th>
+              <th class="num-col">EE</th>
+              <th class="num-col">Est. Close</th>
+              <th class="num-col">First Payroll</th>
+              <th>Next Step</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="account">Sun Print Management LLC</td>
+              <td style="font-size: 12px; color: var(--gray-700);">Existing Business</td>
+              <td><span class="stage-pill stage-csa-cli">CSA to Client</span></td>
+              <td class="num-col"><strong>123</strong></td>
+              <td class="num-col"><span style="font-family:'JetBrains Mono',monospace; font-size: 11px;">11/20/2026</span></td>
+              <td class="num-col"><strong>1/13/2027</strong></td>
+              <td style="font-size: 12px;">Signed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div style="margin-top: 16px; padding: 12px 14px; background: var(--gray-50); border-left: 3px solid #1F6F3D; font-size: 12px; color: var(--gray-900); line-height: 1.7;">
+      <strong style="color:#1F6F3D;">8 Closed Won (100%)</strong> · <strong>2 Signed CSA to Client</strong> (Dim Pro Clean, Sun Print) · <strong>1 Signed CSA to Producer</strong> (Kyle Drake's)
+      <br>
+      <span style="color: var(--gray-700);">Admin fees not included in the Salesforce First Pay Date Schedule. Three Closed Won deals (S&amp;F Restaurant, Food For Greater Elgin, Dim Pro Clean) need admin fee populated by underwriting.</span>
     </div>
   </div>
 
