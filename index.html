@@ -1281,12 +1281,6 @@
   </div>
 
   <div class="card" style="margin-top: 20px;">
-    <h3>Booked revenue · YTD 2026</h3>
-    <div class="sub">Admin fees recognized across producers and House</div>
-    <div class="chart-wrap"><canvas id="bookedChart"></canvas></div>
-  </div>
-
-  <div class="card" style="margin-top: 20px;">
     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 4px;">
       <h3 style="margin: 0;">Performance Summary</h3>
       <span class="ytd-pill">YTD</span>
@@ -1805,30 +1799,6 @@ Chart.defaults.font.family = "'Inter Tight', system-ui, sans-serif";
 Chart.defaults.font.size = 12;
 Chart.defaults.color = '#555';
 Chart.defaults.borderColor = '#E8E8E8';
-
-// BOOKED CHART
-new Chart(document.getElementById('bookedChart'), {
-  type: 'bar',
-  data: {
-    labels: producers.map(p => p.name),
-    datasets: [
-      { label: 'Annual Plan', data: producers.map(p => p.plan), backgroundColor: '#E8E8E8', borderRadius: 4, barPercentage: 0.65 },
-      { label: 'YTD Booked', data: producers.map(p => p.ytd),  backgroundColor: '#E03127', borderRadius: 4, barPercentage: 0.65 }
-    ]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { position: 'top', align: 'end', labels: { boxWidth: 12, boxHeight: 12, padding: 14, font: { size: 11 } } },
-      tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${fmt$(ctx.parsed.y)}` } }
-    },
-    scales: {
-      x: { grid: { display: false }, ticks: { font: { size: 10 }, maxRotation: 35, minRotation: 35 } },
-      y: { grid: { color: '#F0F0F0' }, ticks: { callback: v => '$' + (v/1000) + 'K', font: { size: 10 } } }
-    }
-  }
-});
 
 // APRIL CHART
 new Chart(document.getElementById('aprilChart'), {
