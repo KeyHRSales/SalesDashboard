@@ -565,6 +565,9 @@
   .stage-prop-prod  { color: #1F6F3D; background: #EBF7EF; border-color: #BBE3CA; }
   .stage-submitted  { color: #7E5400; background: #FFF8E1; border-color: #ECCB84; }
   .stage-csa-req    { color: #5B21B6; background: #F3EAFE; border-color: #D6BFFB; }
+  .stage-csa-prod   { color: #0F4F87; background: #E7F1FB; border-color: #B7D5EE; }
+  .stage-csa-cli    { color: #1F6F3D; background: #EBF7EF; border-color: #BBE3CA; }
+  .stage-closed-won { color: #FFFFFF; background: #1F6F3D; border-color: #1F6F3D; font-weight: 700; }
   .stage-default    { color: var(--gray-700); background: var(--gray-100); border-color: var(--gray-200); }
 
   .prob-bar {
@@ -1249,13 +1252,13 @@
     </div>
     <div class="kpi">
       <div class="lbl">30-Day Run Forecast</div>
-      <div class="num">$<span data-count="39766">0</span></div>
-      <div class="delta">3 deals in-window · <strong style="color:#1F6F3D;">+$51K from 6 Glen CSA to Client deals</strong> first-pay 11/27 (just outside window)</div>
+      <div class="num">$<span data-count="58206">0</span>+</div>
+      <div class="delta">7 deals in-window (3 TBD admin) · <strong style="color:#1F6F3D;">S&amp;F Restaurant 617 EE Closed Won first-pay 11/6</strong> · 6 Glen Closed Won deals first-pay 11/27 just outside window</div>
     </div>
     <div class="kpi">
       <div class="lbl">Q4 90-Day Pipeline</div>
-      <div class="num">$<span data-count="881931">0</span></div>
-      <div class="delta">38 deals · <strong style="color:#1F6F3D;">Carter book exploded 3 → 11 deals</strong> incl. 6 CSA to Client · Brandon $382K · Sun Print advanced to 90%</div>
+      <div class="num">$<span data-count="1046252">0</span></div>
+      <div class="delta">42 deals · <strong style="color:#1F6F3D;">8 Closed Won (100%)</strong> incl. 6 Glen batch + S&amp;F + Food For Greater Elgin · House $337K · Brandon $382K · Alicia $258K</div>
     </div>
   </div>
 </section>
@@ -1328,16 +1331,16 @@
     <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px;">
       <div>
         <h3>30-Day Run Forecast <span class="acc">·</span> deals expected to run first payroll by November 25, 2026</h3>
-        <div class="sub">4 deals in strict window · <strong style="color:#1F6F3D;">6 Glen batch CSA to Client deals ($51K) are just outside window (11/27 first pay)</strong> and will dominate next 30-day cycle</div>
+        <div class="sub">7 deals in strict window · <strong style="color:#1F6F3D;">S&amp;F Restaurant Ventures Closed Won — 617 EE, first pay 11/6</strong> (admin TBD) · <strong>6 Glen batch Closed Won deals first-pay 11/27</strong> just outside window</div>
       </div>
       <div class="var-summary" style="display: flex; gap: 20px;">
         <div style="text-align: right;">
-          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--red);">$52,566</div>
-          <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">Total admin</div>
+          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--red);">$58,206+</div>
+          <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">Total admin (3 TBD)</div>
         </div>
         <div style="text-align: right;">
-          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--black);">4 deals</div>
-          <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">40 EE</div>
+          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--black);">7 deals</div>
+          <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">665 EE</div>
         </div>
       </div>
     </div>
@@ -1358,10 +1361,10 @@
         <tbody id="thirty-day-tbody"></tbody>
         <tfoot>
           <tr>
-            <td colspan="2"><strong>4-deal run forecast</strong></td>
-            <td class="num-col"><strong>40</strong></td>
+            <td colspan="2"><strong>7-deal run forecast</strong></td>
+            <td class="num-col"><strong>665</strong></td>
             <td class="num-col">—</td>
-            <td class="num-col"><strong>$52,566</strong></td>
+            <td class="num-col"><strong>$58,206+</strong></td>
             <td class="num-col">—</td>
             <td class="num-col">—</td>
             <td>—</td>
@@ -1372,6 +1375,10 @@
     <div style="margin-top: 12px; padding: 12px 14px; background: var(--gray-50); border-left: 3px solid var(--red); font-size: 12px; color: var(--gray-900); line-height: 1.7;">
       <div style="font-weight: 700; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; font-size: 11px; color: var(--gray-700);">Producer breakdown</div>
       <div style="display: grid; grid-template-columns: 1fr auto auto; gap: 8px 20px; align-items: baseline;">
+        <div><strong>House</strong></div>
+        <div style="font-family: var(--font-mono);">5 deals</div>
+        <div style="font-family: var(--font-mono); font-weight: 700;">$29,606+</div>
+
         <div><strong>Jimmy Estrada</strong></div>
         <div style="font-family: var(--font-mono);">1 deal</div>
         <div style="font-family: var(--font-mono); font-weight: 700;">$15,600</div>
@@ -1379,10 +1386,6 @@
         <div><strong>Derand Walker (Terminated)</strong></div>
         <div style="font-family: var(--font-mono);">1 deal</div>
         <div style="font-family: var(--font-mono); font-weight: 700;">$13,000</div>
-
-        <div><strong>House</strong></div>
-        <div style="font-family: var(--font-mono);">2 deals</div>
-        <div style="font-family: var(--font-mono); font-weight: 700;">$23,966</div>
 
         <div style="color: var(--gray-700);">Alicia Costoya</div>
         <div style="font-family: var(--font-mono); color: var(--gray-700);">0 deals</div>
@@ -1409,7 +1412,7 @@
         <div style="font-family: var(--font-mono); color: var(--gray-700);">—</div>
       </div>
       <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--gray-200); font-size: 11px; color: var(--gray-700);">
-        3 at Proposal to Producer (50%) · window: 10/26/2026 to 11/25/2026 · <strong style="color:#1F6F3D;">6 Glen Bath Fitter CSA to Client (90%) deals first-pay 11/27 — just outside this window</strong>
+        <strong style="color:#1F6F3D;">S&amp;F Restaurant Ventures Closed Won — 617 EE, first pay 11/6</strong> (admin fee TBD · existing business, 10/7 est. close) · window: 10/30/2026 to 11/25/2026 · <strong>6 Glen Bath Fitter Closed Won deals first-pay 11/27 — just outside this window</strong>
       </div>
     </div>
   </div>
@@ -1428,7 +1431,7 @@
     <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 14px; margin-bottom: 4px;">
       <div>
         <h3 style="margin: 0;">Next 90 days <span class="acc">·</span> closing pipeline</h3>
-        <div class="sub" style="margin-top: 4px;">Opportunities estimated to close 10/26 – 1/26 · refreshed 10/26 · <strong style="color:#1F6F3D;">House book 15 deals / $354K</strong> (Glen batch with <strong>6 at CSA to Client 90%</strong>) · <strong>Brandon's Sun Print at CSA to Client (90%)</strong> at $58,760 · S1 Security $177K + Arthur Lawrence $73K large submissions</div>
+        <div class="sub" style="margin-top: 4px;">Opportunities estimated to close 10/30 – 1/30 · refreshed 10/30 from Salesforce First Pay Date Schedule · <strong style="color:#1F6F3D;">6 Glen batch now Closed Won (100%)</strong> · <strong style="color:#1F6F3D;">S&amp;F Restaurant Ventures Closed Won — 617 EE</strong> · <strong>Food For Greater Elgin Closed Won</strong> · Sun Print signed at CSA to Client · S1 $177K + Arthur Lawrence $73K large submissions still in play</div>
       </div>
       <div class="var-summary" id="ninety-day-summary"></div>
     </div>
@@ -1577,8 +1580,8 @@
           <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">Reps active this week</div>
         </div>
         <div style="text-align: right;">
-          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--black);">~68%</div>
-          <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">Pipeline driven by House</div>
+          <div style="font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: #1F6F3D;">8 Closed Won</div>
+          <div style="font-size: 11px; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.5px;">in 90-day pipeline</div>
         </div>
       </div>
     </div>
@@ -1611,7 +1614,7 @@
           <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #1F6F3D; font-weight: 700;">CARRYING THE TEAM</div>
         </div>
         <p style="margin: 10px 0 0 0; font-size: 13px; color: var(--gray-900); line-height: 1.7;">
-          <strong>Current:</strong> 15 deals / $354K pipeline, $76,710 YTD ran. 10 IAs, 11 submissions, 8 proposals this week. The Glen batch of 6 Bath Fitter franchises ($51K combined) is the single highest-conviction event in the forecast, with CSA to Client at 90% and first-pay set 11/27. S1 Security Group ($177K admin / 273 EE) is the whale that reshapes the quarter if it clears underwriting.
+          <strong>Current:</strong> 16 deals / $337K pipeline, $76,710 YTD ran. 10 IAs, 11 submissions, 8 proposals this week. <strong>8 deals now Closed Won (100%) per Salesforce 10/30</strong>: 6 Glen batch Bath Fitter franchises ($51K combined, first-pay 11/27), S&amp;F Restaurant Ventures (617 EE, first-pay 11/6, admin TBD), and Food For Greater Elgin (first-pay 1/14/27). S1 Security Group ($177K admin / 273 EE) is the whale that reshapes the quarter if it clears underwriting.
         </p>
         <p style="margin: 10px 0 0 0; font-size: 13px; color: var(--gray-900); line-height: 1.7;">
           <strong>Stagnation:</strong> None at the deal level. The risk is organizational: House is doing the work three producers should be doing combined. That is not sustainable past Q4.
@@ -3527,13 +3530,16 @@ function renderPerfTable() {
 renderPerfTable();
 
 // ============== 30-DAY RUN FORECAST ==============
-// Deals with first payroll expected within next 30 days (8/17 - 9/17)
-// Sourced from Salesforce 90-day pipeline report 2026-08-17.
+// Deals with first payroll expected within next 30 days (10/30 - 11/25)
+// Sourced from Salesforce First Pay Date Schedule 2026-10-30 + 90-day pipeline.
 const thirtyDayForecast = [
-  { producer: 'House',                       company: 'Blackstone Health, LLC',     ee: 5,  age: 6,  admin: 11166, closeDate: '10/30/2026', firstPay: '11/13/2026', stage: 'Proposal to Producer' },
-  { producer: 'House',                       company: '369 Fire Sprinkler Service', ee: 0,  age: 46, admin: 12800, closeDate: '10/30/2026', firstPay: '11/2/2026',  stage: 'Submitted' },
-  { producer: 'Jimmy Estrada',               company: 'Bell Performance Inc',       ee: 10, age: 18, admin: 15600, closeDate: '10/30/2026', firstPay: '11/13/2026', stage: 'Proposal to Producer' },
-  { producer: 'Derand Walker (Terminated)',  company: 'Silk The Restaurant, LLC',   ee: 25, age: 26, admin: 13000, closeDate: '10/26/2026', firstPay: '11/16/2026', stage: 'Proposal to Producer' }
+  { producer: 'House',                       company: 'Dim Pro Clean LLC',          ee: 2,   age: 21, admin: 0,     closeDate: '10/9/2026',  firstPay: '10/30/2026', stage: 'CSA to Client' },
+  { producer: 'House',                       company: '369 Fire Sprinkler Service', ee: 0,   age: 46, admin: 12800, closeDate: '10/30/2026', firstPay: '11/2/2026',  stage: 'Submitted' },
+  { producer: 'House',                       company: 'S&F Restaurant Ventures Inc.',ee: 617, age: 23, admin: 0,    closeDate: '10/7/2026',  firstPay: '11/6/2026',  stage: 'Closed Won' },
+  { producer: 'House',                       company: 'Blackstone Health, LLC',     ee: 5,   age: 6,  admin: 11166, closeDate: '10/30/2026', firstPay: '11/13/2026', stage: 'Proposal to Producer' },
+  { producer: 'Jimmy Estrada',               company: 'Bell Performance Inc',       ee: 10,  age: 18, admin: 15600, closeDate: '10/30/2026', firstPay: '11/13/2026', stage: 'Proposal to Producer' },
+  { producer: 'Derand Walker (Terminated)',  company: 'Silk The Restaurant, LLC',   ee: 25,  age: 26, admin: 13000, closeDate: '10/26/2026', firstPay: '11/16/2026', stage: 'Proposal to Producer' },
+  { producer: 'House',                       company: "Kyle Drake's Painting, LLC", ee: 6,   age: 32, admin: 5640,  closeDate: '11/6/2026',  firstPay: '11/20/2026', stage: 'CSA to Producer' }
 ];
 
 (function renderThirtyDay() {
@@ -3581,22 +3587,25 @@ const ninetyDayDeals = [
   { owner: 'Brandon DeBenedet', name: 'Pacesetter Construction, Inc.',                    type: 'PEO',                stage: 'Proposal to Producer', fees: 9000.00,   ee: 9,   prob: 50, closeDate: '12/1/2026',  age: 31  },
   { owner: 'Brandon DeBenedet', name: 'Green Line Botanicals LLC',                        type: 'PEO',                stage: 'Proposal to Producer', fees: 15600.00,  ee: 15,  prob: 50, closeDate: '12/11/2026', age: 350 },
   { owner: 'Brandon DeBenedet', name: 'Studio Green Chemists LLC',                        type: 'PEO',                stage: 'Proposal to Producer', fees: 2600.00,   ee: 2,   prob: 50, closeDate: '12/11/2026', age: 349 },
-  // House (Scott, Carm, Carter) - 15 deals · $353,945 · 453 EE
+  // House (Scott, Carm, Carter) - updated 10/30 Salesforce First Pay Date Schedule
   { owner: 'House',            name: '369 Fire Sprinkler Service',                       type: 'PEO',                stage: 'Submitted',            fees: 12800.00,  ee: 0,   prob: 45, closeDate: '10/30/2026', age: 46  },
   { owner: 'House',            name: 'Blackstone Health, LLC (Sarasota Accident Center)',type: 'PEO',                stage: 'Proposal to Producer', fees: 11166.00,  ee: 5,   prob: 50, closeDate: '10/30/2026', age: 6   },
-  { owner: 'House',            name: 'Just In Rides, LLC',                               type: 'PEO',                stage: 'CSA to Client',        fees: 1404.00,   ee: 2,   prob: 90, closeDate: '11/6/2026',  age: 3   },
-  { owner: 'House',            name: "JDE's Plumbing LLC (Revenge Plumbing)",            type: 'PEO',                stage: 'CSA to Client',        fees: 1404.00,   ee: 2,   prob: 90, closeDate: '11/6/2026',  age: 3   },
-  { owner: 'House',            name: 'Instant Bath Inc. (Bath Fitter of Albany)',        type: 'PEO',                stage: 'CSA to Client',        fees: 25974.00,  ee: 37,  prob: 90, closeDate: '11/6/2026',  age: 3   },
-  { owner: 'House',            name: 'Sunshine Bath LLC (Bath Fitter of Orlando)',       type: 'PEO',                stage: 'CSA to Client',        fees: 8424.00,   ee: 12,  prob: 90, closeDate: '11/6/2026',  age: 3   },
-  { owner: 'House',            name: 'Jet Liner LLC (Bath Fitter SW Florida)',           type: 'PEO',                stage: 'CSA to Client',        fees: 12636.00,  ee: 18,  prob: 90, closeDate: '11/6/2026',  age: 3   },
-  { owner: 'House',            name: 'Maple Glen Inc.',                                  type: 'PEO',                stage: 'CSA to Client',        fees: 1404.00,   ee: 2,   prob: 90, closeDate: '11/6/2026',  age: 3   },
+  { owner: 'House',            name: 'Dim Pro Clean LLC',                                type: 'PEO',                stage: 'CSA to Client',        fees: 0,         ee: 2,   prob: 90, closeDate: '10/30/2026', age: 21  },
+  { owner: 'House',            name: 'S&F Restaurant Ventures Inc.',                     type: 'PEO',                stage: 'Closed Won',           fees: 0,         ee: 617, prob: 100,closeDate: '11/6/2026',  age: 23  },
+  { owner: 'House',            name: 'Just In Rides, LLC',                               type: 'PEO',                stage: 'Closed Won',           fees: 1404.00,   ee: 2,   prob: 100,closeDate: '11/27/2026', age: 7   },
+  { owner: 'House',            name: "JDE's Plumbing LLC (Revenge Plumbing)",            type: 'PEO',                stage: 'Closed Won',           fees: 1404.00,   ee: 2,   prob: 100,closeDate: '11/27/2026', age: 7   },
+  { owner: 'House',            name: 'Instant Bath Inc. (Bath Fitter of Albany)',        type: 'PEO',                stage: 'Closed Won',           fees: 25974.00,  ee: 37,  prob: 100,closeDate: '11/27/2026', age: 7   },
+  { owner: 'House',            name: 'Sunshine Bath LLC (Bath Fitter of Orlando)',       type: 'PEO',                stage: 'Closed Won',           fees: 8424.00,   ee: 12,  prob: 100,closeDate: '11/27/2026', age: 7   },
+  { owner: 'House',            name: 'Jet Liner LLC (Bath Fitter SW Florida)',           type: 'PEO',                stage: 'Closed Won',           fees: 12636.00,  ee: 18,  prob: 100,closeDate: '11/27/2026', age: 7   },
+  { owner: 'House',            name: 'Maple Glen Inc.',                                  type: 'PEO',                stage: 'Closed Won',           fees: 1404.00,   ee: 2,   prob: 100,closeDate: '11/27/2026', age: 7   },
   { owner: 'House',            name: 'Lingerfelt Mechanical, LLC',                       type: 'ASO (Payroll Only)', stage: 'Proposal to Producer', fees: 1716.00,   ee: 7,   prob: 50, closeDate: '11/13/2026', age: 21  },
   { owner: 'House',            name: 'Good 2 B Home Adult Day Healthcare, LLC',          type: 'PEO',                stage: 'Proposal to Producer', fees: 8502.00,   ee: 10,  prob: 50, closeDate: '11/20/2026', age: 6   },
+  { owner: 'House',            name: "Kyle Drake's Painting, LLC",                       type: 'PEO',                stage: 'CSA to Producer',      fees: 5640.00,   ee: 6,   prob: 85, closeDate: '11/20/2026', age: 32  },
   { owner: 'House',            name: 'S1 Security Group, Inc.',                          type: 'PEO',                stage: 'Submitted',            fees: 177450.00, ee: 273, prob: 45, closeDate: '11/20/2026', age: 20  },
-  { owner: 'House',            name: 'Greater Tampa Chamber of Commerce Inc.',           type: 'PEO',                stage: 'Submitted',            fees: 15500.00,  ee: 20,  prob: 45, closeDate: '11/27/2026', age: 81  },
   { owner: 'House',            name: 'Arthur Lawrence Management LLC',                   type: 'PEO',                stage: 'Submitted',            fees: 73361.00,  ee: 80,  prob: 45, closeDate: '12/4/2026',  age: 6   },
   { owner: 'House',            name: 'Ericson Waste Solutions LLC',                      type: 'PEO',                stage: 'Proposal to Producer', fees: 2203.50,   ee: 5,   prob: 50, closeDate: '12/18/2026', age: 110 },
   { owner: 'House',            name: 'ARC Development Inc.',                             type: 'PEO',                stage: 'Submitted',            fees: 0,         ee: 40,  prob: 45, closeDate: '1/1/2027',   age: 6   },
+  { owner: 'House',            name: 'Food For Greater Elgin, Inc',                      type: 'PEO',                stage: 'Closed Won',           fees: 0,         ee: 9,   prob: 100,closeDate: '1/14/2027',  age: 42  },
   // Derand Walker (TERMINATED) - 2 deals pending reassignment · $13,000 · 57 EE
   { owner: 'Derand Walker (Terminated)',     name: 'Silk The Restaurant, LLC',            type: 'PEO',                stage: 'Proposal to Producer', fees: 13000.00,  ee: 25,  prob: 50, closeDate: '10/26/2026', age: 26  },
   { owner: 'Derand Walker (Terminated)',     name: 'Advanced Windows Inc.',               type: 'PEO',                stage: 'Submitted',            fees: 0,         ee: 32,  prob: 45, closeDate: '11/6/2026',  age: 21  },
@@ -3615,6 +3624,9 @@ function ninetyDayStageClass(s) {
   if (s === 'Proposal to Producer') return 'stage-prop-prod';
   if (s === 'Submitted')            return 'stage-submitted';
   if (s === 'CSA Requested')        return 'stage-csa-req';
+  if (s === 'CSA to Producer')      return 'stage-csa-prod';
+  if (s === 'CSA to Client')        return 'stage-csa-cli';
+  if (s === 'Closed Won')           return 'stage-closed-won';
   return 'stage-default';
 }
 
