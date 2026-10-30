@@ -1264,10 +1264,8 @@
 <div class="tabs" role="tablist">
   <button class="tab active" data-panel="producers">Producers <span class="badge">9</span></button>
   <button class="tab" data-panel="pipeline">Pipeline <span class="badge">10</span></button>
+  <button class="tab" data-panel="analysis">AI Analysis</button>
   <button class="tab" data-panel="weekly">Weekly Snapshot</button>
-  <button class="tab" data-panel="submissions">Underwriting <span class="badge">10</span></button>
-  <button class="tab" data-panel="analysis">Analysis</button>
-  <button class="tab" data-panel="benefits">Benefits <span class="badge soon">Soon</span></button>
   <button class="tab" data-panel="variances">Pipeline Variances</button>
 </div>
 
@@ -1481,8 +1479,6 @@
       <div class="snap-card"><div class="v">0</div><div class="l">New Starts</div></div>
     </div>
 
-    <div class="chart-wrap"><canvas id="weeklyChart"></canvas></div>
-
     <h4 class="section-h">Weekly activity by rep</h4>
     <div class="activity-table-wrap">
       <table class="activity-table" id="activityTable">
@@ -1516,11 +1512,32 @@
         <li>→ <strong>8 proposals sent</strong> — House drove all 8 (Glen's 6 Bath Fitter batch + Blackstone Health + Good 2 B Home)</li>
         <li>→ <strong>11 submissions</strong> to underwriting — House 10, Jon 0, Brandon 0 (closing-focused week)</li>
         <li>→ <strong>Jon: 4 IAs</strong> — pipeline-building after prior zero week</li>
-        <li>→ <strong style="color:var(--red);">Alicia, Michael, Andy, Omar: 0 activity</strong> — Michael &amp; Andy sixth consecutive zero week</li>
+        <li>→ <strong style="color:var(--red);">Alicia, Michael, Andy: 0 activity</strong> · Michael &amp; Andy sixth consecutive zero week</li>
       </ul>
     </div>
 
-    <div class="notes-section">
+    <!-- UNDERWRITING / SUBMISSIONS SECTION (moved from Underwriting tab) -->
+    <h4 class="section-h" style="margin-top: 32px;">Underwriting <span class="acc">·</span> October Week 4 submissions</h4>
+    <div class="sub" style="margin-top: 2px;">10 in queue · received 10/19 – 10/22 · <strong style="color:#1F6F3D;">Glen batch of 6 PEO deals submitted and processed in 24 hours</strong> · 7 Normandy approvals · 8 proposals sent · 0 declines</div>
+
+    <div class="grid-2" style="margin-top: 14px;">
+      <div style="padding: 16px; background: #FFFFFF; border: 1px solid var(--gray-200); border-radius: 8px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 10px;">Submissions queue</div>
+        <div id="submission-list" style="display: flex; flex-direction: column; gap: 10px;"></div>
+      </div>
+      <div style="padding: 16px; background: #FFFFFF; border: 1px solid var(--gray-200); border-radius: 8px;">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 10px;">Disposition mix</div>
+        <div class="sub" style="margin-bottom: 8px;">Declined · Contingent · Proposal sent</div>
+        <div class="chart-wrap"><canvas id="dispoChart"></canvas></div>
+        <div style="margin-top: 16px; font-size: 12px; color: var(--gray-700); line-height: 1.7;">
+          <strong>High-volume week — 10 submissions, 8 proposals sent, 7 Normandy approvals, 0 declines.</strong> <strong style="color:#1F6F3D;">Glen submitted 6 PEO deals in a single batch 10/22</strong>: 3 Bath Fitter franchises (Albany, Orlando, SW Florida), Just In Rides, Maple Glen WC Carve, and JDE's Plumbing (Revenge Plumbing). All reviewed by prospect by 10/23.
+          <strong>Big Axis/House wins:</strong> Blackstone Health (Sarasota Accident Center) got triple approval (AmWins + Normandy + Key Risk); Brown and Sons Funeral Home Normandy approved.
+          <strong>Notable:</strong> Brown and Sons needs to be added to Salesforce.
+        </div>
+      </div>
+    </div>
+
+    <div class="notes-section" style="margin-top: 28px;">
       <div class="notes-section-header">
         <h4>Producer pipeline updates <span class="acc">·</span> week of October 26</h4>
         <span class="lbl">Rep-provided weekly updates</span>
@@ -1538,29 +1555,14 @@
   </div>
 </section>
 
-<!-- PANEL: SUBMISSIONS -->
-<section class="panel" id="panel-submissions">
-  <div class="grid-2">
-    <div class="card">
-      <h3>October Week 4 submissions <span class="acc">·</span> 10 in queue</h3>
-      <div class="sub">Status &amp; broker disposition · received 10/19 – 10/22 · <strong style="color:#1F6F3D;">Glen batch of 6 PEO deals submitted and processed in 24 hours</strong> · 7 Normandy approvals · 8 proposals sent · 0 declines</div>
-      <div id="submission-list" style="display: flex; flex-direction: column; gap: 10px;"></div>
-    </div>
-    <div class="card">
-      <h3>Disposition mix</h3>
-      <div class="sub">Declined · Contingent · Proposal sent</div>
-      <div class="chart-wrap"><canvas id="dispoChart"></canvas></div>
-      <div style="margin-top: 16px; font-size: 12px; color: var(--gray-700); line-height: 1.7;">
-        <strong>High-volume week — 10 submissions, 8 proposals sent, 7 Normandy approvals, 0 declines.</strong> <strong style="color:#1F6F3D;">Glen submitted 6 PEO deals in a single batch 10/22</strong>: 3 Bath Fitter franchises (Albany, Orlando, SW Florida), Just In Rides, Maple Glen WC Carve, and JDE's Plumbing (Revenge Plumbing). All reviewed by prospect by 10/23.
-        <strong>Big Axis/House wins:</strong> Blackstone Health (Sarasota Accident Center) got triple approval (AmWins + Normandy + Key Risk); Brown and Sons Funeral Home Normandy approved.
-        <strong>Notable:</strong> Brown and Sons needs to be added to Salesforce.
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PANEL: ANALYSIS -->
 <section class="panel" id="panel-analysis">
+
+  <!-- CURRENT WEEK HEADER -->
+  <div style="margin-bottom: 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+    <span style="display: inline-block; padding: 4px 10px; background: var(--red); color: #FFF; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; border-radius: 3px;">Current week</span>
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gray-700); letter-spacing: 0.08em;">OCT 19 – OCT 23, 2026 · GENERATED BY CLAUDE</span>
+  </div>
 
   <!-- TEAM VERDICT -->
   <div class="card">
@@ -1779,23 +1781,35 @@
     </div>
   </div>
 
-</section>
+  <!-- PAST WEEKS (COLLAPSED) -->
+  <div class="card" style="margin-top: 20px;">
+    <h3>Past weeks <span class="acc">·</span> analysis archive</h3>
+    <div class="sub">Prior weekly analyses, newest first. Click a week to expand.</div>
 
-<!-- PANEL: BENEFITS -->
-<section class="panel" id="panel-benefits">
-  <div class="card coming-soon-card">
-    <div class="coming-soon-inner">
-      <div class="cs-badge">Coming soon</div>
-      <h2 class="cs-title">Benefits<span class="acc">.</span></h2>
-      <p class="cs-sub">Group medical, dental, vision, life &amp; ancillary lines · renewal tracking, broker activity, and enrollment metrics.</p>
-      <div class="cs-grid">
-        <div class="cs-feature"><div class="cs-dot"></div><div><strong>Renewal calendar</strong><br><small>Track upcoming renewals and quote windows</small></div></div>
-        <div class="cs-feature"><div class="cs-dot"></div><div><strong>Broker scorecards</strong><br><small>Submission volume, hit rate, and turn-time by broker</small></div></div>
-        <div class="cs-feature"><div class="cs-dot"></div><div><strong>Plan mix &amp; enrollment</strong><br><small>Take-rate by line and average premium per EE</small></div></div>
-        <div class="cs-feature"><div class="cs-dot"></div><div><strong>Carrier performance</strong><br><small>Quote win rate and rate change by carrier</small></div></div>
-      </div>
+    <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px;">
+      <details style="border: 1px solid var(--gray-200); border-radius: 8px; padding: 14px 16px; background: var(--gray-50);">
+        <summary style="cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-weight: 600; color: var(--gray-900);">
+          <span>Week of October 12 – October 16, 2026</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-700); letter-spacing: 0.1em; text-transform: uppercase;">Expand</span>
+        </summary>
+        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--gray-200); font-size: 13px; color: var(--gray-900); line-height: 1.7;">
+          <p style="margin: 0 0 8px 0;"><strong>Prior week analysis not yet generated.</strong> This archive will populate automatically as weekly analyses are added. Each entry will include the team verdict, per-rep paragraphs, and cross-cutting observations captured at that week's data cutoff.</p>
+          <p style="margin: 0;">The intent is to track week-over-week movement in rep standing, stagnation flags, and leadership calls so trends are visible beyond the current week.</p>
+        </div>
+      </details>
+
+      <details style="border: 1px solid var(--gray-200); border-radius: 8px; padding: 14px 16px; background: var(--gray-50);">
+        <summary style="cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-weight: 600; color: var(--gray-900);">
+          <span>Week of October 5 – October 9, 2026</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--gray-700); letter-spacing: 0.1em; text-transform: uppercase;">Expand</span>
+        </summary>
+        <div style="margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--gray-200); font-size: 13px; color: var(--gray-900); line-height: 1.7;">
+          <p style="margin: 0;"><strong>Prior week analysis not yet generated.</strong> Archive placeholder.</p>
+        </div>
+      </details>
     </div>
   </div>
+
 </section>
 
 <!-- PANEL: PIPELINE VARIANCES -->
@@ -2047,30 +2061,6 @@ document.querySelectorAll('#pipeline-filters .pill').forEach(b => {
     b.classList.add('active');
     renderPipeline(b.dataset.filter);
   });
-});
-
-// ============== WEEKLY CHART ==============
-new Chart(document.getElementById('weeklyChart'), {
-  type: 'bar',
-  data: {
-    labels: weekly.map(w => w.rep.split(' ')[0]),
-    datasets: [
-      { label: 'IA Completed', data: weekly.map(w => w.ia),   backgroundColor: '#0A0A0A', borderRadius: 4 },
-      { label: 'RFPs',         data: weekly.map(w => w.rfp),  backgroundColor: '#555555', borderRadius: 4 },
-      { label: 'Proposals',    data: weekly.map(w => w.prop), backgroundColor: '#B5261E', borderRadius: 4 },
-      { label: 'Closed Won',   data: weekly.map(w => w.won),  backgroundColor: '#E03127', borderRadius: 4 }
-    ]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false,
-    plugins: {
-      legend: { position: 'top', align: 'end', labels: { boxWidth: 12, boxHeight: 12, padding: 14, font: { size: 11 } } }
-    },
-    scales: {
-      x: { grid: { display: false } },
-      y: { grid: { color: '#F0F0F0' }, beginAtZero: true, ticks: { stepSize: 1 } }
-    }
-  }
 });
 
 // ============== MEETING NOTES (collapsible by week) ==============
@@ -3591,7 +3581,7 @@ const ninetyDayDeals = [
   { owner: 'Brandon DeBenedet', name: 'Pacesetter Construction, Inc.',                    type: 'PEO',                stage: 'Proposal to Producer', fees: 9000.00,   ee: 9,   prob: 50, closeDate: '12/1/2026',  age: 31  },
   { owner: 'Brandon DeBenedet', name: 'Green Line Botanicals LLC',                        type: 'PEO',                stage: 'Proposal to Producer', fees: 15600.00,  ee: 15,  prob: 50, closeDate: '12/11/2026', age: 350 },
   { owner: 'Brandon DeBenedet', name: 'Studio Green Chemists LLC',                        type: 'PEO',                stage: 'Proposal to Producer', fees: 2600.00,   ee: 2,   prob: 50, closeDate: '12/11/2026', age: 349 },
-  // House (Scott, Carm, Carter) - 15 deals · $353,945 · 453 EE
+  // House (Scott, Carm, Carter, Glen-sourced) - 15 deals · $353,945 · 453 EE
   { owner: 'House',            name: '369 Fire Sprinkler Service',                       type: 'PEO',                stage: 'Submitted',            fees: 12800.00,  ee: 0,   prob: 45, closeDate: '10/30/2026', age: 46  },
   { owner: 'House',            name: 'Blackstone Health, LLC (Sarasota Accident Center)',type: 'PEO',                stage: 'Proposal to Producer', fees: 11166.00,  ee: 5,   prob: 50, closeDate: '10/30/2026', age: 6   },
   { owner: 'House',            name: 'Just In Rides, LLC',                               type: 'PEO',                stage: 'CSA to Client',        fees: 1404.00,   ee: 2,   prob: 90, closeDate: '11/6/2026',  age: 3   },
